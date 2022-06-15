@@ -13,7 +13,7 @@ export interface ProtoObject {
 
 export interface Request {
   id: string;
-  update: any | undefined;
+  update: Project | undefined;
 }
 
 export interface Project {
@@ -86,7 +86,7 @@ export const Request = {
       writer.uint32(10).string(message.id);
     }
     if (message.update !== undefined) {
-      Value.encode(Value.wrap(message.update), writer.uint32(18).fork()).ldelim();
+      Project.encode(message.update, writer.uint32(18).fork()).ldelim();
     }
     return writer;
   },
@@ -102,7 +102,7 @@ export const Request = {
           message.id = reader.string();
           break;
         case 2:
-          message.update = Value.unwrap(Value.decode(reader, reader.uint32()));
+          message.update = Project.decode(reader, reader.uint32());
           break;
         default:
           reader.skipType(tag & 7);
@@ -115,14 +115,14 @@ export const Request = {
   fromJSON(object: any): Request {
     return {
       id: isSet(object.id) ? String(object.id) : '',
-      update: isSet(object?.update) ? object.update : undefined,
+      update: isSet(object.update) ? Project.fromJSON(object.update) : undefined,
     };
   },
 
   toJSON(message: Request): unknown {
     const obj: any = {};
     message.id !== undefined && (obj.id = message.id);
-    message.update !== undefined && (obj.update = message.update);
+    message.update !== undefined && (obj.update = message.update ? Project.toJSON(message.update) : undefined);
     return obj;
   },
 };
