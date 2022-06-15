@@ -3,19 +3,13 @@ syntax = "proto3";
 
 package project;
 
-import "google/protobuf/struct.proto";
-
 service ProjectService {
   rpc FindByIdAndUpdate (Request) returns (Project) {}
 }
 
-message ProtoObject {
-  google.protobuf.Value value = 1;
-}
-
 message Request {
   string id = 1;
-  Project update = 2;
+  ProjectUpdate update = 2;
 }
 
 message Project {
@@ -27,6 +21,21 @@ message Project {
   optional string masterPrivateKey = 6;
   optional string contract721Address = 7;
   string l1Mnemonic = 8;
+  optional string image = 9;
+  optional string blockchain = 10;
+  optional string status = 11;
+  optional string apiSecret = 12;
+}
+
+message ProjectUpdate {
+  optional string id = 1;
+  optional string name = 2;
+  optional string description = 3;
+  optional string chain = 4;
+  optional string masterAddress = 5;
+  optional string masterPrivateKey = 6;
+  optional string contract721Address = 7;
+  optional string l1Mnemonic = 8;
   optional string image = 9;
   optional string blockchain = 10;
   optional string status = 11;
