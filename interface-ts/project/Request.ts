@@ -1,13 +1,13 @@
 // Original file: src/protobuf/project.proto
 
-import type { Struct as _common_Struct, Struct__Output as _common_Struct__Output } from '../common/Struct';
+import type { Project as _project_Project, Project__Output as _project_Project__Output } from '../project/Project';
 
 export interface Request {
   'id'?: (string);
-  'update'?: (_common_Struct | null);
+  'update'?: (_project_Project | null);
 }
 
 export interface Request__Output {
   'id': (string);
-  'update': (_common_Struct__Output | null);
+  'update': (_project_Project__Output | null);
 }
