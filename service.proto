@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+package service;
+
+import "transaction.proto";
+import "project.proto";
+
+service CoreService {
+  rpc updateTransactionById (transaction.Request) returns (transaction.Transaction) {}
+  rpc updateProjectById (project.Request) returns (project.Project) {}
+}
