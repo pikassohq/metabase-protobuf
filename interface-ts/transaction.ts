@@ -1,8 +1,6 @@
 /* eslint-disable */
-import { GrpcMethod, GrpcStreamMethod } from '@nestjs/microservices';
 import * as Long from 'long';
 import * as _m0 from 'protobufjs/minimal';
-import { Observable } from 'rxjs';
 
 export const protobufPackage = 'transaction';
 
@@ -185,31 +183,6 @@ export const TransactionUpdate = {
     return obj;
   },
 };
-
-export interface TransactionServiceClient {
-  findByIdAndUpdate(request: Request, ...rest: any): Observable<Transaction>;
-}
-
-export interface TransactionServiceController {
-  findByIdAndUpdate(request: Request, ...rest: any): Promise<Transaction> | Observable<Transaction> | Transaction;
-}
-
-export function TransactionServiceControllerMethods() {
-  return function (constructor: Function) {
-    const grpcMethods: string[] = ['findByIdAndUpdate'];
-    for (const method of grpcMethods) {
-      const descriptor: any = Reflect.getOwnPropertyDescriptor(constructor.prototype, method);
-      GrpcMethod('TransactionService', method)(constructor.prototype[method], method, descriptor);
-    }
-    const grpcStreamMethods: string[] = [];
-    for (const method of grpcStreamMethods) {
-      const descriptor: any = Reflect.getOwnPropertyDescriptor(constructor.prototype, method);
-      GrpcStreamMethod('TransactionService', method)(constructor.prototype[method], method, descriptor);
-    }
-  };
-}
-
-export const TRANSACTION_SERVICE_NAME = 'TransactionService';
 
 // If you get a compile-error about 'Constructor<Long> and ... have no overlap',
 // add '--ts_proto_opt=esModuleInterop=true' as a flag when calling 'protoc'.

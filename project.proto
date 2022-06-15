@@ -3,10 +3,6 @@ syntax = "proto3";
 
 package project;
 
-service ProjectService {
-  rpc FindByIdAndUpdate (Request) returns (Project) {}
-}
-
 message Request {
   string id = 1;
   ProjectUpdate update = 2;

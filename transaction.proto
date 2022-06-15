@@ -3,10 +3,6 @@ syntax = "proto3";
 
 package transaction;
 
-service TransactionService {
-  rpc FindByIdAndUpdate (Request) returns (Transaction) {}
-}
-
 message Request {
   string id = 1;
   TransactionUpdate update = 2;
