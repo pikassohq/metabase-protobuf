@@ -9,9 +9,13 @@ service ProjectService {
   rpc FindByIdAndUpdate (Request) returns (Project) {}
 }
 
+message Object {
+  google.protobuf.Value value = 1;
+}
+
 message Request {
   string id = 1;
-  google.protobuf.Value update = 2;
+  Object update = 2;
 }
 
 message Project {

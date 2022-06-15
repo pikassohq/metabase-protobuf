@@ -7,9 +7,13 @@ import { Value } from './google/protobuf/struct';
 
 export const protobufPackage = 'project';
 
+export interface Object {
+  value: any | undefined;
+}
+
 export interface Request {
   id: string;
-  update: any | undefined;
+  update: Object | undefined;
 }
 
 export interface Project {
@@ -29,6 +33,49 @@ export interface Project {
 
 export const PROJECT_PACKAGE_NAME = 'project';
 
+function createBaseObject(): Object {
+  return { value: undefined };
+}
+
+export const Object = {
+  encode(message: Object, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
+    if (message.value !== undefined) {
+      Value.encode(Value.wrap(message.value), writer.uint32(10).fork()).ldelim();
+    }
+    return writer;
+  },
+
+  decode(input: _m0.Reader | Uint8Array, length?: number): Object {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBaseObject();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1:
+          message.value = Value.unwrap(Value.decode(reader, reader.uint32()));
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
+      }
+    }
+    return message;
+  },
+
+  fromJSON(object: any): Object {
+    return {
+      value: isSet(object?.value) ? object.value : undefined,
+    };
+  },
+
+  toJSON(message: Object): unknown {
+    const obj: any = {};
+    message.value !== undefined && (obj.value = message.value);
+    return obj;
+  },
+};
+
 function createBaseRequest(): Request {
   return { id: '', update: undefined };
 }
@@ -39,7 +86,7 @@ export const Request = {
       writer.uint32(10).string(message.id);
     }
     if (message.update !== undefined) {
-      Value.encode(Value.wrap(message.update), writer.uint32(18).fork()).ldelim();
+      Object.encode(message.update, writer.uint32(18).fork()).ldelim();
     }
     return writer;
   },
@@ -55,7 +102,7 @@ export const Request = {
           message.id = reader.string();
           break;
         case 2:
-          message.update = Value.unwrap(Value.decode(reader, reader.uint32()));
+          message.update = Object.decode(reader, reader.uint32());
           break;
         default:
           reader.skipType(tag & 7);
@@ -68,14 +115,14 @@ export const Request = {
   fromJSON(object: any): Request {
     return {
       id: isSet(object.id) ? String(object.id) : '',
-      update: isSet(object?.update) ? object.update : undefined,
+      update: isSet(object.update) ? Object.fromJSON(object.update) : undefined,
     };
   },
 
   toJSON(message: Request): unknown {
     const obj: any = {};
     message.id !== undefined && (obj.id = message.id);
-    message.update !== undefined && (obj.update = message.update);
+    message.update !== undefined && (obj.update = message.update ? Object.toJSON(message.update) : undefined);
     return obj;
   },
 };
