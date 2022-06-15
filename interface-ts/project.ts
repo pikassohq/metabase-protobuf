@@ -7,13 +7,13 @@ import { Value } from './google/protobuf/struct';
 
 export const protobufPackage = 'project';
 
-export interface Object {
+export interface ProtoObject {
   value: any | undefined;
 }
 
 export interface Request {
   id: string;
-  update: Object | undefined;
+  update: ProtoObject | undefined;
 }
 
 export interface Project {
@@ -33,22 +33,22 @@ export interface Project {
 
 export const PROJECT_PACKAGE_NAME = 'project';
 
-function createBaseObject(): Object {
+function createBaseProtoObject(): ProtoObject {
   return { value: undefined };
 }
 
-export const Object = {
-  encode(message: Object, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
+export const ProtoObject = {
+  encode(message: ProtoObject, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.value !== undefined) {
       Value.encode(Value.wrap(message.value), writer.uint32(10).fork()).ldelim();
     }
     return writer;
   },
 
-  decode(input: _m0.Reader | Uint8Array, length?: number): Object {
+  decode(input: _m0.Reader | Uint8Array, length?: number): ProtoObject {
     const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
-    const message = createBaseObject();
+    const message = createBaseProtoObject();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
@@ -63,13 +63,13 @@ export const Object = {
     return message;
   },
 
-  fromJSON(object: any): Object {
+  fromJSON(object: any): ProtoObject {
     return {
       value: isSet(object?.value) ? object.value : undefined,
     };
   },
 
-  toJSON(message: Object): unknown {
+  toJSON(message: ProtoObject): unknown {
     const obj: any = {};
     message.value !== undefined && (obj.value = message.value);
     return obj;
@@ -86,7 +86,7 @@ export const Request = {
       writer.uint32(10).string(message.id);
     }
     if (message.update !== undefined) {
-      Object.encode(message.update, writer.uint32(18).fork()).ldelim();
+      ProtoObject.encode(message.update, writer.uint32(18).fork()).ldelim();
     }
     return writer;
   },
@@ -102,7 +102,7 @@ export const Request = {
           message.id = reader.string();
           break;
         case 2:
-          message.update = Object.decode(reader, reader.uint32());
+          message.update = ProtoObject.decode(reader, reader.uint32());
           break;
         default:
           reader.skipType(tag & 7);
@@ -115,14 +115,14 @@ export const Request = {
   fromJSON(object: any): Request {
     return {
       id: isSet(object.id) ? String(object.id) : '',
-      update: isSet(object.update) ? Object.fromJSON(object.update) : undefined,
+      update: isSet(object.update) ? ProtoObject.fromJSON(object.update) : undefined,
     };
   },
 
   toJSON(message: Request): unknown {
     const obj: any = {};
     message.id !== undefined && (obj.id = message.id);
-    message.update !== undefined && (obj.update = message.update ? Object.toJSON(message.update) : undefined);
+    message.update !== undefined && (obj.update = message.update ? ProtoObject.toJSON(message.update) : undefined);
     return obj;
   },
 };
