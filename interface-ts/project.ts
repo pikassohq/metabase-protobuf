@@ -3,7 +3,6 @@ import { GrpcMethod, GrpcStreamMethod } from '@nestjs/microservices';
 import * as Long from 'long';
 import * as _m0 from 'protobufjs/minimal';
 import { Observable } from 'rxjs';
-import { Metadata } from '@grpc/grpc-js';
 
 export const protobufPackage = 'project';
 
@@ -103,15 +102,11 @@ export const Project = {
 };
 
 export interface ProjectServiceClient {
-  findByIdAndUpdate(request: Request, metadata: Metadata, ...rest: any): Observable<Project>;
+  findByIdAndUpdate(request: Request, ...rest: any): Observable<Project>;
 }
 
 export interface ProjectServiceController {
-  findByIdAndUpdate(
-    request: Request,
-    metadata: Metadata,
-    ...rest: any
-  ): Promise<Project> | Observable<Project> | Project;
+  findByIdAndUpdate(request: Request, ...rest: any): Promise<Project> | Observable<Project> | Project;
 }
 
 export function ProjectServiceControllerMethods() {
