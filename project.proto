@@ -11,10 +11,20 @@ service ProjectService {
 
 message Request {
   string id = 1;
-  Struct update = 2;
+  Project update = 2;
 }
 
 message Project {
   int32 id = 1;
   string name = 2;
+  string description = 3;
+  string chain = 4;
+  string masterAddress = 5;
+  string masterPrivateKey = 6;
+  string contract721Address = 7;
+  string l1Mnemonic = 8;
+  string image = 9;
+  string blockchain = 10;
+  string status = 11;
+  string apiSecret = 12;
 }
