@@ -1,11 +1,79 @@
-// Original file: null
+/* eslint-disable */
+import * as Long from 'long';
+import * as _m0 from 'protobufjs/minimal';
 
-import type { Value as _google_protobuf_Value, Value__Output as _google_protobuf_Value__Output } from '../../google/protobuf/Value';
+export const protobufPackage = 'google.protobuf';
 
-export interface Struct {
-  'fields'?: ({[key: string]: _google_protobuf_Value});
+/**
+ * `NullValue` is a singleton enumeration to represent the null value for the
+ * `Value` type union.
+ *
+ *  The JSON representation for `NullValue` is JSON `null`.
+ */
+export enum NullValue {
+  /** NULL_VALUE - Null value. */
+  NULL_VALUE = 'NULL_VALUE',
+  UNRECOGNIZED = 'UNRECOGNIZED',
 }
 
-export interface Struct__Output {
-  'fields': ({[key: string]: _google_protobuf_Value__Output});
+/**
+ * `Struct` represents a structured data value, consisting of fields
+ * which map to dynamically typed values. In some languages, `Struct`
+ * might be supported by a native representation. For example, in
+ * scripting languages like JS a struct is represented as an
+ * object. The details of that representation are described together
+ * with the proto support for the language.
+ *
+ * The JSON representation for `Struct` is JSON object.
+ */
+export interface Struct {
+  /** Unordered map of dynamically typed values. */
+  fields: { [key: string]: any | undefined };
+}
+
+export interface Struct_FieldsEntry {
+  key: string;
+  value: any | undefined;
+}
+
+/**
+ * `Value` represents a dynamically typed value which can be either
+ * null, a number, a string, a boolean, a recursive struct value, or a
+ * list of values. A producer of value is expected to set one of these
+ * variants. Absence of any variant indicates an error.
+ *
+ * The JSON representation for `Value` is JSON value.
+ */
+export interface Value {
+  /** Represents a null value. */
+  nullValue: NullValue | undefined;
+  /** Represents a double value. */
+  numberValue: number | undefined;
+  /** Represents a string value. */
+  stringValue: string | undefined;
+  /** Represents a boolean value. */
+  boolValue: boolean | undefined;
+  /** Represents a structured value. */
+  structValue: { [key: string]: any } | undefined;
+  /** Represents a repeated `Value`. */
+  listValue: Array<any> | undefined;
+}
+
+/**
+ * `ListValue` is a wrapper around a repeated field of values.
+ *
+ * The JSON representation for `ListValue` is JSON array.
+ */
+export interface ListValue {
+  /** Repeated field of dynamically typed values. */
+  values: any[];
+}
+
+export const GOOGLE_PROTOBUF_PACKAGE_NAME = 'google.protobuf';
+
+// If you get a compile-error about 'Constructor<Long> and ... have no overlap',
+// add '--ts_proto_opt=esModuleInterop=true' as a flag when calling 'protoc'.
+if (_m0.util.Long !== Long) {
+  _m0.util.Long = Long as any;
+  _m0.configure();
 }

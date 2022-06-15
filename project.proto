@@ -11,7 +11,7 @@ service ProjectService {
 
 message Request {
   string id = 1;
-  Struct update = 2;
+  google.protobuf.Struct update = 2;
 }
 
 message Project {
