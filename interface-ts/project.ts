@@ -3,12 +3,13 @@ import { GrpcMethod, GrpcStreamMethod } from '@nestjs/microservices';
 import * as Long from 'long';
 import * as _m0 from 'protobufjs/minimal';
 import { Observable } from 'rxjs';
+import { Struct } from './common';
 
 export const protobufPackage = 'project';
 
 export interface Request {
   id: string;
-  update: { [key: string]: any } | undefined;
+  update: Struct | undefined;
 }
 
 export interface Project {
@@ -33,17 +34,48 @@ function createBaseRequest(): Request {
 }
 
 export const Request = {
+  encode(message: Request, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
+    if (message.id !== '') {
+      writer.uint32(10).string(message.id);
+    }
+    if (message.update !== undefined) {
+      Struct.encode(message.update, writer.uint32(18).fork()).ldelim();
+    }
+    return writer;
+  },
+
+  decode(input: _m0.Reader | Uint8Array, length?: number): Request {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBaseRequest();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1:
+          message.id = reader.string();
+          break;
+        case 2:
+          message.update = Struct.decode(reader, reader.uint32());
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
+      }
+    }
+    return message;
+  },
+
   fromJSON(object: any): Request {
     return {
       id: isSet(object.id) ? String(object.id) : '',
-      update: isObject(object.update) ? object.update : undefined,
+      update: isSet(object.update) ? Struct.fromJSON(object.update) : undefined,
     };
   },
 
   toJSON(message: Request): unknown {
     const obj: any = {};
     message.id !== undefined && (obj.id = message.id);
-    message.update !== undefined && (obj.update = message.update);
+    message.update !== undefined && (obj.update = message.update ? Struct.toJSON(message.update) : undefined);
     return obj;
   },
 };
@@ -66,6 +98,97 @@ function createBaseProject(): Project {
 }
 
 export const Project = {
+  encode(message: Project, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
+    if (message.id !== '') {
+      writer.uint32(10).string(message.id);
+    }
+    if (message.name !== '') {
+      writer.uint32(18).string(message.name);
+    }
+    if (message.description !== undefined) {
+      writer.uint32(26).string(message.description);
+    }
+    if (message.chain !== '') {
+      writer.uint32(34).string(message.chain);
+    }
+    if (message.masterAddress !== undefined) {
+      writer.uint32(42).string(message.masterAddress);
+    }
+    if (message.masterPrivateKey !== undefined) {
+      writer.uint32(50).string(message.masterPrivateKey);
+    }
+    if (message.contract721Address !== undefined) {
+      writer.uint32(58).string(message.contract721Address);
+    }
+    if (message.l1Mnemonic !== '') {
+      writer.uint32(66).string(message.l1Mnemonic);
+    }
+    if (message.image !== undefined) {
+      writer.uint32(74).string(message.image);
+    }
+    if (message.blockchain !== undefined) {
+      writer.uint32(82).string(message.blockchain);
+    }
+    if (message.status !== undefined) {
+      writer.uint32(90).string(message.status);
+    }
+    if (message.apiSecret !== undefined) {
+      writer.uint32(98).string(message.apiSecret);
+    }
+    return writer;
+  },
+
+  decode(input: _m0.Reader | Uint8Array, length?: number): Project {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBaseProject();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1:
+          message.id = reader.string();
+          break;
+        case 2:
+          message.name = reader.string();
+          break;
+        case 3:
+          message.description = reader.string();
+          break;
+        case 4:
+          message.chain = reader.string();
+          break;
+        case 5:
+          message.masterAddress = reader.string();
+          break;
+        case 6:
+          message.masterPrivateKey = reader.string();
+          break;
+        case 7:
+          message.contract721Address = reader.string();
+          break;
+        case 8:
+          message.l1Mnemonic = reader.string();
+          break;
+        case 9:
+          message.image = reader.string();
+          break;
+        case 10:
+          message.blockchain = reader.string();
+          break;
+        case 11:
+          message.status = reader.string();
+          break;
+        case 12:
+          message.apiSecret = reader.string();
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
+      }
+    }
+    return message;
+  },
+
   fromJSON(object: any): Project {
     return {
       id: isSet(object.id) ? String(object.id) : '',
@@ -131,10 +254,6 @@ export const PROJECT_SERVICE_NAME = 'ProjectService';
 if (_m0.util.Long !== Long) {
   _m0.util.Long = Long as any;
   _m0.configure();
-}
-
-function isObject(value: any): boolean {
-  return typeof value === 'object' && value !== null;
 }
 
 function isSet(value: any): boolean {
