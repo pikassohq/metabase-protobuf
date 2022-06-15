@@ -1,0 +1,25 @@
+
+syntax = "proto3";
+
+package transaction;
+
+service TransactionService {
+  rpc FindByIdAndUpdate (Request) returns (Transaction) {}
+}
+
+message Request {
+  string id = 1;
+  TransactionUpdate update = 2;
+}
+
+message Transaction {
+  string id = 1;
+  string status = 2;
+  string project = 3;
+}
+
+message TransactionUpdate {
+  optional int32 retry = 1;
+  optional string status = 2;
+
+}
