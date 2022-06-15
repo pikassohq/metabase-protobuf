@@ -15,7 +15,7 @@ message ProtoObject {
 
 message Request {
   string id = 1;
-  ProtoObject update = 2;
+  google.protobuf.Value update = 2;
 }
 
 message Project {
