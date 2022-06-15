@@ -13,18 +13,18 @@ export interface Request {
 }
 
 export interface Project {
-  id: number;
+  id: string;
   name: string;
-  description: string;
+  description?: string | undefined;
   chain: string;
-  masterAddress: string;
-  masterPrivateKey: string;
-  contract721Address: string;
+  masterAddress?: string | undefined;
+  masterPrivateKey?: string | undefined;
+  contract721Address?: string | undefined;
   l1Mnemonic: string;
-  image: string;
-  blockchain: string;
-  status: string;
-  apiSecret: string;
+  image?: string | undefined;
+  blockchain?: string | undefined;
+  status?: string | undefined;
+  apiSecret?: string | undefined;
 }
 
 export const PROJECT_PACKAGE_NAME = 'project';

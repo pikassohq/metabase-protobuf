@@ -15,16 +15,16 @@ message Request {
 }
 
 message Project {
-  int32 id = 1;
+  string id = 1;
   string name = 2;
-  string description = 3;
+  optional string description = 3;
   string chain = 4;
-  string masterAddress = 5;
-  string masterPrivateKey = 6;
-  string contract721Address = 7;
+  optional string masterAddress = 5;
+  optional string masterPrivateKey = 6;
+  optional string contract721Address = 7;
   string l1Mnemonic = 8;
-  string image = 9;
-  string blockchain = 10;
-  string status = 11;
-  string apiSecret = 12;
+  optional string image = 9;
+  optional string blockchain = 10;
+  optional string status = 11;
+  optional string apiSecret = 12;
 }
