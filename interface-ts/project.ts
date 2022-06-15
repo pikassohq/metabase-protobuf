@@ -3,13 +3,13 @@ import { GrpcMethod, GrpcStreamMethod } from '@nestjs/microservices';
 import * as Long from 'long';
 import * as _m0 from 'protobufjs/minimal';
 import { Observable } from 'rxjs';
-import { Struct } from './common';
+import { Value } from './google/protobuf/struct';
 
 export const protobufPackage = 'project';
 
 export interface Request {
   id: string;
-  update: Struct | undefined;
+  update: any | undefined;
 }
 
 export interface Project {
@@ -39,7 +39,7 @@ export const Request = {
       writer.uint32(10).string(message.id);
     }
     if (message.update !== undefined) {
-      Struct.encode(message.update, writer.uint32(18).fork()).ldelim();
+      Value.encode(Value.wrap(message.update), writer.uint32(18).fork()).ldelim();
     }
     return writer;
   },
@@ -55,7 +55,7 @@ export const Request = {
           message.id = reader.string();
           break;
         case 2:
-          message.update = Struct.decode(reader, reader.uint32());
+          message.update = Value.unwrap(Value.decode(reader, reader.uint32()));
           break;
         default:
           reader.skipType(tag & 7);
@@ -68,14 +68,14 @@ export const Request = {
   fromJSON(object: any): Request {
     return {
       id: isSet(object.id) ? String(object.id) : '',
-      update: isSet(object.update) ? Struct.fromJSON(object.update) : undefined,
+      update: isSet(object?.update) ? object.update : undefined,
     };
   },
 
   toJSON(message: Request): unknown {
     const obj: any = {};
     message.id !== undefined && (obj.id = message.id);
-    message.update !== undefined && (obj.update = message.update ? Struct.toJSON(message.update) : undefined);
+    message.update !== undefined && (obj.update = message.update);
     return obj;
   },
 };
