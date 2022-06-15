@@ -1,13 +1,13 @@
 // Original file: src/protobuf/project.proto
 
-import type { Project as _project_Project, Project__Output as _project_Project__Output } from '../project/Project';
+import type { Struct as _google_protobuf_Struct, Struct__Output as _google_protobuf_Struct__Output } from '../google/protobuf/Struct';
 
 export interface Request {
   'id'?: (string);
-  'update'?: (_project_Project | null);
+  'update'?: (_google_protobuf_Struct | null);
 }
 
 export interface Request__Output {
   'id': (string);
-  'update': (_project_Project__Output | null);
+  'update': (_google_protobuf_Struct__Output | null);
 }

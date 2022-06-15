@@ -3,7 +3,7 @@ syntax = "proto3";
 
 package project;
 
-import "common.proto";
+import "google/protobuf/struct.proto";
 
 service ProjectService {
   rpc FindByIdAndUpdate (Request) returns (Project) {}
@@ -11,7 +11,7 @@ service ProjectService {
 
 message Request {
   string id = 1;
-  Project update = 2;
+  Struct update = 2;
 }
 
 message Project {

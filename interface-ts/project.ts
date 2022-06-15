@@ -8,11 +8,13 @@ type SubtypeConstructor<Constructor extends new (...args: any) => any, Subtype> 
 };
 
 export interface ProtoGrpcType {
-  common: {
-    ListValue: MessageTypeDefinition
-    NullValue: EnumTypeDefinition
-    Struct: MessageTypeDefinition
-    Value: MessageTypeDefinition
+  google: {
+    protobuf: {
+      ListValue: MessageTypeDefinition
+      NullValue: EnumTypeDefinition
+      Struct: MessageTypeDefinition
+      Value: MessageTypeDefinition
+    }
   }
   project: {
     Project: MessageTypeDefinition
