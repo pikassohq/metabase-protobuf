@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package service;
+package CoreService;
 
 import "transaction.proto";
 import "project.proto";
