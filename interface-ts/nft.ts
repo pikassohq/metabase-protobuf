@@ -1,7 +1,6 @@
 /* eslint-disable */
 import * as Long from 'long';
 import * as _m0 from 'protobufjs/minimal';
-import { Value } from './common';
 
 export const protobufPackage = 'nft';
 
@@ -19,7 +18,7 @@ export interface NftUpdate {
   status?: string | undefined;
   metadataId?: string | undefined;
   mintTxHash?: string | undefined;
-  nftId?: Value | undefined;
+  nftId?: string | undefined;
 }
 
 export const NFT_PACKAGE_NAME = 'nft';
@@ -142,7 +141,7 @@ export const NftUpdate = {
       writer.uint32(26).string(message.mintTxHash);
     }
     if (message.nftId !== undefined) {
-      Value.encode(message.nftId, writer.uint32(34).fork()).ldelim();
+      writer.uint32(34).string(message.nftId);
     }
     return writer;
   },
@@ -164,7 +163,7 @@ export const NftUpdate = {
           message.mintTxHash = reader.string();
           break;
         case 4:
-          message.nftId = Value.decode(reader, reader.uint32());
+          message.nftId = reader.string();
           break;
         default:
           reader.skipType(tag & 7);
@@ -179,7 +178,7 @@ export const NftUpdate = {
       status: isSet(object.status) ? String(object.status) : undefined,
       metadataId: isSet(object.metadataId) ? String(object.metadataId) : undefined,
       mintTxHash: isSet(object.mintTxHash) ? String(object.mintTxHash) : undefined,
-      nftId: isSet(object.nftId) ? Value.fromJSON(object.nftId) : undefined,
+      nftId: isSet(object.nftId) ? String(object.nftId) : undefined,
     };
   },
 
@@ -188,7 +187,7 @@ export const NftUpdate = {
     message.status !== undefined && (obj.status = message.status);
     message.metadataId !== undefined && (obj.metadataId = message.metadataId);
     message.mintTxHash !== undefined && (obj.mintTxHash = message.mintTxHash);
-    message.nftId !== undefined && (obj.nftId = message.nftId ? Value.toJSON(message.nftId) : undefined);
+    message.nftId !== undefined && (obj.nftId = message.nftId);
     return obj;
   },
 };

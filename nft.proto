@@ -18,5 +18,5 @@ message NftUpdate {
   optional string status = 1;
   optional string metadataId = 2;
   optional string mintTxHash = 3;
-  optional common.Value nftId = 4;
+  optional string nftId = 4;
 }
