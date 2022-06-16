@@ -18,6 +18,7 @@ export interface Transaction {
 export interface TransactionUpdate {
   retry?: number | undefined;
   status?: string | undefined;
+  error?: string | undefined;
 }
 
 export const TRANSACTION_PACKAGE_NAME = 'transaction';
@@ -134,7 +135,7 @@ export const Transaction = {
 };
 
 function createBaseTransactionUpdate(): TransactionUpdate {
-  return { retry: undefined, status: undefined };
+  return { retry: undefined, status: undefined, error: undefined };
 }
 
 export const TransactionUpdate = {
@@ -144,6 +145,9 @@ export const TransactionUpdate = {
     }
     if (message.status !== undefined) {
       writer.uint32(18).string(message.status);
+    }
+    if (message.error !== undefined) {
+      writer.uint32(26).string(message.error);
     }
     return writer;
   },
@@ -161,6 +165,9 @@ export const TransactionUpdate = {
         case 2:
           message.status = reader.string();
           break;
+        case 3:
+          message.error = reader.string();
+          break;
         default:
           reader.skipType(tag & 7);
           break;
@@ -173,6 +180,7 @@ export const TransactionUpdate = {
     return {
       retry: isSet(object.retry) ? Number(object.retry) : undefined,
       status: isSet(object.status) ? String(object.status) : undefined,
+      error: isSet(object.error) ? String(object.error) : undefined,
     };
   },
 
@@ -180,6 +188,7 @@ export const TransactionUpdate = {
     const obj: any = {};
     message.retry !== undefined && (obj.retry = Math.round(message.retry));
     message.status !== undefined && (obj.status = message.status);
+    message.error !== undefined && (obj.error = message.error);
     return obj;
   },
 };
