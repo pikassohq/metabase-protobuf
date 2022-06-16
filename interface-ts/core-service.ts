@@ -17,6 +17,8 @@ export interface CoreServiceClient {
   updateProjectById(request: Request1, ...rest: any): Observable<Project>;
 
   updateNftById(request: Request2, ...rest: any): Observable<Nft>;
+
+  updateNftByTransactionId(request: Request2, ...rest: any): Observable<Nft>;
 }
 
 export interface CoreServiceController {
@@ -25,11 +27,18 @@ export interface CoreServiceController {
   updateProjectById(request: Request1, ...rest: any): Promise<Project> | Observable<Project> | Project;
 
   updateNftById(request: Request2, ...rest: any): Promise<Nft> | Observable<Nft> | Nft;
+
+  updateNftByTransactionId(request: Request2, ...rest: any): Promise<Nft> | Observable<Nft> | Nft;
 }
 
 export function CoreServiceControllerMethods() {
   return function (constructor: Function) {
-    const grpcMethods: string[] = ['updateTransactionById', 'updateProjectById', 'updateNftById'];
+    const grpcMethods: string[] = [
+      'updateTransactionById',
+      'updateProjectById',
+      'updateNftById',
+      'updateNftByTransactionId',
+    ];
     for (const method of grpcMethods) {
       const descriptor: any = Reflect.getOwnPropertyDescriptor(constructor.prototype, method);
       GrpcMethod('CoreService', method)(constructor.prototype[method], method, descriptor);

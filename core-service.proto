@@ -11,4 +11,5 @@ service CoreService {
       returns (transaction.Transaction) {}
   rpc UpdateProjectById(project.Request) returns (project.Project) {}
   rpc UpdateNftById(nft.Request) returns (nft.Nft) {}
+  rpc UpdateNftByTransactionId(nft.Request) returns (nft.Nft) {}
 }
