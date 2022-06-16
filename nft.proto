@@ -2,8 +2,6 @@ syntax = "proto3";
 
 package nft;
 
-import "common.proto";
-
 message Request {
   string id = 1;
   NftUpdate update = 2;
@@ -19,4 +17,5 @@ message NftUpdate {
   optional string metadataId = 2;
   optional string mintTxHash = 3;
   optional string nftId = 4;
+  optional string owner = 5;
 }
