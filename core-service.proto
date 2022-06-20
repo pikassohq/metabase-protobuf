@@ -12,4 +12,8 @@ service CoreService {
   rpc UpdateProjectById(project.Request) returns (project.Project) {}
   rpc UpdateNftById(nft.Request) returns (nft.Nft) {}
   rpc UpdateNftByTransactionId(nft.Request) returns (nft.Nft) {}
+  rpc Ping(PingRequest) returns (PingResponse);
 }
+
+message PingRequest { string input = 1; }
+message PingResponse { string output = 1; }
