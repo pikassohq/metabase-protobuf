@@ -33,6 +33,18 @@ export enum EQueueEvent {
   POLYGON_CREATE_NFT = 'polygon.create_NFT',
   POLYGON_ASSIGN_NFT_TO_PLAYER = 'polygon.assign_nft_to_player',
 
+  // BSC
+  BSC_CREATE_PROJECT = 'bsc.create_project',
+  BSC_DEPLOY_ERC721_CONTRACT = 'bsc.deploy_erc721_contract',
+  BSC_CREATE_NFT = 'bsc.create_NFT',
+  BSC_ASSIGN_NFT_TO_PLAYER = 'bsc.assign_nft_to_player',
+
+  // ONE
+  ONE_CREATE_PROJECT = 'one.create_project',
+  ONE_DEPLOY_ERC721_CONTRACT = 'one.deploy_erc721_contract',
+  ONE_CREATE_NFT = 'one.create_NFT',
+  ONE_ASSIGN_NFT_TO_PLAYER = 'one.assign_nft_to_player',
+
   // Starknet
   CREATE_STARKNET_PROJECT = 'starknet.create_project',
   CREATE_STARKNET_NFT = 'starknet.create_NFT',
@@ -51,6 +63,8 @@ export enum EChain {
   ZKSYNC = 'zksync',
   SOLANA = 'solana',
   POLYGON = 'polygon',
+  BSCT = 'bsct',
+  ONE = 'one',
 }
 
 export enum ETokenStatus {
