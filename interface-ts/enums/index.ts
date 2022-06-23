@@ -34,10 +34,10 @@ export enum EQueueEvent {
   POLYGON_ASSIGN_NFT_TO_PLAYER = 'polygon.assign_nft_to_player',
 
   // BSC
-  BSC_CREATE_PROJECT = 'bsc.create_project',
-  BSC_DEPLOY_ERC721_CONTRACT = 'bsc.deploy_erc721_contract',
-  BSC_CREATE_NFT = 'bsc.create_NFT',
-  BSC_ASSIGN_NFT_TO_PLAYER = 'bsc.assign_nft_to_player',
+  BSC_CREATE_PROJECT = 'bsct.create_project',
+  BSC_DEPLOY_ERC721_CONTRACT = 'bsct.deploy_erc721_contract',
+  BSC_CREATE_NFT = 'bsct.create_NFT',
+  BSC_ASSIGN_NFT_TO_PLAYER = 'bsct.assign_nft_to_player',
 
   // ONE
   ONE_CREATE_PROJECT = 'one.create_project',
