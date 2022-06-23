@@ -54,6 +54,11 @@ export enum EQueueEvent {
   WITHDRAW_NFT = 'starknet.withdraw_NFT',
   MINT_ON_L1 = 'starknet.mint_on_l1',
   TRANSFER_ON_L1 = 'starknet.transfer_on_l1',
+
+  // Solana
+  SOLANA_CREATE_PROJECT = 'solana.create_project',
+  SOLANA_CREATE_NFT = 'solana.create_NFT',
+  SOLANA_ASSIGN_NFT_TO_PLAYER = 'solana.assign_nft_to_player',
 }
 
 export enum EChain {
