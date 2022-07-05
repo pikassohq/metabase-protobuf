@@ -21,6 +21,7 @@ message Project {
   optional string blockchain = 10;
   optional string status = 11;
   optional string apiSecret = 12;
+  optional string contract1155Address = 13;
 }
 
 message ProjectUpdate {

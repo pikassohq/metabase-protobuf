@@ -1,5 +1,4 @@
 /* eslint-disable */
-import * as Long from 'long';
 import * as _m0 from 'protobufjs/minimal';
 
 export const protobufPackage = 'project';
@@ -22,6 +21,7 @@ export interface Project {
   blockchain?: string | undefined;
   status?: string | undefined;
   apiSecret?: string | undefined;
+  contract1155Address?: string | undefined;
 }
 
 export interface ProjectUpdate {
@@ -106,6 +106,7 @@ function createBaseProject(): Project {
     blockchain: undefined,
     status: undefined,
     apiSecret: undefined,
+    contract1155Address: undefined,
   };
 }
 
@@ -146,6 +147,9 @@ export const Project = {
     }
     if (message.apiSecret !== undefined) {
       writer.uint32(98).string(message.apiSecret);
+    }
+    if (message.contract1155Address !== undefined) {
+      writer.uint32(106).string(message.contract1155Address);
     }
     return writer;
   },
@@ -193,6 +197,9 @@ export const Project = {
         case 12:
           message.apiSecret = reader.string();
           break;
+        case 13:
+          message.contract1155Address = reader.string();
+          break;
         default:
           reader.skipType(tag & 7);
           break;
@@ -215,6 +222,7 @@ export const Project = {
       blockchain: isSet(object.blockchain) ? String(object.blockchain) : undefined,
       status: isSet(object.status) ? String(object.status) : undefined,
       apiSecret: isSet(object.apiSecret) ? String(object.apiSecret) : undefined,
+      contract1155Address: isSet(object.contract1155Address) ? String(object.contract1155Address) : undefined,
     };
   },
 
@@ -232,6 +240,7 @@ export const Project = {
     message.blockchain !== undefined && (obj.blockchain = message.blockchain);
     message.status !== undefined && (obj.status = message.status);
     message.apiSecret !== undefined && (obj.apiSecret = message.apiSecret);
+    message.contract1155Address !== undefined && (obj.contract1155Address = message.contract1155Address);
     return obj;
   },
 };
@@ -379,13 +388,6 @@ export const ProjectUpdate = {
     return obj;
   },
 };
-
-// If you get a compile-error about 'Constructor<Long> and ... have no overlap',
-// add '--ts_proto_opt=esModuleInterop=true' as a flag when calling 'protoc'.
-if (_m0.util.Long !== Long) {
-  _m0.util.Long = Long as any;
-  _m0.configure();
-}
 
 function isSet(value: any): boolean {
   return value !== null && value !== undefined;
