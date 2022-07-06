@@ -37,6 +37,7 @@ export interface ProjectUpdate {
   blockchain?: string | undefined;
   status?: string | undefined;
   apiSecret?: string | undefined;
+  contract1155Address?: string | undefined;
 }
 
 export const PROJECT_PACKAGE_NAME = 'project';
@@ -259,6 +260,7 @@ function createBaseProjectUpdate(): ProjectUpdate {
     blockchain: undefined,
     status: undefined,
     apiSecret: undefined,
+    contract1155Address: undefined,
   };
 }
 
@@ -299,6 +301,9 @@ export const ProjectUpdate = {
     }
     if (message.apiSecret !== undefined) {
       writer.uint32(98).string(message.apiSecret);
+    }
+    if (message.contract1155Address !== undefined) {
+      writer.uint32(106).string(message.contract1155Address);
     }
     return writer;
   },
@@ -346,6 +351,9 @@ export const ProjectUpdate = {
         case 12:
           message.apiSecret = reader.string();
           break;
+        case 13:
+          message.contract1155Address = reader.string();
+          break;
         default:
           reader.skipType(tag & 7);
           break;
@@ -368,6 +376,7 @@ export const ProjectUpdate = {
       blockchain: isSet(object.blockchain) ? String(object.blockchain) : undefined,
       status: isSet(object.status) ? String(object.status) : undefined,
       apiSecret: isSet(object.apiSecret) ? String(object.apiSecret) : undefined,
+      contract1155Address: isSet(object.contract1155Address) ? String(object.contract1155Address) : undefined,
     };
   },
 
@@ -385,6 +394,7 @@ export const ProjectUpdate = {
     message.blockchain !== undefined && (obj.blockchain = message.blockchain);
     message.status !== undefined && (obj.status = message.status);
     message.apiSecret !== undefined && (obj.apiSecret = message.apiSecret);
+    message.contract1155Address !== undefined && (obj.contract1155Address = message.contract1155Address);
     return obj;
   },
 };

@@ -24,8 +24,11 @@ export enum EQueueEvent {
   // Rinkeby
   RINKEBY_CREATE_PROJECT = 'rinkeby.create_project',
   RINKEBY_CREATE_NFT = 'rinkeby.create_NFT',
+  RINKEBY_CREATE_NFT_1155 = 'rinkeby.create_NFT_1155',
   RINKEBY_DEPLOY_ERC721_CONTRACT = 'rinkeby.deploy_erc721_contract',
   RINKEBY_ASSIGN_NFT_TO_PLAYER = 'rinkeby.assign_nft_to_player',
+  RINKEBY_ASSIGN_NFTs_TO_PLAYER = 'rinkeby.assign_nfts_to_player',
+  RINKEBY_ASSIGN_NFT_1155_TO_PLAYER = 'rinkeby.assign_nft_1155_to_player',
 
   // Polygon
   POLYGON_CREATE_PROJECT = 'polygon.create_project',
