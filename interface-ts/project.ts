@@ -22,6 +22,7 @@ export interface Project {
   status?: string | undefined;
   apiSecret?: string | undefined;
   contract1155Address?: string | undefined;
+  contractMarketplaceAddress?: string | undefined;
 }
 
 export interface ProjectUpdate {
@@ -38,6 +39,7 @@ export interface ProjectUpdate {
   status?: string | undefined;
   apiSecret?: string | undefined;
   contract1155Address?: string | undefined;
+  contractMarketplaceAddress?: string | undefined;
 }
 
 export const PROJECT_PACKAGE_NAME = 'project';
@@ -108,6 +110,7 @@ function createBaseProject(): Project {
     status: undefined,
     apiSecret: undefined,
     contract1155Address: undefined,
+    contractMarketplaceAddress: undefined,
   };
 }
 
@@ -151,6 +154,9 @@ export const Project = {
     }
     if (message.contract1155Address !== undefined) {
       writer.uint32(106).string(message.contract1155Address);
+    }
+    if (message.contractMarketplaceAddress !== undefined) {
+      writer.uint32(114).string(message.contractMarketplaceAddress);
     }
     return writer;
   },
@@ -201,6 +207,9 @@ export const Project = {
         case 13:
           message.contract1155Address = reader.string();
           break;
+        case 14:
+          message.contractMarketplaceAddress = reader.string();
+          break;
         default:
           reader.skipType(tag & 7);
           break;
@@ -224,6 +233,9 @@ export const Project = {
       status: isSet(object.status) ? String(object.status) : undefined,
       apiSecret: isSet(object.apiSecret) ? String(object.apiSecret) : undefined,
       contract1155Address: isSet(object.contract1155Address) ? String(object.contract1155Address) : undefined,
+      contractMarketplaceAddress: isSet(object.contractMarketplaceAddress)
+        ? String(object.contractMarketplaceAddress)
+        : undefined,
     };
   },
 
@@ -242,6 +254,8 @@ export const Project = {
     message.status !== undefined && (obj.status = message.status);
     message.apiSecret !== undefined && (obj.apiSecret = message.apiSecret);
     message.contract1155Address !== undefined && (obj.contract1155Address = message.contract1155Address);
+    message.contractMarketplaceAddress !== undefined &&
+      (obj.contractMarketplaceAddress = message.contractMarketplaceAddress);
     return obj;
   },
 };
@@ -261,6 +275,7 @@ function createBaseProjectUpdate(): ProjectUpdate {
     status: undefined,
     apiSecret: undefined,
     contract1155Address: undefined,
+    contractMarketplaceAddress: undefined,
   };
 }
 
@@ -304,6 +319,9 @@ export const ProjectUpdate = {
     }
     if (message.contract1155Address !== undefined) {
       writer.uint32(106).string(message.contract1155Address);
+    }
+    if (message.contractMarketplaceAddress !== undefined) {
+      writer.uint32(114).string(message.contractMarketplaceAddress);
     }
     return writer;
   },
@@ -354,6 +372,9 @@ export const ProjectUpdate = {
         case 13:
           message.contract1155Address = reader.string();
           break;
+        case 14:
+          message.contractMarketplaceAddress = reader.string();
+          break;
         default:
           reader.skipType(tag & 7);
           break;
@@ -377,6 +398,9 @@ export const ProjectUpdate = {
       status: isSet(object.status) ? String(object.status) : undefined,
       apiSecret: isSet(object.apiSecret) ? String(object.apiSecret) : undefined,
       contract1155Address: isSet(object.contract1155Address) ? String(object.contract1155Address) : undefined,
+      contractMarketplaceAddress: isSet(object.contractMarketplaceAddress)
+        ? String(object.contractMarketplaceAddress)
+        : undefined,
     };
   },
 
@@ -395,6 +419,8 @@ export const ProjectUpdate = {
     message.status !== undefined && (obj.status = message.status);
     message.apiSecret !== undefined && (obj.apiSecret = message.apiSecret);
     message.contract1155Address !== undefined && (obj.contract1155Address = message.contract1155Address);
+    message.contractMarketplaceAddress !== undefined &&
+      (obj.contractMarketplaceAddress = message.contractMarketplaceAddress);
     return obj;
   },
 };
