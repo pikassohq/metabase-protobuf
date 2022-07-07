@@ -21,7 +21,6 @@ export enum EPlayerStatus {
 }
 
 export enum EQueueEvent {
-  
   // Rinkeby
   RINKEBY_CREATE_PROJECT = 'rinkeby.create_project',
   RINKEBY_CREATE_NFT = 'rinkeby.create_NFT',
@@ -31,8 +30,7 @@ export enum EQueueEvent {
   RINKEBY_ASSIGN_NFTS_TO_PLAYER = 'rinkeby.assign_nfts_to_player',
   RINKEBY_ASSIGN_NFT_1155_TO_PLAYER = 'rinkeby.assign_nft_1155_to_player',
   RINKEBY_ASSIGN_NFTS_1155_TO_PLAYER = 'rinkeby.assign_nfts_1155_to_player',
-  
-  
+
   // Polygon
   POLYGON_CREATE_PROJECT = 'polygon.create_project',
   POLYGON_DEPLOY_ERC721_CONTRACT = 'polygon.deploy_erc721_contract',
@@ -60,9 +58,8 @@ export enum EQueueEvent {
   ONE_CREATE_NFT_1155 = 'one.create_NFT_1155',
   ONE_ASSIGN_NFT_TO_PLAYER = 'one.assign_nft_to_player',
   ONE_ASSIGN_NFT_1155_TO_PLAYER = 'one.assign_nft_1155_to_player',
-  ONE_ASSIGN_NFTS_TO_PLAYER = 'one.assign_nfts_to_player', 
-  ONE_ASSIGN_NFTS_1155_TO_PLAYER = 'one.assign_nfts_1155_to_player', 
-  
+  ONE_ASSIGN_NFTS_TO_PLAYER = 'one.assign_nfts_to_player',
+  ONE_ASSIGN_NFTS_1155_TO_PLAYER = 'one.assign_nfts_1155_to_player',
 
   // Starknet
   CREATE_STARKNET_PROJECT = 'starknet.create_project',
@@ -82,7 +79,6 @@ export enum EQueueEvent {
   SOLANA_ASSIGN_NFT_1155_TO_PLAYER = 'solana.assign_nft_1155_to_player',
   SOLANA_ASSIGN_NFTS_TO_PLAYER = 'solana.assign_nfts_to_player',
   SOLANA_ASSIGN_NFTS_1155_TO_PLAYER = 'solana.assign_nfts_1155_to_player',
-
 }
 
 export enum EChain {
