@@ -21,32 +21,48 @@ export enum EPlayerStatus {
 }
 
 export enum EQueueEvent {
+  
   // Rinkeby
   RINKEBY_CREATE_PROJECT = 'rinkeby.create_project',
   RINKEBY_CREATE_NFT = 'rinkeby.create_NFT',
   RINKEBY_CREATE_NFT_1155 = 'rinkeby.create_NFT_1155',
   RINKEBY_DEPLOY_ERC721_CONTRACT = 'rinkeby.deploy_erc721_contract',
   RINKEBY_ASSIGN_NFT_TO_PLAYER = 'rinkeby.assign_nft_to_player',
-  RINKEBY_ASSIGN_NFTs_TO_PLAYER = 'rinkeby.assign_nfts_to_player',
+  RINKEBY_ASSIGN_NFTS_TO_PLAYER = 'rinkeby.assign_nfts_to_player',
   RINKEBY_ASSIGN_NFT_1155_TO_PLAYER = 'rinkeby.assign_nft_1155_to_player',
-
+  RINKEBY_ASSIGN_NFTS_1155_TO_PLAYER = 'rinkeby.assign_nfts_1155_to_player',
+  
+  
   // Polygon
   POLYGON_CREATE_PROJECT = 'polygon.create_project',
   POLYGON_DEPLOY_ERC721_CONTRACT = 'polygon.deploy_erc721_contract',
   POLYGON_CREATE_NFT = 'polygon.create_NFT',
+  POLYGON_CREATE_NFT_1155 = 'polygon.create_NFT_1155',
   POLYGON_ASSIGN_NFT_TO_PLAYER = 'polygon.assign_nft_to_player',
+  POLYGON_ASSIGN_NFT_1155_TO_PLAYER = 'polygon.assign_nft_1155_to_player',
+  POLYGON_ASSIGN_NFTS_TO_PLAYER = 'polygon.assign_nft_to_player',
+  POLYGON_ASSIGN_NFTS_1155_TO_PLAYER = 'polygon.assign_nft_to_player',
 
   // BSC
   BSC_CREATE_PROJECT = 'bsct.create_project',
   BSC_DEPLOY_ERC721_CONTRACT = 'bsct.deploy_erc721_contract',
   BSC_CREATE_NFT = 'bsct.create_NFT',
+  BSC_CREATE_NFT_1155 = 'bsct.create_NFT_1155',
   BSC_ASSIGN_NFT_TO_PLAYER = 'bsct.assign_nft_to_player',
+  BSC_ASSIGN_NFTS_TO_PLAYER = 'bsct.assign_nfts_to_player',
+  BSC_ASSIGN_NFT_1155_TO_PLAYER = 'bsct.assign_nft_1155_to_player',
+  BSC_ASSIGN_NFTS_1155_TO_PLAYER = 'bsct.assign_nfts_1155_to_player',
 
   // ONE
   ONE_CREATE_PROJECT = 'one.create_project',
   ONE_DEPLOY_ERC721_CONTRACT = 'one.deploy_erc721_contract',
   ONE_CREATE_NFT = 'one.create_NFT',
+  ONE_CREATE_NFT_1155 = 'one.create_NFT_1155',
   ONE_ASSIGN_NFT_TO_PLAYER = 'one.assign_nft_to_player',
+  ONE_ASSIGN_NFT_1155_TO_PLAYER = 'one.assign_nft_1155_to_player',
+  ONE_ASSIGN_NFTS_TO_PLAYER = 'one.assign_nfts_to_player', 
+  ONE_ASSIGN_NFTS_1155_TO_PLAYER = 'one.assign_nfts_1155_to_player', 
+  
 
   // Starknet
   CREATE_STARKNET_PROJECT = 'starknet.create_project',
@@ -61,7 +77,12 @@ export enum EQueueEvent {
   // Solana
   SOLANA_CREATE_PROJECT = 'solana.create_project',
   SOLANA_CREATE_NFT = 'solana.create_NFT',
+  SOLANA_CREATE_NFT_1155 = 'solana.create_NFT_1155',
   SOLANA_ASSIGN_NFT_TO_PLAYER = 'solana.assign_nft_to_player',
+  SOLANA_ASSIGN_NFT_1155_TO_PLAYER = 'solana.assign_nft_1155_to_player',
+  SOLANA_ASSIGN_NFTS_TO_PLAYER = 'solana.assign_nfts_to_player',
+  SOLANA_ASSIGN_NFTS_1155_TO_PLAYER = 'solana.assign_nfts_1155_to_player',
+
 }
 
 export enum EChain {
