@@ -5,6 +5,8 @@ package CoreService;
 import "transaction.proto";
 import "project.proto";
 import "nft.proto";
+import "order.proto";
+
 
 service CoreService {
   rpc UpdateTransactionById(transaction.Request)
@@ -12,6 +14,7 @@ service CoreService {
   rpc UpdateProjectById(project.Request) returns (project.Project) {}
   rpc UpdateNftById(nft.Request) returns (nft.Nft) {}
   rpc UpdateNftByTransactionId(nft.Request) returns (nft.Nft) {}
+  rpc UpdateBuyOrderById(order.Request) returns (order.Order){}
   rpc Ping(PingRequest) returns (PingResponse);
 }
 

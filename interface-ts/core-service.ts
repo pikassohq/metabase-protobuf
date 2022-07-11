@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { Transaction, Request } from './transaction';
 import { Project, Request as Request1 } from './project';
 import { Nft, Request as Request2 } from './nft';
+import { Order, Request as Request3 } from './order';
 import * as _m0 from 'protobufjs/minimal';
 
 export const protobufPackage = 'CoreService';
@@ -113,6 +114,8 @@ export interface CoreServiceClient {
 
   updateNftByTransactionId(request: Request2, ...rest: any): Observable<Nft>;
 
+  updateBuyOrderById(request: Request3, ...rest: any): Observable<Order>;
+
   ping(request: PingRequest, ...rest: any): Observable<PingResponse>;
 }
 
@@ -125,6 +128,8 @@ export interface CoreServiceController {
 
   updateNftByTransactionId(request: Request2, ...rest: any): Promise<Nft> | Observable<Nft> | Nft;
 
+  updateBuyOrderById(request: Request3, ...rest: any): Promise<Order> | Observable<Order> | Order;
+
   ping(request: PingRequest, ...rest: any): Promise<PingResponse> | Observable<PingResponse> | PingResponse;
 }
 
@@ -135,6 +140,7 @@ export function CoreServiceControllerMethods() {
       'updateProjectById',
       'updateNftById',
       'updateNftByTransactionId',
+      'updateBuyOrderById',
       'ping',
     ];
     for (const method of grpcMethods) {
