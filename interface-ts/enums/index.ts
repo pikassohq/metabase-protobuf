@@ -92,6 +92,7 @@ export enum EChain {
   POLYGON = 'polygon',
   BSCT = 'bsct',
   ONE = 'one',
+  OFF_CHAIN = 'off_chain',
 }
 
 export enum ETokenStatus {
