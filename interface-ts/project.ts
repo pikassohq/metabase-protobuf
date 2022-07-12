@@ -23,6 +23,7 @@ export interface Project {
   apiSecret?: string | undefined;
   contract1155Address?: string | undefined;
   contractMarketplaceAddress?: string | undefined;
+  webhook?: string | undefined;
 }
 
 export interface ProjectUpdate {
@@ -40,6 +41,7 @@ export interface ProjectUpdate {
   apiSecret?: string | undefined;
   contract1155Address?: string | undefined;
   contractMarketplaceAddress?: string | undefined;
+  webhook?: string | undefined;
 }
 
 export const PROJECT_PACKAGE_NAME = 'project';
@@ -111,6 +113,7 @@ function createBaseProject(): Project {
     apiSecret: undefined,
     contract1155Address: undefined,
     contractMarketplaceAddress: undefined,
+    webhook: undefined,
   };
 }
 
@@ -157,6 +160,9 @@ export const Project = {
     }
     if (message.contractMarketplaceAddress !== undefined) {
       writer.uint32(114).string(message.contractMarketplaceAddress);
+    }
+    if (message.webhook !== undefined) {
+      writer.uint32(122).string(message.webhook);
     }
     return writer;
   },
@@ -210,6 +216,9 @@ export const Project = {
         case 14:
           message.contractMarketplaceAddress = reader.string();
           break;
+        case 15:
+          message.webhook = reader.string();
+          break;
         default:
           reader.skipType(tag & 7);
           break;
@@ -236,6 +245,7 @@ export const Project = {
       contractMarketplaceAddress: isSet(object.contractMarketplaceAddress)
         ? String(object.contractMarketplaceAddress)
         : undefined,
+      webhook: isSet(object.webhook) ? String(object.webhook) : undefined,
     };
   },
 
@@ -256,6 +266,7 @@ export const Project = {
     message.contract1155Address !== undefined && (obj.contract1155Address = message.contract1155Address);
     message.contractMarketplaceAddress !== undefined &&
       (obj.contractMarketplaceAddress = message.contractMarketplaceAddress);
+    message.webhook !== undefined && (obj.webhook = message.webhook);
     return obj;
   },
 };
@@ -276,6 +287,7 @@ function createBaseProjectUpdate(): ProjectUpdate {
     apiSecret: undefined,
     contract1155Address: undefined,
     contractMarketplaceAddress: undefined,
+    webhook: undefined,
   };
 }
 
@@ -322,6 +334,9 @@ export const ProjectUpdate = {
     }
     if (message.contractMarketplaceAddress !== undefined) {
       writer.uint32(114).string(message.contractMarketplaceAddress);
+    }
+    if (message.webhook !== undefined) {
+      writer.uint32(122).string(message.webhook);
     }
     return writer;
   },
@@ -375,6 +390,9 @@ export const ProjectUpdate = {
         case 14:
           message.contractMarketplaceAddress = reader.string();
           break;
+        case 15:
+          message.webhook = reader.string();
+          break;
         default:
           reader.skipType(tag & 7);
           break;
@@ -401,6 +419,7 @@ export const ProjectUpdate = {
       contractMarketplaceAddress: isSet(object.contractMarketplaceAddress)
         ? String(object.contractMarketplaceAddress)
         : undefined,
+      webhook: isSet(object.webhook) ? String(object.webhook) : undefined,
     };
   },
 
@@ -421,6 +440,7 @@ export const ProjectUpdate = {
     message.contract1155Address !== undefined && (obj.contract1155Address = message.contract1155Address);
     message.contractMarketplaceAddress !== undefined &&
       (obj.contractMarketplaceAddress = message.contractMarketplaceAddress);
+    message.webhook !== undefined && (obj.webhook = message.webhook);
     return obj;
   },
 };
