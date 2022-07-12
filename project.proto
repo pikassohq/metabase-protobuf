@@ -23,6 +23,7 @@ message Project {
   optional string apiSecret = 12;
   optional string contract1155Address = 13;
   optional string contractMarketplaceAddress = 14;
+  optional string webhook = 15;
 }
 
 message ProjectUpdate {
@@ -40,4 +41,5 @@ message ProjectUpdate {
   optional string apiSecret = 12;
   optional string contract1155Address = 13;
   optional string contractMarketplaceAddress = 14;
+  optional string webhook = 15;
 }
