@@ -81,6 +81,12 @@ export enum EQueueEvent {
   SOLANA_ASSIGN_NFT_1155_TO_PLAYER = 'solana.assign_nft_1155_to_player',
   SOLANA_ASSIGN_NFTS_TO_PLAYER = 'solana.assign_nfts_to_player',
   SOLANA_ASSIGN_NFTS_1155_TO_PLAYER = 'solana.assign_nfts_1155_to_player',
+
+  // Offchain
+  OFFCHAIN_CREATE_PROJECT = 'offchain.create_project',
+  OFFCHAIN_CREATE_NFT = 'offchain.create_NFT',
+  OFFCHAIN_BUY_PREPARE = 'offchain.buy_prepare',
+  OFFCHAIN_SELL_PREPARE = 'offchain.sell_prepare',
 }
 
 export enum EChain {
@@ -92,10 +98,11 @@ export enum EChain {
   POLYGON = 'polygon',
   BSCT = 'bsct',
   ONE = 'one',
-  OFF_CHAIN = 'off_chain',
+  OFFCHAIN = 'offchain',
 }
 
 export enum ETokenStatus {
+  OFFCHAIN_CREATED = 'offchain_created',
   MINTING = 'minting',
   TRANSFERING = 'transfering',
   SUCCESS = 'success',
