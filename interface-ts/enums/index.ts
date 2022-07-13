@@ -102,7 +102,7 @@ export enum EChain {
 }
 
 export enum ETokenStatus {
-  OFFCHAIN_CREATED = 'offchain_created',
+  DELETED = 'deleted',
   MINTING = 'minting',
   TRANSFERING = 'transfering',
   SUCCESS = 'success',
