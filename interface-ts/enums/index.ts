@@ -1,3 +1,8 @@
+export enum Role {
+  User = 'user',
+  Admin = 'admin',
+}
+
 export enum EUserStatus {
   ACTIVE = 'active',
   IN_ACTIVE = 'in_active',
