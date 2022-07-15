@@ -23,6 +23,7 @@ export enum EPlayerStatus {
 export enum EQueueEvent {
   // Rinkeby
   RINKEBY_CREATE_PROJECT = 'rinkeby.create_project',
+  RINKEBY_CREATE_COLLECTION = 'rinkeby.create_collection', 
   RINKEBY_CREATE_NFT = 'rinkeby.create_NFT',
   RINKEBY_CREATE_NFT_1155 = 'rinkeby.create_NFT_1155',
   RINKEBY_DEPLOY_ERC721_CONTRACT = 'rinkeby.deploy_erc721_contract',
@@ -101,6 +102,11 @@ export enum EChain {
   OFFCHAIN = 'offchain',
 }
 
+export enum Category {
+  ART = 'art',
+  COLLECTIBLE = 'collectible'
+}
+
 export enum ETokenStatus {
   DELETED = 'deleted',
   MINTING = 'minting',
@@ -117,6 +123,10 @@ export enum EProjectStatus {
   CREATING_ERC721_CONTRACT = 'creating_erc721_contract',
   FAILED = 'failed',
   SUCCESS = 'success',
+}
+
+export enum CollectionStatus {
+  CREATING_COLLECTION = 'creating_collection',
 }
 
 export enum ETransactionStatus {
