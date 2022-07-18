@@ -135,7 +135,10 @@ export enum CollectionStatus {
 }
 
 export enum ETransactionStatus {
-  WAITING = 'waiting',
+  PAYMENT_CREATED = 'payment_created',
+  PAYMENT_SUCCESS = 'payment_success',
+  PAYMENT_CANCEL = 'payment_cancel',
+  INQUEUE = 'inqueue',
   PROCESSING = 'processing',
   SUCCESS = 'success',
   FAILED = 'failed',
