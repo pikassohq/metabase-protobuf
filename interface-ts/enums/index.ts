@@ -28,7 +28,7 @@ export enum EPlayerStatus {
 export enum EQueueEvent {
   // Rinkeby
   RINKEBY_CREATE_PROJECT = 'rinkeby.create_project',
-  RINKEBY_CREATE_COLLECTION = 'rinkeby.create_collection', 
+  RINKEBY_CREATE_COLLECTION = 'rinkeby.create_collection',
   RINKEBY_CREATE_NFT = 'rinkeby.create_NFT',
   RINKEBY_CREATE_NFT_1155 = 'rinkeby.create_NFT_1155',
   RINKEBY_DEPLOY_ERC721_CONTRACT = 'rinkeby.deploy_erc721_contract',
@@ -109,7 +109,7 @@ export enum EChain {
 
 export enum Category {
   ART = 'art',
-  COLLECTIBLE = 'collectible'
+  COLLECTIBLE = 'collectible',
 }
 
 export enum ETokenStatus {
