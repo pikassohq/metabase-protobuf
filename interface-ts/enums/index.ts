@@ -143,6 +143,7 @@ export enum ETransactionStatus {
   PAYMENT_CREATED = 'payment_created',
   PAYMENT_SUCCESS = 'payment_success',
   PAYMENT_CANCEL = 'payment_cancel',
+  LOCK = 'lock',
   INQUEUE = 'inqueue',
   PROCESSING = 'processing',
   SUCCESS = 'success',
