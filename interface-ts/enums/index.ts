@@ -114,6 +114,7 @@ export enum Category {
 
 export enum ETokenStatus {
   DELETED = 'deleted',
+  CREATE_OFF_CHAIN = 'create_off_chain',
   MINTING = 'minting',
   TRANSFERING = 'transfering',
   SUCCESS = 'success',
