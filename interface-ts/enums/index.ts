@@ -32,6 +32,7 @@ export enum EQueueEvent {
   RINKEBY_CREATE_NFT = 'rinkeby.create_NFT',
   RINKEBY_CREATE_NFT_1155 = 'rinkeby.create_NFT_1155',
   RINKEBY_DEPLOY_ERC721_CONTRACT = 'rinkeby.deploy_erc721_contract',
+  RINKEBY_DEPLOY_ERC1155_CONTRACT = 'rinkeby.deploy_erc1155_contract',
   RINKEBY_ASSIGN_NFT_TO_PLAYER = 'rinkeby.assign_nft_to_player',
   RINKEBY_ASSIGN_NFTS_TO_PLAYER = 'rinkeby.assign_nfts_to_player',
   RINKEBY_ASSIGN_NFT_1155_TO_PLAYER = 'rinkeby.assign_nft_1155_to_player',
@@ -149,4 +150,9 @@ export enum ETransactionStatus {
   PROCESSING = 'processing',
   SUCCESS = 'success',
   FAILED = 'failed',
+}
+
+export enum ENftType {
+  ERC721 = 'erc721',
+  ERC1155 = 'erc1155',
 }

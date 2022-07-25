@@ -1,0 +1,38 @@
+syntax = "proto3";
+
+package collection;
+
+message Request {
+  string id = 1;
+  CollectionUpdate update =2;
+}
+
+message Collection {
+  string id = 1;
+  optional string owner = 2;
+  optional string project = 3;
+  optional masterAccountMess masterAccount = 4;
+  optional string status = 5;
+  optional string nftContractAddress = 6;
+}
+
+message CollectionUpdate {
+  string id = 1;
+  optional string owner = 2;
+  optional string project = 3;
+  optional masterAccountMess masterAccount = 4;
+  optional string status = 5;
+  optional string nftContractAddress = 6;
+}
+
+
+message masterAccountMess{
+  optional string publicKey = 1;
+  optional string privateKey = 2;
+}
+
+
+
+
+
+
