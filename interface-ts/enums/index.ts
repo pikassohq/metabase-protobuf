@@ -150,6 +150,8 @@ export enum ETransactionGroupStatus {
   PAYMENT_CREATED = 'payment_created',
   PAYMENT_SUCCESS = 'payment_success',
   PAYMENT_CANCEL = 'payment_cancel',
+  SUCCESS = 'success',
+  FAILED = 'failed',
 }
 
 export enum ETransactionStatus {
