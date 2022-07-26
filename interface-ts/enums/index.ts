@@ -25,6 +25,11 @@ export enum EPlayerStatus {
   INACTIVE = 'INACTIVE',
 }
 
+export enum EAdminQueueEvent {
+  ADMIN_DEPLOY_CONTRACT = 'deploy_contract',
+  ADMIN_TRANSFER_TOKEN = 'transfer_token',
+}
+
 export enum EQueueEvent {
   // Rinkeby
   RINKEBY_CREATE_PROJECT = 'rinkeby.create_project',
@@ -140,10 +145,15 @@ export enum CollectionStatus {
   COLLECTION_INACTIVE = 'collection_inactive',
 }
 
-export enum ETransactionStatus {
+export enum ETransactionGroupStatus {
+  WAITING_FOR_PAYMENT = 'waiting_for_payment',
   PAYMENT_CREATED = 'payment_created',
   PAYMENT_SUCCESS = 'payment_success',
   PAYMENT_CANCEL = 'payment_cancel',
+}
+
+export enum ETransactionStatus {
+  WAITING_FOR_CONFIRMATION = 'waiting_for_confirmation',
   LOCK = 'lock',
   INQUEUE = 'inqueue',
   PROCESSING = 'processing',
