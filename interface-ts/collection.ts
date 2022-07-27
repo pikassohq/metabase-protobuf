@@ -18,7 +18,7 @@ export interface Collection {
 }
 
 export interface CollectionUpdate {
-  id: string;
+  id?: string | undefined;
   owner?: string | undefined;
   project?: string | undefined;
   masterAccount?: masterAccountMess | undefined;
@@ -177,7 +177,7 @@ export const Collection = {
 
 function createBaseCollectionUpdate(): CollectionUpdate {
   return {
-    id: '',
+    id: undefined,
     owner: undefined,
     project: undefined,
     masterAccount: undefined,
@@ -188,7 +188,7 @@ function createBaseCollectionUpdate(): CollectionUpdate {
 
 export const CollectionUpdate = {
   encode(message: CollectionUpdate, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
-    if (message.id !== '') {
+    if (message.id !== undefined) {
       writer.uint32(10).string(message.id);
     }
     if (message.owner !== undefined) {
@@ -244,7 +244,7 @@ export const CollectionUpdate = {
 
   fromJSON(object: any): CollectionUpdate {
     return {
-      id: isSet(object.id) ? String(object.id) : '',
+      id: isSet(object.id) ? String(object.id) : undefined,
       owner: isSet(object.owner) ? String(object.owner) : undefined,
       project: isSet(object.project) ? String(object.project) : undefined,
       masterAccount: isSet(object.masterAccount) ? masterAccountMess.fromJSON(object.masterAccount) : undefined,

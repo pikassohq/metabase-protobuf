@@ -17,7 +17,7 @@ message Collection {
 }
 
 message CollectionUpdate {
-  string id = 1;
+  optional string id = 1;
   optional string owner = 2;
   optional string project = 3;
   optional masterAccountMess masterAccount = 4;
