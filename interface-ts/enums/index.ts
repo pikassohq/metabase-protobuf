@@ -119,6 +119,7 @@ export enum Category {
 }
 
 export enum ETokenStatus {
+  CREATED = 'created',
   DELETED = 'deleted',
   MINTING = 'minting',
   TRANSFERING = 'transfering',
@@ -150,6 +151,7 @@ export enum ETransactionGroupStatus {
   PAYMENT_CREATED = 'payment_created',
   PAYMENT_SUCCESS = 'payment_success',
   PAYMENT_CANCEL = 'payment_cancel',
+  PROCESSING = 'processing',
   SUCCESS = 'success',
   FAILED = 'failed',
 }
