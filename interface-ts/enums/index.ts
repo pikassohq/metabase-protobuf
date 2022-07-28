@@ -26,8 +26,8 @@ export enum EPlayerStatus {
 }
 
 export enum EAdminQueueEvent {
-  ADMIN_DEPLOY_CONTRACT = 'deploy_contract',
-  ADMIN_TRANSFER_TOKEN = 'transfer_token',
+  ADMIN_DEPLOY_CONTRACT = 'deploy_erc721_contract',
+  ADMIN_TRANSFER_TOKEN = 'transfer_native_token',
 }
 
 export enum EQueueEvent {
