@@ -26,8 +26,8 @@ export enum EPlayerStatus {
 }
 
 export enum EAdminQueueEvent {
-  ADMIN_DEPLOY_CONTRACT = 'deploy_contract',
-  ADMIN_TRANSFER_TOKEN = 'transfer_token',
+  ADMIN_DEPLOY_CONTRACT = 'deploy_erc721_contract',
+  ADMIN_TRANSFER_TOKEN = 'transfer_native_token',
 }
 
 export enum EQueueEvent {
@@ -119,6 +119,7 @@ export enum Category {
 }
 
 export enum ETokenStatus {
+  CREATED = 'created',
   DELETED = 'deleted',
   CREATE_OFF_CHAIN = 'create_off_chain',
   MINTING = 'minting',
@@ -151,6 +152,7 @@ export enum ETransactionGroupStatus {
   PAYMENT_CREATED = 'payment_created',
   PAYMENT_SUCCESS = 'payment_success',
   PAYMENT_CANCEL = 'payment_cancel',
+  PROCESSING = 'processing',
   SUCCESS = 'success',
   FAILED = 'failed',
 }
