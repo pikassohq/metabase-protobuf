@@ -3,6 +3,12 @@ export enum Role {
   Admin = 'admin',
 }
 
+export enum EStatus {
+  PENDING = 'pending',
+  SUCCESS = 'success',
+  FAILED = 'failed',
+}
+
 export enum EUserStatus {
   ACTIVE = 'active',
   IN_ACTIVE = 'in_active',
@@ -44,6 +50,7 @@ export enum EQueueEvent {
   RINKEBY_ASSIGN_NFTS_1155_TO_PLAYER = 'rinkeby.assign_nfts_1155_to_player',
   RINKEBY_BUY_PREPARE = 'rinkeby.buy_prepare',
   RINKEBY_SELL_PREPARE = 'rinkeby.sell_prepare',
+  RINKEBY_ADMIN_TRANSFER_TOKEN = 'rinkeby.transfer_native_token',
 
   // Polygon
   POLYGON_CREATE_PROJECT = 'polygon.create_project',

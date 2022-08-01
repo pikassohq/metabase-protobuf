@@ -15,6 +15,7 @@ export interface Collection {
   masterAccount?: masterAccountMess | undefined;
   status?: string | undefined;
   nftContractAddress?: string | undefined;
+  chain?: string | undefined;
 }
 
 export interface CollectionUpdate {
@@ -24,6 +25,7 @@ export interface CollectionUpdate {
   masterAccount?: masterAccountMess | undefined;
   status?: string | undefined;
   nftContractAddress?: string | undefined;
+  chain?: string | undefined;
 }
 
 export interface masterAccountMess {
@@ -92,6 +94,7 @@ function createBaseCollection(): Collection {
     masterAccount: undefined,
     status: undefined,
     nftContractAddress: undefined,
+    chain: undefined,
   };
 }
 
@@ -114,6 +117,9 @@ export const Collection = {
     }
     if (message.nftContractAddress !== undefined) {
       writer.uint32(50).string(message.nftContractAddress);
+    }
+    if (message.chain !== undefined) {
+      writer.uint32(58).string(message.chain);
     }
     return writer;
   },
@@ -143,6 +149,9 @@ export const Collection = {
         case 6:
           message.nftContractAddress = reader.string();
           break;
+        case 7:
+          message.chain = reader.string();
+          break;
         default:
           reader.skipType(tag & 7);
           break;
@@ -159,6 +168,7 @@ export const Collection = {
       masterAccount: isSet(object.masterAccount) ? masterAccountMess.fromJSON(object.masterAccount) : undefined,
       status: isSet(object.status) ? String(object.status) : undefined,
       nftContractAddress: isSet(object.nftContractAddress) ? String(object.nftContractAddress) : undefined,
+      chain: isSet(object.chain) ? String(object.chain) : undefined,
     };
   },
 
@@ -171,6 +181,7 @@ export const Collection = {
       (obj.masterAccount = message.masterAccount ? masterAccountMess.toJSON(message.masterAccount) : undefined);
     message.status !== undefined && (obj.status = message.status);
     message.nftContractAddress !== undefined && (obj.nftContractAddress = message.nftContractAddress);
+    message.chain !== undefined && (obj.chain = message.chain);
     return obj;
   },
 };
@@ -183,6 +194,7 @@ function createBaseCollectionUpdate(): CollectionUpdate {
     masterAccount: undefined,
     status: undefined,
     nftContractAddress: undefined,
+    chain: undefined,
   };
 }
 
@@ -205,6 +217,9 @@ export const CollectionUpdate = {
     }
     if (message.nftContractAddress !== undefined) {
       writer.uint32(50).string(message.nftContractAddress);
+    }
+    if (message.chain !== undefined) {
+      writer.uint32(58).string(message.chain);
     }
     return writer;
   },
@@ -234,6 +249,9 @@ export const CollectionUpdate = {
         case 6:
           message.nftContractAddress = reader.string();
           break;
+        case 7:
+          message.chain = reader.string();
+          break;
         default:
           reader.skipType(tag & 7);
           break;
@@ -250,6 +268,7 @@ export const CollectionUpdate = {
       masterAccount: isSet(object.masterAccount) ? masterAccountMess.fromJSON(object.masterAccount) : undefined,
       status: isSet(object.status) ? String(object.status) : undefined,
       nftContractAddress: isSet(object.nftContractAddress) ? String(object.nftContractAddress) : undefined,
+      chain: isSet(object.chain) ? String(object.chain) : undefined,
     };
   },
 
@@ -262,6 +281,7 @@ export const CollectionUpdate = {
       (obj.masterAccount = message.masterAccount ? masterAccountMess.toJSON(message.masterAccount) : undefined);
     message.status !== undefined && (obj.status = message.status);
     message.nftContractAddress !== undefined && (obj.nftContractAddress = message.nftContractAddress);
+    message.chain !== undefined && (obj.chain = message.chain);
     return obj;
   },
 };

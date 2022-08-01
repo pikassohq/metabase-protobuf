@@ -18,4 +18,5 @@ message NftUpdate {
   optional string mintTxHash = 3;
   optional string nftId = 4;
   optional string owner = 5;
+  optional string chain = 6;
 }
