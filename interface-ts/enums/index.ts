@@ -3,6 +3,12 @@ export enum Role {
   Admin = 'admin',
 }
 
+export enum EStatus {
+  PENDING = 'pending',
+  SUCCESS = 'success',
+  FAILED = 'failed',
+}
+
 export enum EUserStatus {
   ACTIVE = 'active',
   IN_ACTIVE = 'in_active',
