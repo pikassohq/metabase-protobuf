@@ -19,6 +19,7 @@ export interface NftUpdate {
   mintTxHash?: string | undefined;
   nftId?: string | undefined;
   owner?: string | undefined;
+  chain?: string | undefined;
 }
 
 export const NFT_PACKAGE_NAME = 'nft';
@@ -126,7 +127,14 @@ export const Nft = {
 };
 
 function createBaseNftUpdate(): NftUpdate {
-  return { status: undefined, metadataId: undefined, mintTxHash: undefined, nftId: undefined, owner: undefined };
+  return {
+    status: undefined,
+    metadataId: undefined,
+    mintTxHash: undefined,
+    nftId: undefined,
+    owner: undefined,
+    chain: undefined,
+  };
 }
 
 export const NftUpdate = {
@@ -145,6 +153,9 @@ export const NftUpdate = {
     }
     if (message.owner !== undefined) {
       writer.uint32(42).string(message.owner);
+    }
+    if (message.chain !== undefined) {
+      writer.uint32(50).string(message.chain);
     }
     return writer;
   },
@@ -171,6 +182,9 @@ export const NftUpdate = {
         case 5:
           message.owner = reader.string();
           break;
+        case 6:
+          message.chain = reader.string();
+          break;
         default:
           reader.skipType(tag & 7);
           break;
@@ -186,6 +200,7 @@ export const NftUpdate = {
       mintTxHash: isSet(object.mintTxHash) ? String(object.mintTxHash) : undefined,
       nftId: isSet(object.nftId) ? String(object.nftId) : undefined,
       owner: isSet(object.owner) ? String(object.owner) : undefined,
+      chain: isSet(object.chain) ? String(object.chain) : undefined,
     };
   },
 
@@ -196,6 +211,7 @@ export const NftUpdate = {
     message.mintTxHash !== undefined && (obj.mintTxHash = message.mintTxHash);
     message.nftId !== undefined && (obj.nftId = message.nftId);
     message.owner !== undefined && (obj.owner = message.owner);
+    message.chain !== undefined && (obj.chain = message.chain);
     return obj;
   },
 };
