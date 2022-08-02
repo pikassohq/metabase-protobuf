@@ -183,3 +183,8 @@ export enum EWidgetType {
   LIST = 'list',
   CARD = 'card',
 }
+
+export enum ESortOrder {
+  DESC = 'DESC',
+  ASC = 'ASC',
+}
