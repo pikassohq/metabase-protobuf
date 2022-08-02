@@ -16,6 +16,7 @@ export interface Collection {
   status?: string | undefined;
   nftContractAddress?: string | undefined;
   chain?: string | undefined;
+  transactionFee?: string | undefined;
 }
 
 export interface CollectionUpdate {
@@ -26,6 +27,7 @@ export interface CollectionUpdate {
   status?: string | undefined;
   nftContractAddress?: string | undefined;
   chain?: string | undefined;
+  transactionFee?: string | undefined;
 }
 
 export interface masterAccountMess {
@@ -95,6 +97,7 @@ function createBaseCollection(): Collection {
     status: undefined,
     nftContractAddress: undefined,
     chain: undefined,
+    transactionFee: undefined,
   };
 }
 
@@ -120,6 +123,9 @@ export const Collection = {
     }
     if (message.chain !== undefined) {
       writer.uint32(58).string(message.chain);
+    }
+    if (message.transactionFee !== undefined) {
+      writer.uint32(66).string(message.transactionFee);
     }
     return writer;
   },
@@ -152,6 +158,9 @@ export const Collection = {
         case 7:
           message.chain = reader.string();
           break;
+        case 8:
+          message.transactionFee = reader.string();
+          break;
         default:
           reader.skipType(tag & 7);
           break;
@@ -169,6 +178,7 @@ export const Collection = {
       status: isSet(object.status) ? String(object.status) : undefined,
       nftContractAddress: isSet(object.nftContractAddress) ? String(object.nftContractAddress) : undefined,
       chain: isSet(object.chain) ? String(object.chain) : undefined,
+      transactionFee: isSet(object.transactionFee) ? String(object.transactionFee) : undefined,
     };
   },
 
@@ -182,6 +192,7 @@ export const Collection = {
     message.status !== undefined && (obj.status = message.status);
     message.nftContractAddress !== undefined && (obj.nftContractAddress = message.nftContractAddress);
     message.chain !== undefined && (obj.chain = message.chain);
+    message.transactionFee !== undefined && (obj.transactionFee = message.transactionFee);
     return obj;
   },
 };
@@ -195,6 +206,7 @@ function createBaseCollectionUpdate(): CollectionUpdate {
     status: undefined,
     nftContractAddress: undefined,
     chain: undefined,
+    transactionFee: undefined,
   };
 }
 
@@ -220,6 +232,9 @@ export const CollectionUpdate = {
     }
     if (message.chain !== undefined) {
       writer.uint32(58).string(message.chain);
+    }
+    if (message.transactionFee !== undefined) {
+      writer.uint32(66).string(message.transactionFee);
     }
     return writer;
   },
@@ -252,6 +267,9 @@ export const CollectionUpdate = {
         case 7:
           message.chain = reader.string();
           break;
+        case 8:
+          message.transactionFee = reader.string();
+          break;
         default:
           reader.skipType(tag & 7);
           break;
@@ -269,6 +287,7 @@ export const CollectionUpdate = {
       status: isSet(object.status) ? String(object.status) : undefined,
       nftContractAddress: isSet(object.nftContractAddress) ? String(object.nftContractAddress) : undefined,
       chain: isSet(object.chain) ? String(object.chain) : undefined,
+      transactionFee: isSet(object.transactionFee) ? String(object.transactionFee) : undefined,
     };
   },
 
@@ -282,6 +301,7 @@ export const CollectionUpdate = {
     message.status !== undefined && (obj.status = message.status);
     message.nftContractAddress !== undefined && (obj.nftContractAddress = message.nftContractAddress);
     message.chain !== undefined && (obj.chain = message.chain);
+    message.transactionFee !== undefined && (obj.transactionFee = message.transactionFee);
     return obj;
   },
 };

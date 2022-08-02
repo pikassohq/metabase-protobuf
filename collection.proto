@@ -15,6 +15,7 @@ message Collection {
   optional string status = 5;
   optional string nftContractAddress = 6;
   optional string chain = 7;
+  optional string transactionFee = 8;
 }
 
 message CollectionUpdate {
@@ -25,6 +26,7 @@ message CollectionUpdate {
   optional string status = 5;
   optional string nftContractAddress = 6;
   optional string chain = 7;
+  optional string transactionFee = 8;
 }
 
 
