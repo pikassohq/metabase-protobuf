@@ -177,3 +177,9 @@ export enum ENftType {
   ERC721 = 'erc721',
   ERC1155 = 'erc1155',
 }
+
+export enum EWidgetType {
+  BUTTON = 'button',
+  LIST = 'list',
+  CARD = 'card',
+}
