@@ -18,4 +18,5 @@ message TransactionUpdate {
   optional int32 retry = 1;
   optional string status = 2;
   optional string error = 3;
+  optional string paymentDetail = 4;
 }
