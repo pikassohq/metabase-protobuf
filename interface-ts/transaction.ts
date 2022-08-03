@@ -18,7 +18,11 @@ export interface TransactionUpdate {
   retry?: number | undefined;
   status?: string | undefined;
   error?: string | undefined;
-  paymentDetail?: string | undefined;
+  paymentDetail?: paymentDetailMess | undefined;
+}
+
+export interface paymentDetailMess {
+  transactionFee: string;
 }
 
 export const TRANSACTION_PACKAGE_NAME = 'transaction';
@@ -150,7 +154,7 @@ export const TransactionUpdate = {
       writer.uint32(26).string(message.error);
     }
     if (message.paymentDetail !== undefined) {
-      writer.uint32(34).string(message.paymentDetail);
+      paymentDetailMess.encode(message.paymentDetail, writer.uint32(34).fork()).ldelim();
     }
     return writer;
   },
@@ -172,7 +176,7 @@ export const TransactionUpdate = {
           message.error = reader.string();
           break;
         case 4:
-          message.paymentDetail = reader.string();
+          message.paymentDetail = paymentDetailMess.decode(reader, reader.uint32());
           break;
         default:
           reader.skipType(tag & 7);
@@ -187,7 +191,7 @@ export const TransactionUpdate = {
       retry: isSet(object.retry) ? Number(object.retry) : undefined,
       status: isSet(object.status) ? String(object.status) : undefined,
       error: isSet(object.error) ? String(object.error) : undefined,
-      paymentDetail: isSet(object.paymentDetail) ? String(object.paymentDetail) : undefined,
+      paymentDetail: isSet(object.paymentDetail) ? paymentDetailMess.fromJSON(object.paymentDetail) : undefined,
     };
   },
 
@@ -196,7 +200,51 @@ export const TransactionUpdate = {
     message.retry !== undefined && (obj.retry = Math.round(message.retry));
     message.status !== undefined && (obj.status = message.status);
     message.error !== undefined && (obj.error = message.error);
-    message.paymentDetail !== undefined && (obj.paymentDetail = message.paymentDetail);
+    message.paymentDetail !== undefined &&
+      (obj.paymentDetail = message.paymentDetail ? paymentDetailMess.toJSON(message.paymentDetail) : undefined);
+    return obj;
+  },
+};
+
+function createBasepaymentDetailMess(): paymentDetailMess {
+  return { transactionFee: '' };
+}
+
+export const paymentDetailMess = {
+  encode(message: paymentDetailMess, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
+    if (message.transactionFee !== '') {
+      writer.uint32(10).string(message.transactionFee);
+    }
+    return writer;
+  },
+
+  decode(input: _m0.Reader | Uint8Array, length?: number): paymentDetailMess {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBasepaymentDetailMess();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1:
+          message.transactionFee = reader.string();
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
+      }
+    }
+    return message;
+  },
+
+  fromJSON(object: any): paymentDetailMess {
+    return {
+      transactionFee: isSet(object.transactionFee) ? String(object.transactionFee) : '',
+    };
+  },
+
+  toJSON(message: paymentDetailMess): unknown {
+    const obj: any = {};
+    message.transactionFee !== undefined && (obj.transactionFee = message.transactionFee);
     return obj;
   },
 };
