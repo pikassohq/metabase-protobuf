@@ -22,7 +22,9 @@ export interface TransactionUpdate {
 }
 
 export interface paymentDetailMess {
-  transactionFee: string;
+  estDeployGas?: string | undefined;
+  estMintGas?: string | undefined;
+  transactionFee?: string | undefined;
 }
 
 export const TRANSACTION_PACKAGE_NAME = 'transaction';
@@ -207,13 +209,19 @@ export const TransactionUpdate = {
 };
 
 function createBasepaymentDetailMess(): paymentDetailMess {
-  return { transactionFee: '' };
+  return { estDeployGas: undefined, estMintGas: undefined, transactionFee: undefined };
 }
 
 export const paymentDetailMess = {
   encode(message: paymentDetailMess, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
-    if (message.transactionFee !== '') {
-      writer.uint32(10).string(message.transactionFee);
+    if (message.estDeployGas !== undefined) {
+      writer.uint32(10).string(message.estDeployGas);
+    }
+    if (message.estMintGas !== undefined) {
+      writer.uint32(18).string(message.estMintGas);
+    }
+    if (message.transactionFee !== undefined) {
+      writer.uint32(26).string(message.transactionFee);
     }
     return writer;
   },
@@ -226,6 +234,12 @@ export const paymentDetailMess = {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
+          message.estDeployGas = reader.string();
+          break;
+        case 2:
+          message.estMintGas = reader.string();
+          break;
+        case 3:
           message.transactionFee = reader.string();
           break;
         default:
@@ -238,12 +252,16 @@ export const paymentDetailMess = {
 
   fromJSON(object: any): paymentDetailMess {
     return {
-      transactionFee: isSet(object.transactionFee) ? String(object.transactionFee) : '',
+      estDeployGas: isSet(object.estDeployGas) ? String(object.estDeployGas) : undefined,
+      estMintGas: isSet(object.estMintGas) ? String(object.estMintGas) : undefined,
+      transactionFee: isSet(object.transactionFee) ? String(object.transactionFee) : undefined,
     };
   },
 
   toJSON(message: paymentDetailMess): unknown {
     const obj: any = {};
+    message.estDeployGas !== undefined && (obj.estDeployGas = message.estDeployGas);
+    message.estMintGas !== undefined && (obj.estMintGas = message.estMintGas);
     message.transactionFee !== undefined && (obj.transactionFee = message.transactionFee);
     return obj;
   },
