@@ -19,6 +19,7 @@ message TransactionUpdate {
   optional string status = 2;
   optional string error = 3;
   optional paymentDetailMess paymentDetail = 4;
+  optional string onChainTxHash = 5;
 }
 
 message paymentDetailMess{

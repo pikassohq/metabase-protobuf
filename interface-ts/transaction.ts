@@ -19,6 +19,7 @@ export interface TransactionUpdate {
   status?: string | undefined;
   error?: string | undefined;
   paymentDetail?: paymentDetailMess | undefined;
+  onChainTxHash?: string | undefined;
 }
 
 export interface paymentDetailMess {
@@ -141,7 +142,7 @@ export const Transaction = {
 };
 
 function createBaseTransactionUpdate(): TransactionUpdate {
-  return { retry: undefined, status: undefined, error: undefined, paymentDetail: undefined };
+  return { retry: undefined, status: undefined, error: undefined, paymentDetail: undefined, onChainTxHash: undefined };
 }
 
 export const TransactionUpdate = {
@@ -157,6 +158,9 @@ export const TransactionUpdate = {
     }
     if (message.paymentDetail !== undefined) {
       paymentDetailMess.encode(message.paymentDetail, writer.uint32(34).fork()).ldelim();
+    }
+    if (message.onChainTxHash !== undefined) {
+      writer.uint32(42).string(message.onChainTxHash);
     }
     return writer;
   },
@@ -180,6 +184,9 @@ export const TransactionUpdate = {
         case 4:
           message.paymentDetail = paymentDetailMess.decode(reader, reader.uint32());
           break;
+        case 5:
+          message.onChainTxHash = reader.string();
+          break;
         default:
           reader.skipType(tag & 7);
           break;
@@ -194,6 +201,7 @@ export const TransactionUpdate = {
       status: isSet(object.status) ? String(object.status) : undefined,
       error: isSet(object.error) ? String(object.error) : undefined,
       paymentDetail: isSet(object.paymentDetail) ? paymentDetailMess.fromJSON(object.paymentDetail) : undefined,
+      onChainTxHash: isSet(object.onChainTxHash) ? String(object.onChainTxHash) : undefined,
     };
   },
 
@@ -204,6 +212,7 @@ export const TransactionUpdate = {
     message.error !== undefined && (obj.error = message.error);
     message.paymentDetail !== undefined &&
       (obj.paymentDetail = message.paymentDetail ? paymentDetailMess.toJSON(message.paymentDetail) : undefined);
+    message.onChainTxHash !== undefined && (obj.onChainTxHash = message.onChainTxHash);
     return obj;
   },
 };
