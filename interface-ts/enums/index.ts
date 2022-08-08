@@ -188,3 +188,19 @@ export enum ESortOrder {
   DESC = 'DESC',
   ASC = 'ASC',
 }
+
+export enum EOrderType {
+  SELL = 'sell',
+  BUY = 'buy',
+}
+
+export enum EOrderStatus {
+  PENDING = 'pending', //can adjust in this state
+  CANCEL = 'cancel',
+  ACTIVE = 'active', // have to delete to update in this state
+  COMPLETE = 'complete',
+}
+
+export enum ECurrency {
+  USD = 'usd',
+}
