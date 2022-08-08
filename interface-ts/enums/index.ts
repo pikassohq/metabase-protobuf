@@ -31,6 +31,13 @@ export enum EPlayerStatus {
   INACTIVE = 'INACTIVE',
 }
 
+export enum EProvider {
+  MORALIS = 'moralis',
+  COINMARKETCAP = 'coinmarketcap',
+  COINGEKCO = 'coingecko',
+  CRYPTOCOMPARE = 'cryptocompare',
+}
+
 export enum EAdminQueueEvent {
   ADMIN_DEPLOY_CONTRACT = 'deploy_erc721_contract',
   ADMIN_TRANSFER_TOKEN = 'transfer_native_token',
