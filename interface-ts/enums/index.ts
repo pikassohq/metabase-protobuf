@@ -212,3 +212,14 @@ export enum EOrderStatus {
 export enum ECurrency {
   USD = 'usd',
 }
+
+export enum EPaymentStatus {
+  PENDING = 'pending',
+  SUCCESS = 'success',
+  FAILED = 'failed',
+  CANCEL = 'cancel',
+}
+
+export enum EPaymentProvider {
+  STRIPE = 'stripe',
+}
