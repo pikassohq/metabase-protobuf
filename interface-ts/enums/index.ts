@@ -223,3 +223,8 @@ export enum EPaymentStatus {
 export enum EPaymentProvider {
   STRIPE = 'stripe',
 }
+
+export enum EPaymentJobFunction {
+  BUY_NFT = 'buy_nft',
+  PUBLISH_NFT = 'publish_nft',
+}
