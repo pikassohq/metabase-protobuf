@@ -228,3 +228,10 @@ export enum EPaymentJobFunction {
   BUY_NFT = 'buy_nft',
   PUBLISH_NFT = 'publish_nft',
 }
+
+export enum ENftFilter {
+  CREATED = 'created',
+  MINTED = 'minted',
+  AUCTION = 'auction',
+  ON_SALE = 'on_sale',
+}
