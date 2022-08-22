@@ -227,6 +227,7 @@ export enum EPaymentProvider {
 export enum EPaymentJobFunction {
   BUY_NFT = 'buy_nft',
   PUBLISH_NFT = 'publish_nft',
+  UPGRADE_ACCOUNT = 'upgrade_account',
 }
 
 export enum ENftFilter {
@@ -234,4 +235,9 @@ export enum ENftFilter {
   MINTED = 'minted',
   AUCTION = 'auction',
   ON_SALE = 'on_sale',
+}
+
+export enum BillingPeriod {
+  MONTHLY = 'monthly',
+  YEARLY = 'yearly',
 }
