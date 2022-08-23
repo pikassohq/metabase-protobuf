@@ -59,6 +59,12 @@ export enum EQueueEvent {
   RINKEBY_SELL_PREPARE = 'rinkeby.sell_prepare',
   RINKEBY_ADMIN_TRANSFER_TOKEN = 'rinkeby.transfer_native_token',
 
+  // Stripe
+  STRIPE_FAILED_HANDLER = 'stripe.failed_handler',
+  STRIPE_SUCCEEDED_HANDLER = 'stripe.succeeded_handler',
+  STRIPE_COMPLETED_HANDLER = 'stripe.completed_handler',
+  STRIPE_EXPIRED_HANDLER = 'stripe.expired_handler',
+
   // Polygon
   POLYGON_CREATE_PROJECT = 'polygon.create_project',
   POLYGON_DEPLOY_ERC721_CONTRACT = 'polygon.deploy_erc721_contract',
@@ -227,6 +233,7 @@ export enum EPaymentProvider {
 export enum EPaymentJobFunction {
   BUY_NFT = 'buy_nft',
   PUBLISH_NFT = 'publish_nft',
+  UPGRADE_ACCOUNT = 'upgrade_account',
   WITHDRAW_NFT = 'withdraw_nft',
 }
 
@@ -235,4 +242,9 @@ export enum ENftFilter {
   MINTED = 'minted',
   AUCTION = 'auction',
   ON_SALE = 'on_sale',
+}
+
+export enum BillingPeriod {
+  MONTHLY = 'monthly',
+  YEARLY = 'yearly',
 }
