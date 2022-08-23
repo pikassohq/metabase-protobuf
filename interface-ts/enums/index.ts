@@ -227,6 +227,7 @@ export enum EPaymentProvider {
 export enum EPaymentJobFunction {
   BUY_NFT = 'buy_nft',
   PUBLISH_NFT = 'publish_nft',
+  WITHDRAW_NFT = 'withdraw_nft',
 }
 
 export enum ENftFilter {
