@@ -58,6 +58,7 @@ export enum EQueueEvent {
   RINKEBY_BUY_PREPARE = 'rinkeby.buy_prepare',
   RINKEBY_SELL_PREPARE = 'rinkeby.sell_prepare',
   RINKEBY_ADMIN_TRANSFER_TOKEN = 'rinkeby.transfer_native_token',
+  RINKEBY_WITHDRAW_NFT = 'rinkeby.withdraw_nft',
 
   // Polygon
   POLYGON_CREATE_PROJECT = 'polygon.create_project',
@@ -142,7 +143,8 @@ export enum ETokenStatus {
   FAILED = 'failed',
   TRANSFER_SUCCESS = 'transfer_success',
   TRANSFER_FAILED = 'transfer_failed',
-  WITHDRAWN = 'withdrawn to L1',
+  WITHDRAWN = 'withdrawn',
+  WITHDRAWN_TO_L1 = 'withdrawn to L1',
 }
 
 export enum EProjectStatus {
