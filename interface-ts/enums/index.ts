@@ -60,10 +60,13 @@ export enum EQueueEvent {
   RINKEBY_ADMIN_TRANSFER_TOKEN = 'rinkeby.transfer_native_token',
 
   // Stripe
+  STRIPE_PAYMENT = 'stripe.payment',
   STRIPE_FAILED_HANDLER = 'stripe.failed_handler',
   STRIPE_SUCCEEDED_HANDLER = 'stripe.succeeded_handler',
   STRIPE_COMPLETED_HANDLER = 'stripe.completed_handler',
   STRIPE_EXPIRED_HANDLER = 'stripe.expired_handler',
+  STRIPE_CANCEL_SUBSCRIPTION = 'stripe.cancel_subscription',
+  STRIPE_END_TRIAL_SUBSCRIPTION = 'stripe.end_trial_subscription',
 
   // Polygon
   POLYGON_CREATE_PROJECT = 'polygon.create_project',
