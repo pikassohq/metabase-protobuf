@@ -26,6 +26,7 @@ export interface paymentDetailMess {
   estDeployGas?: string | undefined;
   estMintGas?: string | undefined;
   transactionFee?: string | undefined;
+  estWithdrawGas?: string | undefined;
 }
 
 export const TRANSACTION_PACKAGE_NAME = 'transaction';
@@ -218,7 +219,7 @@ export const TransactionUpdate = {
 };
 
 function createBasepaymentDetailMess(): paymentDetailMess {
-  return { estDeployGas: undefined, estMintGas: undefined, transactionFee: undefined };
+  return { estDeployGas: undefined, estMintGas: undefined, transactionFee: undefined, estWithdrawGas: undefined };
 }
 
 export const paymentDetailMess = {
@@ -231,6 +232,9 @@ export const paymentDetailMess = {
     }
     if (message.transactionFee !== undefined) {
       writer.uint32(26).string(message.transactionFee);
+    }
+    if (message.estWithdrawGas !== undefined) {
+      writer.uint32(34).string(message.estWithdrawGas);
     }
     return writer;
   },
@@ -251,6 +255,9 @@ export const paymentDetailMess = {
         case 3:
           message.transactionFee = reader.string();
           break;
+        case 4:
+          message.estWithdrawGas = reader.string();
+          break;
         default:
           reader.skipType(tag & 7);
           break;
@@ -264,6 +271,7 @@ export const paymentDetailMess = {
       estDeployGas: isSet(object.estDeployGas) ? String(object.estDeployGas) : undefined,
       estMintGas: isSet(object.estMintGas) ? String(object.estMintGas) : undefined,
       transactionFee: isSet(object.transactionFee) ? String(object.transactionFee) : undefined,
+      estWithdrawGas: isSet(object.estWithdrawGas) ? String(object.estWithdrawGas) : undefined,
     };
   },
 
@@ -272,6 +280,7 @@ export const paymentDetailMess = {
     message.estDeployGas !== undefined && (obj.estDeployGas = message.estDeployGas);
     message.estMintGas !== undefined && (obj.estMintGas = message.estMintGas);
     message.transactionFee !== undefined && (obj.transactionFee = message.transactionFee);
+    message.estWithdrawGas !== undefined && (obj.estWithdrawGas = message.estWithdrawGas);
     return obj;
   },
 };

@@ -58,6 +58,7 @@ export enum EQueueEvent {
   RINKEBY_BUY_PREPARE = 'rinkeby.buy_prepare',
   RINKEBY_SELL_PREPARE = 'rinkeby.sell_prepare',
   RINKEBY_ADMIN_TRANSFER_TOKEN = 'rinkeby.transfer_native_token',
+  RINKEBY_WITHDRAW_NFT = 'rinkeby.withdraw_nft',
 
   // Stripe
   STRIPE_PAYMENT = 'stripe.payment',
@@ -151,7 +152,8 @@ export enum ETokenStatus {
   FAILED = 'failed',
   TRANSFER_SUCCESS = 'transfer_success',
   TRANSFER_FAILED = 'transfer_failed',
-  WITHDRAWN = 'withdrawn to L1',
+  WITHDRAWN = 'withdrawn',
+  WITHDRAWN_TO_L1 = 'withdrawn to L1',
 }
 
 export enum EProjectStatus {
@@ -237,6 +239,7 @@ export enum EPaymentJobFunction {
   BUY_NFT = 'buy_nft',
   PUBLISH_NFT = 'publish_nft',
   UPGRADE_ACCOUNT = 'upgrade_account',
+  WITHDRAW_NFT = 'withdraw_nft',
 }
 
 export enum ENftFilter {

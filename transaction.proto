@@ -26,4 +26,5 @@ message paymentDetailMess{
   optional string estDeployGas = 1;
   optional string estMintGas = 2;
   optional string transactionFee =3;
+  optional string estWithdrawGas =4;
 }
