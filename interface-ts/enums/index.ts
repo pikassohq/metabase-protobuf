@@ -232,6 +232,18 @@ export enum EPaymentStatus {
   CANCEL = 'cancel',
 }
 
+export enum EExchangeStatus {
+  CREATED = 'created',
+  FAILED = 'failed',
+  REMOVED = 'removed',
+}
+
+export enum ENftExchangeStatus {
+  CREATED = 'created',
+  FAILED = 'failed',
+  CANCEL = 'cancel',
+}
+
 export enum EPaymentProvider {
   STRIPE = 'stripe',
 }
