@@ -237,6 +237,12 @@ export enum EExchangeStatus {
   REMOVED = 'removed',
 }
 
+export enum ENftExchangeStatus {
+  CREATED = 'created',
+  FAILED = 'failed',
+  CANCEL = 'cancel',
+}
+
 export enum EPaymentProvider {
   STRIPE = 'stripe',
 }
