@@ -67,7 +67,8 @@ export enum EQueueEvent {
   STRIPE_COMPLETED_HANDLER = 'stripe.completed_handler',
   STRIPE_EXPIRED_HANDLER = 'stripe.expired_handler',
   STRIPE_CREATE_SUBSCRIPTION = 'stripe.create_subscription',
-  STRIPE_CANCEL_SUBSCRIPTION = 'stripe.cancel_subscription',
+  STRIPE_DELETE_SUBSCRIPTION = 'stripe.delete_subscription',
+  STRIPE_PENDING_SUBSCRIPTION = 'stripe.pending_subscription',
   STRIPE_END_TRIAL_SUBSCRIPTION = 'stripe.end_trial_subscription',
 
   // Polygon
