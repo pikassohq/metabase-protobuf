@@ -11,6 +11,7 @@ export enum EStatus {
 
 export enum EUserStatus {
   ACTIVE = 'active',
+  TRIAL = 'trial',
   IN_ACTIVE = 'in_active',
   VERIFY_EMAIL = 'verify_email',
   VERIFY_WALLET = 'verify_wallet',
@@ -69,6 +70,7 @@ export enum EQueueEvent {
   STRIPE_CREATE_SUBSCRIPTION = 'stripe.create_subscription',
   STRIPE_DELETE_SUBSCRIPTION = 'stripe.delete_subscription',
   STRIPE_PENDING_SUBSCRIPTION = 'stripe.pending_subscription',
+  STRIPE_UPDATE_SUBSCRIPTION = 'stripe.update_subscription',
   STRIPE_END_TRIAL_SUBSCRIPTION = 'stripe.end_trial_subscription',
 
   // Polygon
