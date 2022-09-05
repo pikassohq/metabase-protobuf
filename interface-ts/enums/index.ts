@@ -164,9 +164,8 @@ export enum EProjectStatus {
 }
 
 export enum CollectionStatus {
-  COLLECTION_CREATING = 'collection_creating',
-  COLLECTION_UPDATING_MASTER_ACCOUNT = 'collection_updating_master_account',
   COLLECTION_CREATED_OFF_CHAIN = 'collection_created_off_chain',
+  COLLECTION_UPDATING_MASTER_ACCOUNT = 'collection_updating_master_account',
   COLLECTION_DEPLOYING_CONTRACT = 'collection_deploying_contract',
   COLLECTION_CREATED_ON_CHAIN = 'colleciton_created_on_chain',
   COLLECTION_INACTIVE = 'collection_inactive',
