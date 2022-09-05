@@ -13,6 +13,7 @@ export enum EUserStatus {
   ACTIVE = 'active',
   TRIAL = 'trial',
   IN_ACTIVE = 'in_active',
+  CANCEL = 'cancel',
   VERIFY_EMAIL = 'verify_email',
   VERIFY_WALLET = 'verify_wallet',
   INIT_USER = 'init_user',
@@ -273,4 +274,10 @@ export enum BillingPeriod {
 
 export enum AccountPlan {
   BUSINESS = 'business',
+}
+
+export enum StripeSubscriptionStatus {
+  TRIAL = 'trialing',
+  PAST_DUE = 'past_due',
+  ACTIVE = 'active',
 }
