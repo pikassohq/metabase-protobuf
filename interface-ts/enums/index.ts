@@ -11,12 +11,17 @@ export enum EStatus {
 
 export enum EUserStatus {
   ACTIVE = 'active',
-  TRIAL = 'trial',
   IN_ACTIVE = 'in_active',
-  CANCEL = 'cancel',
   VERIFY_EMAIL = 'verify_email',
   VERIFY_WALLET = 'verify_wallet',
   INIT_USER = 'init_user',
+}
+
+export enum EUserPlanStatus {
+  ACTIVE = 'active',
+  TRIAL = 'trial',
+  IN_ACTIVE = 'in_active',
+  CANCEL = 'cancel',
 }
 
 export const ETokenTypes = {
