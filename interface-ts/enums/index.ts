@@ -11,6 +11,7 @@ export enum EStatus {
 
 export enum EUserStatus {
   ACTIVE = 'active',
+  TRIAL = 'trial',
   IN_ACTIVE = 'in_active',
   VERIFY_EMAIL = 'verify_email',
   VERIFY_WALLET = 'verify_wallet',
@@ -61,12 +62,15 @@ export enum EQueueEvent {
   RINKEBY_WITHDRAW_NFT = 'rinkeby.withdraw_nft',
 
   // Stripe
-  STRIPE_PAYMENT = 'stripe.payment',
+  UPGRADE_ACCOUNT = 'upgrade account',
   STRIPE_FAILED_HANDLER = 'stripe.failed_handler',
   STRIPE_SUCCEEDED_HANDLER = 'stripe.succeeded_handler',
   STRIPE_COMPLETED_HANDLER = 'stripe.completed_handler',
   STRIPE_EXPIRED_HANDLER = 'stripe.expired_handler',
-  STRIPE_CANCEL_SUBSCRIPTION = 'stripe.cancel_subscription',
+  STRIPE_CREATE_SUBSCRIPTION = 'stripe.create_subscription',
+  STRIPE_DELETE_SUBSCRIPTION = 'stripe.delete_subscription',
+  STRIPE_PENDING_SUBSCRIPTION = 'stripe.pending_subscription',
+  STRIPE_UPDATE_SUBSCRIPTION = 'stripe.update_subscription',
   STRIPE_END_TRIAL_SUBSCRIPTION = 'stripe.end_trial_subscription',
 
   // Polygon
@@ -236,6 +240,12 @@ export enum EExchangeStatus {
   REMOVED = 'removed',
 }
 
+export enum ENftExchangeStatus {
+  CREATED = 'created',
+  FAILED = 'failed',
+  CANCEL = 'cancel',
+}
+
 export enum EPaymentProvider {
   STRIPE = 'stripe',
 }
@@ -244,6 +254,7 @@ export enum EPaymentJobFunction {
   BUY_NFT = 'buy_nft',
   PUBLISH_NFT = 'publish_nft',
   UPGRADE_ACCOUNT = 'upgrade_account',
+  CANCEL_BUSINESS_ACCOUNT = 'cancel_business_account',
   WITHDRAW_NFT = 'withdraw_nft',
 }
 
@@ -257,4 +268,8 @@ export enum ENftFilter {
 export enum BillingPeriod {
   MONTHLY = 'monthly',
   YEARLY = 'yearly',
+}
+
+export enum AccountPlan {
+  BUSINESS = 'business',
 }
