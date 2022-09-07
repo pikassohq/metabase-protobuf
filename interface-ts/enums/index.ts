@@ -153,7 +153,6 @@ export enum Category {
 }
 
 export enum ETokenStatus {
-  CREATED = 'created',
   DELETED = 'deleted',
   CREATE_OFF_CHAIN = 'create_off_chain',
   MINTING = 'minting',
