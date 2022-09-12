@@ -22,6 +22,7 @@ message Wallet {
     string id = 1;
     string userId = 2;
     int32 balance = 3;
+    string currency = 4;
 }
 
 message DepositInput {

@@ -18,6 +18,7 @@ export interface Wallet {
   id: string;
   userId: string;
   balance: number;
+  currency: string;
 }
 
 export interface DepositInput {
@@ -144,7 +145,7 @@ export const WalletInput = {
 };
 
 function createBaseWallet(): Wallet {
-  return { id: '', userId: '', balance: 0 };
+  return { id: '', userId: '', balance: 0, currency: '' };
 }
 
 export const Wallet = {
@@ -157,6 +158,9 @@ export const Wallet = {
     }
     if (message.balance !== 0) {
       writer.uint32(24).int32(message.balance);
+    }
+    if (message.currency !== '') {
+      writer.uint32(34).string(message.currency);
     }
     return writer;
   },
@@ -177,6 +181,9 @@ export const Wallet = {
         case 3:
           message.balance = reader.int32();
           break;
+        case 4:
+          message.currency = reader.string();
+          break;
         default:
           reader.skipType(tag & 7);
           break;
@@ -190,6 +197,7 @@ export const Wallet = {
       id: isSet(object.id) ? String(object.id) : '',
       userId: isSet(object.userId) ? String(object.userId) : '',
       balance: isSet(object.balance) ? Number(object.balance) : 0,
+      currency: isSet(object.currency) ? String(object.currency) : '',
     };
   },
 
@@ -198,6 +206,7 @@ export const Wallet = {
     message.id !== undefined && (obj.id = message.id);
     message.userId !== undefined && (obj.userId = message.userId);
     message.balance !== undefined && (obj.balance = Math.round(message.balance));
+    message.currency !== undefined && (obj.currency = message.currency);
     return obj;
   },
 };
