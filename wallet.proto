@@ -3,13 +3,19 @@ syntax = "proto3";
 package WalletService;
 
 service WalletService{
-    rpc CreateWallet (User) returns (Wallet) {}
-    rpc depositWallet(DepositInput) returns (DepositResponse){}
-    rpc transferFund(TransferInput) returns (TransferResponse){}
+    rpc CreateWallet (WalletInput) returns (Wallet) {}
+    rpc GetBalance (User) returns (Balance){}
+    rpc DepositWallet(DepositInput) returns (DepositResponse){}
+    rpc TransferFund(TransferInput) returns (TransferResponse){}
 }
 
 message User {
     string id = 1;
+}
+
+message WalletInput {
+    string userId = 1;
+    string currency = 2;
 }
 
 message Wallet {
@@ -41,5 +47,8 @@ message TransferResponse {
     repeated string error = 2;
 }
 
+message Balance {
+    int32 balance = 1;
+}
 
 
