@@ -284,3 +284,8 @@ export enum StripeSubscriptionStatus {
   PAST_DUE = 'past_due',
   ACTIVE = 'active',
 }
+
+export enum WalletTypeTransaction {
+  DEPOSIT = 'deposit',
+  TRANSFER = 'transfer',
+}
