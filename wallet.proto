@@ -26,9 +26,10 @@ message Wallet {
 }
 
 message DepositInput {
-    string walletId = 1;
+    string userId = 1;
     int32 amount = 2;
     string currency = 3;
+    string details = 4;
 }
 
 message DepositResponse {
@@ -41,6 +42,7 @@ message TransferInput {
     string toId = 2;
     int32 amount = 3;
     string currency = 4;
+    string details = 5;
 }
 
 message TransferResponse {

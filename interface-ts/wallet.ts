@@ -22,9 +22,10 @@ export interface Wallet {
 }
 
 export interface DepositInput {
-  walletId: string;
+  userId: string;
   amount: number;
   currency: string;
+  details: string;
 }
 
 export interface DepositResponse {
@@ -37,6 +38,7 @@ export interface TransferInput {
   toId: string;
   amount: number;
   currency: string;
+  details: string;
 }
 
 export interface TransferResponse {
@@ -212,19 +214,22 @@ export const Wallet = {
 };
 
 function createBaseDepositInput(): DepositInput {
-  return { walletId: '', amount: 0, currency: '' };
+  return { userId: '', amount: 0, currency: '', details: '' };
 }
 
 export const DepositInput = {
   encode(message: DepositInput, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
-    if (message.walletId !== '') {
-      writer.uint32(10).string(message.walletId);
+    if (message.userId !== '') {
+      writer.uint32(10).string(message.userId);
     }
     if (message.amount !== 0) {
       writer.uint32(16).int32(message.amount);
     }
     if (message.currency !== '') {
       writer.uint32(26).string(message.currency);
+    }
+    if (message.details !== '') {
+      writer.uint32(34).string(message.details);
     }
     return writer;
   },
@@ -237,13 +242,16 @@ export const DepositInput = {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
-          message.walletId = reader.string();
+          message.userId = reader.string();
           break;
         case 2:
           message.amount = reader.int32();
           break;
         case 3:
           message.currency = reader.string();
+          break;
+        case 4:
+          message.details = reader.string();
           break;
         default:
           reader.skipType(tag & 7);
@@ -255,17 +263,19 @@ export const DepositInput = {
 
   fromJSON(object: any): DepositInput {
     return {
-      walletId: isSet(object.walletId) ? String(object.walletId) : '',
+      userId: isSet(object.userId) ? String(object.userId) : '',
       amount: isSet(object.amount) ? Number(object.amount) : 0,
       currency: isSet(object.currency) ? String(object.currency) : '',
+      details: isSet(object.details) ? String(object.details) : '',
     };
   },
 
   toJSON(message: DepositInput): unknown {
     const obj: any = {};
-    message.walletId !== undefined && (obj.walletId = message.walletId);
+    message.userId !== undefined && (obj.userId = message.userId);
     message.amount !== undefined && (obj.amount = Math.round(message.amount));
     message.currency !== undefined && (obj.currency = message.currency);
+    message.details !== undefined && (obj.details = message.details);
     return obj;
   },
 };
@@ -326,7 +336,7 @@ export const DepositResponse = {
 };
 
 function createBaseTransferInput(): TransferInput {
-  return { fromId: '', toId: '', amount: 0, currency: '' };
+  return { fromId: '', toId: '', amount: 0, currency: '', details: '' };
 }
 
 export const TransferInput = {
@@ -342,6 +352,9 @@ export const TransferInput = {
     }
     if (message.currency !== '') {
       writer.uint32(34).string(message.currency);
+    }
+    if (message.details !== '') {
+      writer.uint32(42).string(message.details);
     }
     return writer;
   },
@@ -365,6 +378,9 @@ export const TransferInput = {
         case 4:
           message.currency = reader.string();
           break;
+        case 5:
+          message.details = reader.string();
+          break;
         default:
           reader.skipType(tag & 7);
           break;
@@ -379,6 +395,7 @@ export const TransferInput = {
       toId: isSet(object.toId) ? String(object.toId) : '',
       amount: isSet(object.amount) ? Number(object.amount) : 0,
       currency: isSet(object.currency) ? String(object.currency) : '',
+      details: isSet(object.details) ? String(object.details) : '',
     };
   },
 
@@ -388,6 +405,7 @@ export const TransferInput = {
     message.toId !== undefined && (obj.toId = message.toId);
     message.amount !== undefined && (obj.amount = Math.round(message.amount));
     message.currency !== undefined && (obj.currency = message.currency);
+    message.details !== undefined && (obj.details = message.details);
     return obj;
   },
 };
