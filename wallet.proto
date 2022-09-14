@@ -43,6 +43,7 @@ message TransferInput {
     int32 amount = 3;
     string currency = 4;
     string details = 5;
+    string userId = 6;
 }
 
 message TransferResponse {

@@ -39,6 +39,7 @@ export interface TransferInput {
   amount: number;
   currency: string;
   details: string;
+  userId: string;
 }
 
 export interface TransferResponse {
@@ -336,7 +337,7 @@ export const DepositResponse = {
 };
 
 function createBaseTransferInput(): TransferInput {
-  return { fromId: '', toId: '', amount: 0, currency: '', details: '' };
+  return { fromId: '', toId: '', amount: 0, currency: '', details: '', userId: '' };
 }
 
 export const TransferInput = {
@@ -355,6 +356,9 @@ export const TransferInput = {
     }
     if (message.details !== '') {
       writer.uint32(42).string(message.details);
+    }
+    if (message.userId !== '') {
+      writer.uint32(50).string(message.userId);
     }
     return writer;
   },
@@ -381,6 +385,9 @@ export const TransferInput = {
         case 5:
           message.details = reader.string();
           break;
+        case 6:
+          message.userId = reader.string();
+          break;
         default:
           reader.skipType(tag & 7);
           break;
@@ -396,6 +403,7 @@ export const TransferInput = {
       amount: isSet(object.amount) ? Number(object.amount) : 0,
       currency: isSet(object.currency) ? String(object.currency) : '',
       details: isSet(object.details) ? String(object.details) : '',
+      userId: isSet(object.userId) ? String(object.userId) : '',
     };
   },
 
@@ -406,6 +414,7 @@ export const TransferInput = {
     message.amount !== undefined && (obj.amount = Math.round(message.amount));
     message.currency !== undefined && (obj.currency = message.currency);
     message.details !== undefined && (obj.details = message.details);
+    message.userId !== undefined && (obj.userId = message.userId);
     return obj;
   },
 };
