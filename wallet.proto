@@ -4,13 +4,14 @@ package WalletService;
 
 service WalletService{
     rpc CreateWallet (WalletInput) returns (Wallet) {}
-    rpc GetBalance (User) returns (Balance){}
+    rpc GetBalance (BalanceInput) returns (Balance){}
     rpc DepositWallet(DepositInput) returns (DepositResponse){}
     rpc TransferFund(TransferInput) returns (TransferResponse){}
 }
 
-message User {
-    string id = 1;
+message BalanceInput {
+    string userId = 1;
+    string walletAddress = 2;
 }
 
 message WalletInput {
@@ -19,17 +20,17 @@ message WalletInput {
 }
 
 message Wallet {
-    string id = 1;
-    string userId = 2;
-    int32 balance = 3;
-    string currency = 4;
+    string walletAddress = 1;
+    int32 balance = 2;
+    string currency = 3;
 }
 
 message DepositInput {
-    string userId = 1;
+    string walletAddress = 1;
     int32 amount = 2;
     string currency = 3;
     string details = 4;
+    string userId = 5;
 }
 
 message DepositResponse {
@@ -38,8 +39,8 @@ message DepositResponse {
 }
 
 message TransferInput {
-    string fromId = 1;
-    string toId = 2;
+    string fromAddress = 1;
+    string toAddress = 2;
     int32 amount = 3;
     string currency = 4;
     string details = 5;

@@ -5,8 +5,9 @@ import * as _m0 from 'protobufjs/minimal';
 
 export const protobufPackage = 'WalletService';
 
-export interface User {
-  id: string;
+export interface BalanceInput {
+  userId: string;
+  walletAddress: string;
 }
 
 export interface WalletInput {
@@ -15,17 +16,17 @@ export interface WalletInput {
 }
 
 export interface Wallet {
-  id: string;
-  userId: string;
+  walletAddress: string;
   balance: number;
   currency: string;
 }
 
 export interface DepositInput {
-  userId: string;
+  walletAddress: string;
   amount: number;
   currency: string;
   details: string;
+  userId: string;
 }
 
 export interface DepositResponse {
@@ -34,8 +35,8 @@ export interface DepositResponse {
 }
 
 export interface TransferInput {
-  fromId: string;
-  toId: string;
+  fromAddress: string;
+  toAddress: string;
   amount: number;
   currency: string;
   details: string;
@@ -53,27 +54,33 @@ export interface Balance {
 
 export const WALLET_SERVICE_PACKAGE_NAME = 'WalletService';
 
-function createBaseUser(): User {
-  return { id: '' };
+function createBaseBalanceInput(): BalanceInput {
+  return { userId: '', walletAddress: '' };
 }
 
-export const User = {
-  encode(message: User, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
-    if (message.id !== '') {
-      writer.uint32(10).string(message.id);
+export const BalanceInput = {
+  encode(message: BalanceInput, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
+    if (message.userId !== '') {
+      writer.uint32(10).string(message.userId);
+    }
+    if (message.walletAddress !== '') {
+      writer.uint32(18).string(message.walletAddress);
     }
     return writer;
   },
 
-  decode(input: _m0.Reader | Uint8Array, length?: number): User {
+  decode(input: _m0.Reader | Uint8Array, length?: number): BalanceInput {
     const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
-    const message = createBaseUser();
+    const message = createBaseBalanceInput();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
-          message.id = reader.string();
+          message.userId = reader.string();
+          break;
+        case 2:
+          message.walletAddress = reader.string();
           break;
         default:
           reader.skipType(tag & 7);
@@ -83,15 +90,17 @@ export const User = {
     return message;
   },
 
-  fromJSON(object: any): User {
+  fromJSON(object: any): BalanceInput {
     return {
-      id: isSet(object.id) ? String(object.id) : '',
+      userId: isSet(object.userId) ? String(object.userId) : '',
+      walletAddress: isSet(object.walletAddress) ? String(object.walletAddress) : '',
     };
   },
 
-  toJSON(message: User): unknown {
+  toJSON(message: BalanceInput): unknown {
     const obj: any = {};
-    message.id !== undefined && (obj.id = message.id);
+    message.userId !== undefined && (obj.userId = message.userId);
+    message.walletAddress !== undefined && (obj.walletAddress = message.walletAddress);
     return obj;
   },
 };
@@ -148,22 +157,19 @@ export const WalletInput = {
 };
 
 function createBaseWallet(): Wallet {
-  return { id: '', userId: '', balance: 0, currency: '' };
+  return { walletAddress: '', balance: 0, currency: '' };
 }
 
 export const Wallet = {
   encode(message: Wallet, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
-    if (message.id !== '') {
-      writer.uint32(10).string(message.id);
-    }
-    if (message.userId !== '') {
-      writer.uint32(18).string(message.userId);
+    if (message.walletAddress !== '') {
+      writer.uint32(10).string(message.walletAddress);
     }
     if (message.balance !== 0) {
-      writer.uint32(24).int32(message.balance);
+      writer.uint32(16).int32(message.balance);
     }
     if (message.currency !== '') {
-      writer.uint32(34).string(message.currency);
+      writer.uint32(26).string(message.currency);
     }
     return writer;
   },
@@ -176,15 +182,12 @@ export const Wallet = {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
-          message.id = reader.string();
+          message.walletAddress = reader.string();
           break;
         case 2:
-          message.userId = reader.string();
-          break;
-        case 3:
           message.balance = reader.int32();
           break;
-        case 4:
+        case 3:
           message.currency = reader.string();
           break;
         default:
@@ -197,8 +200,7 @@ export const Wallet = {
 
   fromJSON(object: any): Wallet {
     return {
-      id: isSet(object.id) ? String(object.id) : '',
-      userId: isSet(object.userId) ? String(object.userId) : '',
+      walletAddress: isSet(object.walletAddress) ? String(object.walletAddress) : '',
       balance: isSet(object.balance) ? Number(object.balance) : 0,
       currency: isSet(object.currency) ? String(object.currency) : '',
     };
@@ -206,8 +208,7 @@ export const Wallet = {
 
   toJSON(message: Wallet): unknown {
     const obj: any = {};
-    message.id !== undefined && (obj.id = message.id);
-    message.userId !== undefined && (obj.userId = message.userId);
+    message.walletAddress !== undefined && (obj.walletAddress = message.walletAddress);
     message.balance !== undefined && (obj.balance = Math.round(message.balance));
     message.currency !== undefined && (obj.currency = message.currency);
     return obj;
@@ -215,13 +216,13 @@ export const Wallet = {
 };
 
 function createBaseDepositInput(): DepositInput {
-  return { userId: '', amount: 0, currency: '', details: '' };
+  return { walletAddress: '', amount: 0, currency: '', details: '', userId: '' };
 }
 
 export const DepositInput = {
   encode(message: DepositInput, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
-    if (message.userId !== '') {
-      writer.uint32(10).string(message.userId);
+    if (message.walletAddress !== '') {
+      writer.uint32(10).string(message.walletAddress);
     }
     if (message.amount !== 0) {
       writer.uint32(16).int32(message.amount);
@@ -231,6 +232,9 @@ export const DepositInput = {
     }
     if (message.details !== '') {
       writer.uint32(34).string(message.details);
+    }
+    if (message.userId !== '') {
+      writer.uint32(42).string(message.userId);
     }
     return writer;
   },
@@ -243,7 +247,7 @@ export const DepositInput = {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
-          message.userId = reader.string();
+          message.walletAddress = reader.string();
           break;
         case 2:
           message.amount = reader.int32();
@@ -253,6 +257,9 @@ export const DepositInput = {
           break;
         case 4:
           message.details = reader.string();
+          break;
+        case 5:
+          message.userId = reader.string();
           break;
         default:
           reader.skipType(tag & 7);
@@ -264,19 +271,21 @@ export const DepositInput = {
 
   fromJSON(object: any): DepositInput {
     return {
-      userId: isSet(object.userId) ? String(object.userId) : '',
+      walletAddress: isSet(object.walletAddress) ? String(object.walletAddress) : '',
       amount: isSet(object.amount) ? Number(object.amount) : 0,
       currency: isSet(object.currency) ? String(object.currency) : '',
       details: isSet(object.details) ? String(object.details) : '',
+      userId: isSet(object.userId) ? String(object.userId) : '',
     };
   },
 
   toJSON(message: DepositInput): unknown {
     const obj: any = {};
-    message.userId !== undefined && (obj.userId = message.userId);
+    message.walletAddress !== undefined && (obj.walletAddress = message.walletAddress);
     message.amount !== undefined && (obj.amount = Math.round(message.amount));
     message.currency !== undefined && (obj.currency = message.currency);
     message.details !== undefined && (obj.details = message.details);
+    message.userId !== undefined && (obj.userId = message.userId);
     return obj;
   },
 };
@@ -337,16 +346,16 @@ export const DepositResponse = {
 };
 
 function createBaseTransferInput(): TransferInput {
-  return { fromId: '', toId: '', amount: 0, currency: '', details: '', userId: '' };
+  return { fromAddress: '', toAddress: '', amount: 0, currency: '', details: '', userId: '' };
 }
 
 export const TransferInput = {
   encode(message: TransferInput, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
-    if (message.fromId !== '') {
-      writer.uint32(10).string(message.fromId);
+    if (message.fromAddress !== '') {
+      writer.uint32(10).string(message.fromAddress);
     }
-    if (message.toId !== '') {
-      writer.uint32(18).string(message.toId);
+    if (message.toAddress !== '') {
+      writer.uint32(18).string(message.toAddress);
     }
     if (message.amount !== 0) {
       writer.uint32(24).int32(message.amount);
@@ -371,10 +380,10 @@ export const TransferInput = {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
-          message.fromId = reader.string();
+          message.fromAddress = reader.string();
           break;
         case 2:
-          message.toId = reader.string();
+          message.toAddress = reader.string();
           break;
         case 3:
           message.amount = reader.int32();
@@ -398,8 +407,8 @@ export const TransferInput = {
 
   fromJSON(object: any): TransferInput {
     return {
-      fromId: isSet(object.fromId) ? String(object.fromId) : '',
-      toId: isSet(object.toId) ? String(object.toId) : '',
+      fromAddress: isSet(object.fromAddress) ? String(object.fromAddress) : '',
+      toAddress: isSet(object.toAddress) ? String(object.toAddress) : '',
       amount: isSet(object.amount) ? Number(object.amount) : 0,
       currency: isSet(object.currency) ? String(object.currency) : '',
       details: isSet(object.details) ? String(object.details) : '',
@@ -409,8 +418,8 @@ export const TransferInput = {
 
   toJSON(message: TransferInput): unknown {
     const obj: any = {};
-    message.fromId !== undefined && (obj.fromId = message.fromId);
-    message.toId !== undefined && (obj.toId = message.toId);
+    message.fromAddress !== undefined && (obj.fromAddress = message.fromAddress);
+    message.toAddress !== undefined && (obj.toAddress = message.toAddress);
     message.amount !== undefined && (obj.amount = Math.round(message.amount));
     message.currency !== undefined && (obj.currency = message.currency);
     message.details !== undefined && (obj.details = message.details);
@@ -520,7 +529,7 @@ export const Balance = {
 export interface WalletServiceClient {
   createWallet(request: WalletInput, ...rest: any): Observable<Wallet>;
 
-  getBalance(request: User, ...rest: any): Observable<Balance>;
+  getBalance(request: BalanceInput, ...rest: any): Observable<Balance>;
 
   depositWallet(request: DepositInput, ...rest: any): Observable<DepositResponse>;
 
@@ -530,7 +539,7 @@ export interface WalletServiceClient {
 export interface WalletServiceController {
   createWallet(request: WalletInput, ...rest: any): Promise<Wallet> | Observable<Wallet> | Wallet;
 
-  getBalance(request: User, ...rest: any): Promise<Balance> | Observable<Balance> | Balance;
+  getBalance(request: BalanceInput, ...rest: any): Promise<Balance> | Observable<Balance> | Balance;
 
   depositWallet(
     request: DepositInput,
