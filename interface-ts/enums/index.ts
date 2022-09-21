@@ -289,3 +289,11 @@ export enum WalletTypeTransaction {
   DEPOSIT = 'deposit',
   TRANSFER = 'transfer',
 }
+
+export enum CancelPlanReason {
+  REASON_1 = "No longer using Pikasso 's products ",
+  REASON_2 = 'Project is over or longer active',
+  REASON_3 = 'Too expensive',
+  REASON_4 = 'Billing structure is unclear',
+  REASON_5 = 'Did not mean to upgrade',
+}
