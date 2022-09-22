@@ -298,7 +298,8 @@ export enum CancelPlanReason {
   REASON_5 = 'Did not mean to upgrade',
 }
 
-export enum CampaignStatus {
+export enum ECampaignStatus {
   ACTIVE = 'active',
-  IN_ACTIVE = 'inactive',
+  CANCEL = 'cancel',
+  PENDING = 'pending',
 }
