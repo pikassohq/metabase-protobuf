@@ -297,3 +297,8 @@ export enum CancelPlanReason {
   REASON_4 = 'Billing structure is unclear',
   REASON_5 = 'Did not mean to upgrade',
 }
+
+export enum CampaignStatus {
+  ACTIVE = 'active',
+  IN_ACTIVE = 'inactive',
+}
