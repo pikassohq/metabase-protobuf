@@ -261,6 +261,7 @@ export enum EPaymentJobFunction {
   UPGRADE_ACCOUNT = 'upgrade_account',
   CANCEL_BUSINESS_ACCOUNT = 'cancel_business_account',
   WITHDRAW_NFT = 'withdraw_nft',
+  ADD_CARD = 'add_card',
 }
 
 export enum ENftFilter {
