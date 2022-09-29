@@ -1,9 +1,9 @@
 /* eslint-disable */
-import { GrpcMethod, GrpcStreamMethod } from '@nestjs/microservices';
-import { Observable } from 'rxjs';
-import * as _m0 from 'protobufjs/minimal';
+import { GrpcMethod, GrpcStreamMethod } from "@nestjs/microservices";
+import * as _m0 from "protobufjs/minimal";
+import { Observable } from "rxjs";
 
-export const protobufPackage = 'WalletService';
+export const protobufPackage = "WalletService";
 
 export interface BalanceInput {
   userId: string;
@@ -52,18 +52,18 @@ export interface Balance {
   balance: number;
 }
 
-export const WALLET_SERVICE_PACKAGE_NAME = 'WalletService';
+export const WALLET_SERVICE_PACKAGE_NAME = "WalletService";
 
 function createBaseBalanceInput(): BalanceInput {
-  return { userId: '', walletAddress: '' };
+  return { userId: "", walletAddress: "" };
 }
 
 export const BalanceInput = {
   encode(message: BalanceInput, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
-    if (message.userId !== '') {
+    if (message.userId !== "") {
       writer.uint32(10).string(message.userId);
     }
-    if (message.walletAddress !== '') {
+    if (message.walletAddress !== "") {
       writer.uint32(18).string(message.walletAddress);
     }
     return writer;
@@ -92,8 +92,8 @@ export const BalanceInput = {
 
   fromJSON(object: any): BalanceInput {
     return {
-      userId: isSet(object.userId) ? String(object.userId) : '',
-      walletAddress: isSet(object.walletAddress) ? String(object.walletAddress) : '',
+      userId: isSet(object.userId) ? String(object.userId) : "",
+      walletAddress: isSet(object.walletAddress) ? String(object.walletAddress) : "",
     };
   },
 
@@ -106,15 +106,15 @@ export const BalanceInput = {
 };
 
 function createBaseWalletInput(): WalletInput {
-  return { userId: '', currency: '' };
+  return { userId: "", currency: "" };
 }
 
 export const WalletInput = {
   encode(message: WalletInput, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
-    if (message.userId !== '') {
+    if (message.userId !== "") {
       writer.uint32(10).string(message.userId);
     }
-    if (message.currency !== '') {
+    if (message.currency !== "") {
       writer.uint32(18).string(message.currency);
     }
     return writer;
@@ -143,8 +143,8 @@ export const WalletInput = {
 
   fromJSON(object: any): WalletInput {
     return {
-      userId: isSet(object.userId) ? String(object.userId) : '',
-      currency: isSet(object.currency) ? String(object.currency) : '',
+      userId: isSet(object.userId) ? String(object.userId) : "",
+      currency: isSet(object.currency) ? String(object.currency) : "",
     };
   },
 
@@ -157,18 +157,18 @@ export const WalletInput = {
 };
 
 function createBaseWallet(): Wallet {
-  return { walletAddress: '', balance: 0, currency: '' };
+  return { walletAddress: "", balance: 0, currency: "" };
 }
 
 export const Wallet = {
   encode(message: Wallet, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
-    if (message.walletAddress !== '') {
+    if (message.walletAddress !== "") {
       writer.uint32(10).string(message.walletAddress);
     }
     if (message.balance !== 0) {
       writer.uint32(16).int32(message.balance);
     }
-    if (message.currency !== '') {
+    if (message.currency !== "") {
       writer.uint32(26).string(message.currency);
     }
     return writer;
@@ -200,9 +200,9 @@ export const Wallet = {
 
   fromJSON(object: any): Wallet {
     return {
-      walletAddress: isSet(object.walletAddress) ? String(object.walletAddress) : '',
+      walletAddress: isSet(object.walletAddress) ? String(object.walletAddress) : "",
       balance: isSet(object.balance) ? Number(object.balance) : 0,
-      currency: isSet(object.currency) ? String(object.currency) : '',
+      currency: isSet(object.currency) ? String(object.currency) : "",
     };
   },
 
@@ -216,24 +216,24 @@ export const Wallet = {
 };
 
 function createBaseDepositInput(): DepositInput {
-  return { walletAddress: '', amount: 0, currency: '', details: '', userId: '' };
+  return { walletAddress: "", amount: 0, currency: "", details: "", userId: "" };
 }
 
 export const DepositInput = {
   encode(message: DepositInput, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
-    if (message.walletAddress !== '') {
+    if (message.walletAddress !== "") {
       writer.uint32(10).string(message.walletAddress);
     }
     if (message.amount !== 0) {
       writer.uint32(16).int32(message.amount);
     }
-    if (message.currency !== '') {
+    if (message.currency !== "") {
       writer.uint32(26).string(message.currency);
     }
-    if (message.details !== '') {
+    if (message.details !== "") {
       writer.uint32(34).string(message.details);
     }
-    if (message.userId !== '') {
+    if (message.userId !== "") {
       writer.uint32(42).string(message.userId);
     }
     return writer;
@@ -271,11 +271,11 @@ export const DepositInput = {
 
   fromJSON(object: any): DepositInput {
     return {
-      walletAddress: isSet(object.walletAddress) ? String(object.walletAddress) : '',
+      walletAddress: isSet(object.walletAddress) ? String(object.walletAddress) : "",
       amount: isSet(object.amount) ? Number(object.amount) : 0,
-      currency: isSet(object.currency) ? String(object.currency) : '',
-      details: isSet(object.details) ? String(object.details) : '',
-      userId: isSet(object.userId) ? String(object.userId) : '',
+      currency: isSet(object.currency) ? String(object.currency) : "",
+      details: isSet(object.details) ? String(object.details) : "",
+      userId: isSet(object.userId) ? String(object.userId) : "",
     };
   },
 
@@ -346,27 +346,27 @@ export const DepositResponse = {
 };
 
 function createBaseTransferInput(): TransferInput {
-  return { fromAddress: '', toAddress: '', amount: 0, currency: '', details: '', userId: '' };
+  return { fromAddress: "", toAddress: "", amount: 0, currency: "", details: "", userId: "" };
 }
 
 export const TransferInput = {
   encode(message: TransferInput, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
-    if (message.fromAddress !== '') {
+    if (message.fromAddress !== "") {
       writer.uint32(10).string(message.fromAddress);
     }
-    if (message.toAddress !== '') {
+    if (message.toAddress !== "") {
       writer.uint32(18).string(message.toAddress);
     }
     if (message.amount !== 0) {
       writer.uint32(24).int32(message.amount);
     }
-    if (message.currency !== '') {
+    if (message.currency !== "") {
       writer.uint32(34).string(message.currency);
     }
-    if (message.details !== '') {
+    if (message.details !== "") {
       writer.uint32(42).string(message.details);
     }
-    if (message.userId !== '') {
+    if (message.userId !== "") {
       writer.uint32(50).string(message.userId);
     }
     return writer;
@@ -407,12 +407,12 @@ export const TransferInput = {
 
   fromJSON(object: any): TransferInput {
     return {
-      fromAddress: isSet(object.fromAddress) ? String(object.fromAddress) : '',
-      toAddress: isSet(object.toAddress) ? String(object.toAddress) : '',
+      fromAddress: isSet(object.fromAddress) ? String(object.fromAddress) : "",
+      toAddress: isSet(object.toAddress) ? String(object.toAddress) : "",
       amount: isSet(object.amount) ? Number(object.amount) : 0,
-      currency: isSet(object.currency) ? String(object.currency) : '',
-      details: isSet(object.details) ? String(object.details) : '',
-      userId: isSet(object.userId) ? String(object.userId) : '',
+      currency: isSet(object.currency) ? String(object.currency) : "",
+      details: isSet(object.details) ? String(object.details) : "",
+      userId: isSet(object.userId) ? String(object.userId) : "",
     };
   },
 
@@ -514,9 +514,7 @@ export const Balance = {
   },
 
   fromJSON(object: any): Balance {
-    return {
-      balance: isSet(object.balance) ? Number(object.balance) : 0,
-    };
+    return { balance: isSet(object.balance) ? Number(object.balance) : 0 };
   },
 
   toJSON(message: Balance): unknown {
@@ -554,20 +552,20 @@ export interface WalletServiceController {
 
 export function WalletServiceControllerMethods() {
   return function (constructor: Function) {
-    const grpcMethods: string[] = ['createWallet', 'getBalance', 'depositWallet', 'transferFund'];
+    const grpcMethods: string[] = ["createWallet", "getBalance", "depositWallet", "transferFund"];
     for (const method of grpcMethods) {
       const descriptor: any = Reflect.getOwnPropertyDescriptor(constructor.prototype, method);
-      GrpcMethod('WalletService', method)(constructor.prototype[method], method, descriptor);
+      GrpcMethod("WalletService", method)(constructor.prototype[method], method, descriptor);
     }
     const grpcStreamMethods: string[] = [];
     for (const method of grpcStreamMethods) {
       const descriptor: any = Reflect.getOwnPropertyDescriptor(constructor.prototype, method);
-      GrpcStreamMethod('WalletService', method)(constructor.prototype[method], method, descriptor);
+      GrpcStreamMethod("WalletService", method)(constructor.prototype[method], method, descriptor);
     }
   };
 }
 
-export const WALLET_SERVICE_NAME = 'WalletService';
+export const WALLET_SERVICE_NAME = "WalletService";
 
 function isSet(value: any): boolean {
   return value !== null && value !== undefined;

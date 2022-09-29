@@ -1,14 +1,14 @@
 /* eslint-disable */
-import { GrpcMethod, GrpcStreamMethod } from '@nestjs/microservices';
-import { Observable } from 'rxjs';
-import { Transaction, Request } from './transaction';
-import { Project, Request as Request1 } from './project';
-import { Nft, Request as Request2 } from './nft';
-import { Order, Request as Request3 } from './order';
-import { Collection, Request as Request4 } from './collection';
-import * as _m0 from 'protobufjs/minimal';
+import { GrpcMethod, GrpcStreamMethod } from "@nestjs/microservices";
+import * as _m0 from "protobufjs/minimal";
+import { Observable } from "rxjs";
+import { Collection, Request as Request4 } from "./collection";
+import { Nft, Request as Request2 } from "./nft";
+import { Order, Request as Request3 } from "./order";
+import { Project, Request as Request1 } from "./project";
+import { Request, Transaction } from "./transaction";
 
-export const protobufPackage = 'CoreService';
+export const protobufPackage = "CoreService";
 
 export interface PingRequest {
   input: string;
@@ -18,15 +18,15 @@ export interface PingResponse {
   output: string;
 }
 
-export const CORE_SERVICE_PACKAGE_NAME = 'CoreService';
+export const CORE_SERVICE_PACKAGE_NAME = "CoreService";
 
 function createBasePingRequest(): PingRequest {
-  return { input: '' };
+  return { input: "" };
 }
 
 export const PingRequest = {
   encode(message: PingRequest, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
-    if (message.input !== '') {
+    if (message.input !== "") {
       writer.uint32(10).string(message.input);
     }
     return writer;
@@ -51,9 +51,7 @@ export const PingRequest = {
   },
 
   fromJSON(object: any): PingRequest {
-    return {
-      input: isSet(object.input) ? String(object.input) : '',
-    };
+    return { input: isSet(object.input) ? String(object.input) : "" };
   },
 
   toJSON(message: PingRequest): unknown {
@@ -64,12 +62,12 @@ export const PingRequest = {
 };
 
 function createBasePingResponse(): PingResponse {
-  return { output: '' };
+  return { output: "" };
 }
 
 export const PingResponse = {
   encode(message: PingResponse, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
-    if (message.output !== '') {
+    if (message.output !== "") {
       writer.uint32(10).string(message.output);
     }
     return writer;
@@ -94,9 +92,7 @@ export const PingResponse = {
   },
 
   fromJSON(object: any): PingResponse {
-    return {
-      output: isSet(object.output) ? String(object.output) : '',
-    };
+    return { output: isSet(object.output) ? String(object.output) : "" };
   },
 
   toJSON(message: PingResponse): unknown {
@@ -141,27 +137,27 @@ export interface CoreServiceController {
 export function CoreServiceControllerMethods() {
   return function (constructor: Function) {
     const grpcMethods: string[] = [
-      'updateTransactionById',
-      'updateProjectById',
-      'updateNftById',
-      'updateNftByTransactionId',
-      'updateBuyOrderById',
-      'updateCollectionById',
-      'ping',
+      "updateTransactionById",
+      "updateProjectById",
+      "updateNftById",
+      "updateNftByTransactionId",
+      "updateBuyOrderById",
+      "updateCollectionById",
+      "ping",
     ];
     for (const method of grpcMethods) {
       const descriptor: any = Reflect.getOwnPropertyDescriptor(constructor.prototype, method);
-      GrpcMethod('CoreService', method)(constructor.prototype[method], method, descriptor);
+      GrpcMethod("CoreService", method)(constructor.prototype[method], method, descriptor);
     }
     const grpcStreamMethods: string[] = [];
     for (const method of grpcStreamMethods) {
       const descriptor: any = Reflect.getOwnPropertyDescriptor(constructor.prototype, method);
-      GrpcStreamMethod('CoreService', method)(constructor.prototype[method], method, descriptor);
+      GrpcStreamMethod("CoreService", method)(constructor.prototype[method], method, descriptor);
     }
   };
 }
 
-export const CORE_SERVICE_NAME = 'CoreService';
+export const CORE_SERVICE_NAME = "CoreService";
 
 function isSet(value: any): boolean {
   return value !== null && value !== undefined;

@@ -1,7 +1,7 @@
 /* eslint-disable */
-import * as _m0 from 'protobufjs/minimal';
+import * as _m0 from "protobufjs/minimal";
 
-export const protobufPackage = 'order';
+export const protobufPackage = "order";
 
 export interface Request {
   userId: string;
@@ -24,45 +24,45 @@ export interface OrderUpdate {
   metadataId?: string | undefined;
 }
 
-export const ORDER_PACKAGE_NAME = 'order';
+export const ORDER_PACKAGE_NAME = "order";
 
 function createBaseRequest(): Request {
   return {
-    userId: '',
-    walletAddress: '',
-    assetAmount: '',
-    buyerSignature: '',
-    contractAddress: '',
-    type: '',
-    askNftAmount: '',
-    status: '',
+    userId: "",
+    walletAddress: "",
+    assetAmount: "",
+    buyerSignature: "",
+    contractAddress: "",
+    type: "",
+    askNftAmount: "",
+    status: "",
   };
 }
 
 export const Request = {
   encode(message: Request, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
-    if (message.userId !== '') {
+    if (message.userId !== "") {
       writer.uint32(10).string(message.userId);
     }
-    if (message.walletAddress !== '') {
+    if (message.walletAddress !== "") {
       writer.uint32(18).string(message.walletAddress);
     }
-    if (message.assetAmount !== '') {
+    if (message.assetAmount !== "") {
       writer.uint32(26).string(message.assetAmount);
     }
-    if (message.buyerSignature !== '') {
+    if (message.buyerSignature !== "") {
       writer.uint32(34).string(message.buyerSignature);
     }
-    if (message.contractAddress !== '') {
+    if (message.contractAddress !== "") {
       writer.uint32(42).string(message.contractAddress);
     }
-    if (message.type !== '') {
+    if (message.type !== "") {
       writer.uint32(50).string(message.type);
     }
-    if (message.askNftAmount !== '') {
+    if (message.askNftAmount !== "") {
       writer.uint32(58).string(message.askNftAmount);
     }
-    if (message.status !== '') {
+    if (message.status !== "") {
       writer.uint32(66).string(message.status);
     }
     return writer;
@@ -109,14 +109,14 @@ export const Request = {
 
   fromJSON(object: any): Request {
     return {
-      userId: isSet(object.userId) ? String(object.userId) : '',
-      walletAddress: isSet(object.walletAddress) ? String(object.walletAddress) : '',
-      assetAmount: isSet(object.assetAmount) ? String(object.assetAmount) : '',
-      buyerSignature: isSet(object.buyerSignature) ? String(object.buyerSignature) : '',
-      contractAddress: isSet(object.contractAddress) ? String(object.contractAddress) : '',
-      type: isSet(object.type) ? String(object.type) : '',
-      askNftAmount: isSet(object.askNftAmount) ? String(object.askNftAmount) : '',
-      status: isSet(object.status) ? String(object.status) : '',
+      userId: isSet(object.userId) ? String(object.userId) : "",
+      walletAddress: isSet(object.walletAddress) ? String(object.walletAddress) : "",
+      assetAmount: isSet(object.assetAmount) ? String(object.assetAmount) : "",
+      buyerSignature: isSet(object.buyerSignature) ? String(object.buyerSignature) : "",
+      contractAddress: isSet(object.contractAddress) ? String(object.contractAddress) : "",
+      type: isSet(object.type) ? String(object.type) : "",
+      askNftAmount: isSet(object.askNftAmount) ? String(object.askNftAmount) : "",
+      status: isSet(object.status) ? String(object.status) : "",
     };
   },
 
@@ -135,15 +135,15 @@ export const Request = {
 };
 
 function createBaseOrder(): Order {
-  return { id: '', metadataId: '' };
+  return { id: "", metadataId: "" };
 }
 
 export const Order = {
   encode(message: Order, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
-    if (message.id !== '') {
+    if (message.id !== "") {
       writer.uint32(10).string(message.id);
     }
-    if (message.metadataId !== '') {
+    if (message.metadataId !== "") {
       writer.uint32(18).string(message.metadataId);
     }
     return writer;
@@ -172,8 +172,8 @@ export const Order = {
 
   fromJSON(object: any): Order {
     return {
-      id: isSet(object.id) ? String(object.id) : '',
-      metadataId: isSet(object.metadataId) ? String(object.metadataId) : '',
+      id: isSet(object.id) ? String(object.id) : "",
+      metadataId: isSet(object.metadataId) ? String(object.metadataId) : "",
     };
   },
 
@@ -186,7 +186,7 @@ export const Order = {
 };
 
 function createBaseOrderUpdate(): OrderUpdate {
-  return { id: undefined, metadataId: undefined };
+  return {};
 }
 
 export const OrderUpdate = {

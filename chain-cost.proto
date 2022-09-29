@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package ChainCost;
+
+service ChainCost {
+    rpc GetTokenPrice(GetNativeTokenInput) returns (GetNativeTokenOutput){};
+}
+
+
+message GetNativeTokenInput {
+    string provider = 1;
+    string chain = 2;
+}
+
+message GetNativeTokenOutput {
+    float usd = 1;
+}

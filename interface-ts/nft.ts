@@ -1,7 +1,7 @@
 /* eslint-disable */
-import * as _m0 from 'protobufjs/minimal';
+import * as _m0 from "protobufjs/minimal";
 
-export const protobufPackage = 'nft';
+export const protobufPackage = "nft";
 
 export interface Request {
   id: string;
@@ -22,15 +22,15 @@ export interface NftUpdate {
   chain?: string | undefined;
 }
 
-export const NFT_PACKAGE_NAME = 'nft';
+export const NFT_PACKAGE_NAME = "nft";
 
 function createBaseRequest(): Request {
-  return { id: '', update: undefined };
+  return { id: "", update: undefined };
 }
 
 export const Request = {
   encode(message: Request, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
-    if (message.id !== '') {
+    if (message.id !== "") {
       writer.uint32(10).string(message.id);
     }
     if (message.update !== undefined) {
@@ -62,7 +62,7 @@ export const Request = {
 
   fromJSON(object: any): Request {
     return {
-      id: isSet(object.id) ? String(object.id) : '',
+      id: isSet(object.id) ? String(object.id) : "",
       update: isSet(object.update) ? NftUpdate.fromJSON(object.update) : undefined,
     };
   },
@@ -76,15 +76,15 @@ export const Request = {
 };
 
 function createBaseNft(): Nft {
-  return { id: '', metadataId: '' };
+  return { id: "", metadataId: "" };
 }
 
 export const Nft = {
   encode(message: Nft, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
-    if (message.id !== '') {
+    if (message.id !== "") {
       writer.uint32(10).string(message.id);
     }
-    if (message.metadataId !== '') {
+    if (message.metadataId !== "") {
       writer.uint32(18).string(message.metadataId);
     }
     return writer;
@@ -113,8 +113,8 @@ export const Nft = {
 
   fromJSON(object: any): Nft {
     return {
-      id: isSet(object.id) ? String(object.id) : '',
-      metadataId: isSet(object.metadataId) ? String(object.metadataId) : '',
+      id: isSet(object.id) ? String(object.id) : "",
+      metadataId: isSet(object.metadataId) ? String(object.metadataId) : "",
     };
   },
 
@@ -127,14 +127,7 @@ export const Nft = {
 };
 
 function createBaseNftUpdate(): NftUpdate {
-  return {
-    status: undefined,
-    metadataId: undefined,
-    mintTxHash: undefined,
-    nftId: undefined,
-    owner: undefined,
-    chain: undefined,
-  };
+  return {};
 }
 
 export const NftUpdate = {
