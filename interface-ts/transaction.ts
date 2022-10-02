@@ -1,7 +1,7 @@
 /* eslint-disable */
-import * as _m0 from 'protobufjs/minimal';
+import * as _m0 from "protobufjs/minimal";
 
-export const protobufPackage = 'transaction';
+export const protobufPackage = "transaction";
 
 export interface Request {
   id: string;
@@ -29,15 +29,15 @@ export interface paymentDetailMess {
   estWithdrawGas?: string | undefined;
 }
 
-export const TRANSACTION_PACKAGE_NAME = 'transaction';
+export const TRANSACTION_PACKAGE_NAME = "transaction";
 
 function createBaseRequest(): Request {
-  return { id: '', update: undefined };
+  return { id: "", update: undefined };
 }
 
 export const Request = {
   encode(message: Request, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
-    if (message.id !== '') {
+    if (message.id !== "") {
       writer.uint32(10).string(message.id);
     }
     if (message.update !== undefined) {
@@ -69,7 +69,7 @@ export const Request = {
 
   fromJSON(object: any): Request {
     return {
-      id: isSet(object.id) ? String(object.id) : '',
+      id: isSet(object.id) ? String(object.id) : "",
       update: isSet(object.update) ? TransactionUpdate.fromJSON(object.update) : undefined,
     };
   },
@@ -84,18 +84,18 @@ export const Request = {
 };
 
 function createBaseTransaction(): Transaction {
-  return { id: '', status: '', project: '' };
+  return { id: "", status: "", project: "" };
 }
 
 export const Transaction = {
   encode(message: Transaction, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
-    if (message.id !== '') {
+    if (message.id !== "") {
       writer.uint32(10).string(message.id);
     }
-    if (message.status !== '') {
+    if (message.status !== "") {
       writer.uint32(18).string(message.status);
     }
-    if (message.project !== '') {
+    if (message.project !== "") {
       writer.uint32(26).string(message.project);
     }
     return writer;
@@ -127,9 +127,9 @@ export const Transaction = {
 
   fromJSON(object: any): Transaction {
     return {
-      id: isSet(object.id) ? String(object.id) : '',
-      status: isSet(object.status) ? String(object.status) : '',
-      project: isSet(object.project) ? String(object.project) : '',
+      id: isSet(object.id) ? String(object.id) : "",
+      status: isSet(object.status) ? String(object.status) : "",
+      project: isSet(object.project) ? String(object.project) : "",
     };
   },
 
@@ -143,7 +143,7 @@ export const Transaction = {
 };
 
 function createBaseTransactionUpdate(): TransactionUpdate {
-  return { retry: undefined, status: undefined, error: undefined, paymentDetail: undefined, onChainTxHash: undefined };
+  return {};
 }
 
 export const TransactionUpdate = {
@@ -219,7 +219,7 @@ export const TransactionUpdate = {
 };
 
 function createBasepaymentDetailMess(): paymentDetailMess {
-  return { estDeployGas: undefined, estMintGas: undefined, transactionFee: undefined, estWithdrawGas: undefined };
+  return {};
 }
 
 export const paymentDetailMess = {

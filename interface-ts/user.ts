@@ -1,9 +1,9 @@
 /* eslint-disable */
-import { GrpcMethod, GrpcStreamMethod } from '@nestjs/microservices';
-import { Observable } from 'rxjs';
-import * as _m0 from 'protobufjs/minimal';
+import { GrpcMethod, GrpcStreamMethod } from "@nestjs/microservices";
+import * as _m0 from "protobufjs/minimal";
+import { Observable } from "rxjs";
 
-export const protobufPackage = 'user';
+export const protobufPackage = "user";
 
 /** Register */
 export interface RegisterRequest {
@@ -39,18 +39,18 @@ export interface ValidateResponse {
   userId: number;
 }
 
-export const USER_PACKAGE_NAME = 'user';
+export const USER_PACKAGE_NAME = "user";
 
 function createBaseRegisterRequest(): RegisterRequest {
-  return { email: '', password: '' };
+  return { email: "", password: "" };
 }
 
 export const RegisterRequest = {
   encode(message: RegisterRequest, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
-    if (message.email !== '') {
+    if (message.email !== "") {
       writer.uint32(10).string(message.email);
     }
-    if (message.password !== '') {
+    if (message.password !== "") {
       writer.uint32(18).string(message.password);
     }
     return writer;
@@ -79,8 +79,8 @@ export const RegisterRequest = {
 
   fromJSON(object: any): RegisterRequest {
     return {
-      email: isSet(object.email) ? String(object.email) : '',
-      password: isSet(object.password) ? String(object.password) : '',
+      email: isSet(object.email) ? String(object.email) : "",
+      password: isSet(object.password) ? String(object.password) : "",
     };
   },
 
@@ -148,15 +148,15 @@ export const RegisterResponse = {
 };
 
 function createBaseLoginRequest(): LoginRequest {
-  return { email: '', password: '' };
+  return { email: "", password: "" };
 }
 
 export const LoginRequest = {
   encode(message: LoginRequest, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
-    if (message.email !== '') {
+    if (message.email !== "") {
       writer.uint32(10).string(message.email);
     }
-    if (message.password !== '') {
+    if (message.password !== "") {
       writer.uint32(18).string(message.password);
     }
     return writer;
@@ -185,8 +185,8 @@ export const LoginRequest = {
 
   fromJSON(object: any): LoginRequest {
     return {
-      email: isSet(object.email) ? String(object.email) : '',
-      password: isSet(object.password) ? String(object.password) : '',
+      email: isSet(object.email) ? String(object.email) : "",
+      password: isSet(object.password) ? String(object.password) : "",
     };
   },
 
@@ -199,7 +199,7 @@ export const LoginRequest = {
 };
 
 function createBaseLoginResponse(): LoginResponse {
-  return { status: 0, error: [], token: '' };
+  return { status: 0, error: [], token: "" };
 }
 
 export const LoginResponse = {
@@ -210,7 +210,7 @@ export const LoginResponse = {
     for (const v of message.error) {
       writer.uint32(18).string(v!);
     }
-    if (message.token !== '') {
+    if (message.token !== "") {
       writer.uint32(26).string(message.token);
     }
     return writer;
@@ -244,7 +244,7 @@ export const LoginResponse = {
     return {
       status: isSet(object.status) ? Number(object.status) : 0,
       error: Array.isArray(object?.error) ? object.error.map((e: any) => String(e)) : [],
-      token: isSet(object.token) ? String(object.token) : '',
+      token: isSet(object.token) ? String(object.token) : "",
     };
   },
 
@@ -262,12 +262,12 @@ export const LoginResponse = {
 };
 
 function createBaseValidateRequest(): ValidateRequest {
-  return { token: '' };
+  return { token: "" };
 }
 
 export const ValidateRequest = {
   encode(message: ValidateRequest, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
-    if (message.token !== '') {
+    if (message.token !== "") {
       writer.uint32(10).string(message.token);
     }
     return writer;
@@ -292,9 +292,7 @@ export const ValidateRequest = {
   },
 
   fromJSON(object: any): ValidateRequest {
-    return {
-      token: isSet(object.token) ? String(object.token) : '',
-    };
+    return { token: isSet(object.token) ? String(object.token) : "" };
   },
 
   toJSON(message: ValidateRequest): unknown {
@@ -391,20 +389,20 @@ export interface UserServiceController {
 
 export function UserServiceControllerMethods() {
   return function (constructor: Function) {
-    const grpcMethods: string[] = ['register', 'login', 'validate'];
+    const grpcMethods: string[] = ["register", "login", "validate"];
     for (const method of grpcMethods) {
       const descriptor: any = Reflect.getOwnPropertyDescriptor(constructor.prototype, method);
-      GrpcMethod('UserService', method)(constructor.prototype[method], method, descriptor);
+      GrpcMethod("UserService", method)(constructor.prototype[method], method, descriptor);
     }
     const grpcStreamMethods: string[] = [];
     for (const method of grpcStreamMethods) {
       const descriptor: any = Reflect.getOwnPropertyDescriptor(constructor.prototype, method);
-      GrpcStreamMethod('UserService', method)(constructor.prototype[method], method, descriptor);
+      GrpcStreamMethod("UserService", method)(constructor.prototype[method], method, descriptor);
     }
   };
 }
 
-export const USER_SERVICE_NAME = 'UserService';
+export const USER_SERVICE_NAME = "UserService";
 
 function isSet(value: any): boolean {
   return value !== null && value !== undefined;

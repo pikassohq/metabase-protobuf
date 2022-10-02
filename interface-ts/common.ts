@@ -1,7 +1,7 @@
 /* eslint-disable */
-import * as _m0 from 'protobufjs/minimal';
+import * as _m0 from "protobufjs/minimal";
 
-export const protobufPackage = 'common';
+export const protobufPackage = "common";
 
 export enum NullValue {
   /** NULL_VALUE - Null value. */
@@ -12,10 +12,10 @@ export enum NullValue {
 export function nullValueFromJSON(object: any): NullValue {
   switch (object) {
     case 0:
-    case 'NULL_VALUE':
+    case "NULL_VALUE":
       return NullValue.NULL_VALUE;
     case -1:
-    case 'UNRECOGNIZED':
+    case "UNRECOGNIZED":
     default:
       return NullValue.UNRECOGNIZED;
   }
@@ -24,10 +24,10 @@ export function nullValueFromJSON(object: any): NullValue {
 export function nullValueToJSON(object: NullValue): string {
   switch (object) {
     case NullValue.NULL_VALUE:
-      return 'NULL_VALUE';
+      return "NULL_VALUE";
     case NullValue.UNRECOGNIZED:
     default:
-      return 'UNRECOGNIZED';
+      return "UNRECOGNIZED";
   }
 }
 
@@ -42,15 +42,25 @@ export interface Struct_FieldsEntry {
 
 export interface Value {
   /** Represents a null value. */
-  nullValue: NullValue | undefined;
+  nullValue:
+    | NullValue
+    | undefined;
   /** Represents a double value. */
-  numberValue: number | undefined;
+  numberValue:
+    | number
+    | undefined;
   /** Represents a string value. */
-  stringValue: string | undefined;
+  stringValue:
+    | string
+    | undefined;
   /** Represents a boolean value. */
-  boolValue: boolean | undefined;
+  boolValue:
+    | boolean
+    | undefined;
   /** Represents a structured value. */
-  structValue: Struct | undefined;
+  structValue:
+    | Struct
+    | undefined;
   /** Represents a repeated `Value`. */
   listValue: ListValue | undefined;
 }
@@ -60,7 +70,7 @@ export interface ListValue {
   values: Value[];
 }
 
-export const COMMON_PACKAGE_NAME = 'common';
+export const COMMON_PACKAGE_NAME = "common";
 
 function createBaseStruct(): Struct {
   return { fields: {} };
@@ -99,9 +109,9 @@ export const Struct = {
     return {
       fields: isObject(object.fields)
         ? Object.entries(object.fields).reduce<{ [key: string]: Value }>((acc, [key, value]) => {
-            acc[key] = Value.fromJSON(value);
-            return acc;
-          }, {})
+          acc[key] = Value.fromJSON(value);
+          return acc;
+        }, {})
         : {},
     };
   },
@@ -119,12 +129,12 @@ export const Struct = {
 };
 
 function createBaseStruct_FieldsEntry(): Struct_FieldsEntry {
-  return { key: '', value: undefined };
+  return { key: "", value: undefined };
 }
 
 export const Struct_FieldsEntry = {
   encode(message: Struct_FieldsEntry, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
-    if (message.key !== '') {
+    if (message.key !== "") {
       writer.uint32(10).string(message.key);
     }
     if (message.value !== undefined) {
@@ -156,7 +166,7 @@ export const Struct_FieldsEntry = {
 
   fromJSON(object: any): Struct_FieldsEntry {
     return {
-      key: isSet(object.key) ? String(object.key) : '',
+      key: isSet(object.key) ? String(object.key) : "",
       value: isSet(object.value) ? Value.fromJSON(object.value) : undefined,
     };
   },
@@ -293,15 +303,13 @@ export const ListValue = {
   },
 
   fromJSON(object: any): ListValue {
-    return {
-      values: Array.isArray(object?.values) ? object.values.map((e: any) => Value.fromJSON(e)) : [],
-    };
+    return { values: Array.isArray(object?.values) ? object.values.map((e: any) => Value.fromJSON(e)) : [] };
   },
 
   toJSON(message: ListValue): unknown {
     const obj: any = {};
     if (message.values) {
-      obj.values = message.values.map((e) => (e ? Value.toJSON(e) : undefined));
+      obj.values = message.values.map((e) => e ? Value.toJSON(e) : undefined);
     } else {
       obj.values = [];
     }
@@ -310,7 +318,7 @@ export const ListValue = {
 };
 
 function isObject(value: any): boolean {
-  return typeof value === 'object' && value !== null;
+  return typeof value === "object" && value !== null;
 }
 
 function isSet(value: any): boolean {

@@ -1,7 +1,7 @@
 /* eslint-disable */
-import * as _m0 from 'protobufjs/minimal';
+import * as _m0 from "protobufjs/minimal";
 
-export const protobufPackage = 'collection';
+export const protobufPackage = "collection";
 
 export interface Request {
   id: string;
@@ -35,15 +35,15 @@ export interface masterAccountMess {
   privateKey?: string | undefined;
 }
 
-export const COLLECTION_PACKAGE_NAME = 'collection';
+export const COLLECTION_PACKAGE_NAME = "collection";
 
 function createBaseRequest(): Request {
-  return { id: '', update: undefined };
+  return { id: "", update: undefined };
 }
 
 export const Request = {
   encode(message: Request, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
-    if (message.id !== '') {
+    if (message.id !== "") {
       writer.uint32(10).string(message.id);
     }
     if (message.update !== undefined) {
@@ -75,7 +75,7 @@ export const Request = {
 
   fromJSON(object: any): Request {
     return {
-      id: isSet(object.id) ? String(object.id) : '',
+      id: isSet(object.id) ? String(object.id) : "",
       update: isSet(object.update) ? CollectionUpdate.fromJSON(object.update) : undefined,
     };
   },
@@ -89,21 +89,12 @@ export const Request = {
 };
 
 function createBaseCollection(): Collection {
-  return {
-    id: '',
-    owner: undefined,
-    project: undefined,
-    masterAccount: undefined,
-    status: undefined,
-    nftContractAddress: undefined,
-    chain: undefined,
-    transactionFee: undefined,
-  };
+  return { id: "" };
 }
 
 export const Collection = {
   encode(message: Collection, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
-    if (message.id !== '') {
+    if (message.id !== "") {
       writer.uint32(10).string(message.id);
     }
     if (message.owner !== undefined) {
@@ -171,7 +162,7 @@ export const Collection = {
 
   fromJSON(object: any): Collection {
     return {
-      id: isSet(object.id) ? String(object.id) : '',
+      id: isSet(object.id) ? String(object.id) : "",
       owner: isSet(object.owner) ? String(object.owner) : undefined,
       project: isSet(object.project) ? String(object.project) : undefined,
       masterAccount: isSet(object.masterAccount) ? masterAccountMess.fromJSON(object.masterAccount) : undefined,
@@ -198,16 +189,7 @@ export const Collection = {
 };
 
 function createBaseCollectionUpdate(): CollectionUpdate {
-  return {
-    id: undefined,
-    owner: undefined,
-    project: undefined,
-    masterAccount: undefined,
-    status: undefined,
-    nftContractAddress: undefined,
-    chain: undefined,
-    transactionFee: undefined,
-  };
+  return {};
 }
 
 export const CollectionUpdate = {
@@ -307,7 +289,7 @@ export const CollectionUpdate = {
 };
 
 function createBasemasterAccountMess(): masterAccountMess {
-  return { publicKey: undefined, privateKey: undefined };
+  return {};
 }
 
 export const masterAccountMess = {

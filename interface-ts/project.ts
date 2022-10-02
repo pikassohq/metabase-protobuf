@@ -1,7 +1,7 @@
 /* eslint-disable */
-import * as _m0 from 'protobufjs/minimal';
+import * as _m0 from "protobufjs/minimal";
 
-export const protobufPackage = 'project';
+export const protobufPackage = "project";
 
 export interface Request {
   id: string;
@@ -44,15 +44,15 @@ export interface ProjectUpdate {
   webhook?: string | undefined;
 }
 
-export const PROJECT_PACKAGE_NAME = 'project';
+export const PROJECT_PACKAGE_NAME = "project";
 
 function createBaseRequest(): Request {
-  return { id: '', update: undefined };
+  return { id: "", update: undefined };
 }
 
 export const Request = {
   encode(message: Request, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
-    if (message.id !== '') {
+    if (message.id !== "") {
       writer.uint32(10).string(message.id);
     }
     if (message.update !== undefined) {
@@ -84,7 +84,7 @@ export const Request = {
 
   fromJSON(object: any): Request {
     return {
-      id: isSet(object.id) ? String(object.id) : '',
+      id: isSet(object.id) ? String(object.id) : "",
       update: isSet(object.update) ? ProjectUpdate.fromJSON(object.update) : undefined,
     };
   },
@@ -98,37 +98,21 @@ export const Request = {
 };
 
 function createBaseProject(): Project {
-  return {
-    id: '',
-    name: '',
-    description: undefined,
-    chain: '',
-    masterAddress: undefined,
-    masterPrivateKey: undefined,
-    contract721Address: undefined,
-    l1Mnemonic: '',
-    image: undefined,
-    blockchain: undefined,
-    status: undefined,
-    apiSecret: undefined,
-    contract1155Address: undefined,
-    contractMarketplaceAddress: undefined,
-    webhook: undefined,
-  };
+  return { id: "", name: "", chain: "", l1Mnemonic: "" };
 }
 
 export const Project = {
   encode(message: Project, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
-    if (message.id !== '') {
+    if (message.id !== "") {
       writer.uint32(10).string(message.id);
     }
-    if (message.name !== '') {
+    if (message.name !== "") {
       writer.uint32(18).string(message.name);
     }
     if (message.description !== undefined) {
       writer.uint32(26).string(message.description);
     }
-    if (message.chain !== '') {
+    if (message.chain !== "") {
       writer.uint32(34).string(message.chain);
     }
     if (message.masterAddress !== undefined) {
@@ -140,7 +124,7 @@ export const Project = {
     if (message.contract721Address !== undefined) {
       writer.uint32(58).string(message.contract721Address);
     }
-    if (message.l1Mnemonic !== '') {
+    if (message.l1Mnemonic !== "") {
       writer.uint32(66).string(message.l1Mnemonic);
     }
     if (message.image !== undefined) {
@@ -229,14 +213,14 @@ export const Project = {
 
   fromJSON(object: any): Project {
     return {
-      id: isSet(object.id) ? String(object.id) : '',
-      name: isSet(object.name) ? String(object.name) : '',
+      id: isSet(object.id) ? String(object.id) : "",
+      name: isSet(object.name) ? String(object.name) : "",
       description: isSet(object.description) ? String(object.description) : undefined,
-      chain: isSet(object.chain) ? String(object.chain) : '',
+      chain: isSet(object.chain) ? String(object.chain) : "",
       masterAddress: isSet(object.masterAddress) ? String(object.masterAddress) : undefined,
       masterPrivateKey: isSet(object.masterPrivateKey) ? String(object.masterPrivateKey) : undefined,
       contract721Address: isSet(object.contract721Address) ? String(object.contract721Address) : undefined,
-      l1Mnemonic: isSet(object.l1Mnemonic) ? String(object.l1Mnemonic) : '',
+      l1Mnemonic: isSet(object.l1Mnemonic) ? String(object.l1Mnemonic) : "",
       image: isSet(object.image) ? String(object.image) : undefined,
       blockchain: isSet(object.blockchain) ? String(object.blockchain) : undefined,
       status: isSet(object.status) ? String(object.status) : undefined,
@@ -272,23 +256,7 @@ export const Project = {
 };
 
 function createBaseProjectUpdate(): ProjectUpdate {
-  return {
-    id: undefined,
-    name: undefined,
-    description: undefined,
-    chain: undefined,
-    masterAddress: undefined,
-    masterPrivateKey: undefined,
-    contract721Address: undefined,
-    l1Mnemonic: undefined,
-    image: undefined,
-    blockchain: undefined,
-    status: undefined,
-    apiSecret: undefined,
-    contract1155Address: undefined,
-    contractMarketplaceAddress: undefined,
-    webhook: undefined,
-  };
+  return {};
 }
 
 export const ProjectUpdate = {
