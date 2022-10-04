@@ -281,6 +281,7 @@ export enum EPaymentJobFunction {
 export enum ENftFilter {
   CREATED = 'created',
   MINTED = 'minted',
+  MINTING = 'minting',
   AUCTION = 'auction',
   ON_SALE = 'on_sale',
 }
