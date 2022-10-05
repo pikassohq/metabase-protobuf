@@ -23,6 +23,7 @@ export interface GetPublicEstFeeInput {
 }
 
 export interface GetPublicEstFeeOutput {
+  nativeToken: number;
   deployGas?: estimateGas | undefined;
   mintGas?: estimateGas | undefined;
 }
@@ -233,16 +234,19 @@ export const GetPublicEstFeeInput = {
 };
 
 function createBaseGetPublicEstFeeOutput(): GetPublicEstFeeOutput {
-  return {};
+  return { nativeToken: 0 };
 }
 
 export const GetPublicEstFeeOutput = {
   encode(message: GetPublicEstFeeOutput, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
+    if (message.nativeToken !== 0) {
+      writer.uint32(13).float(message.nativeToken);
+    }
     if (message.deployGas !== undefined) {
-      estimateGas.encode(message.deployGas, writer.uint32(10).fork()).ldelim();
+      estimateGas.encode(message.deployGas, writer.uint32(18).fork()).ldelim();
     }
     if (message.mintGas !== undefined) {
-      estimateGas.encode(message.mintGas, writer.uint32(18).fork()).ldelim();
+      estimateGas.encode(message.mintGas, writer.uint32(26).fork()).ldelim();
     }
     return writer;
   },
@@ -255,9 +259,12 @@ export const GetPublicEstFeeOutput = {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
-          message.deployGas = estimateGas.decode(reader, reader.uint32());
+          message.nativeToken = reader.float();
           break;
         case 2:
+          message.deployGas = estimateGas.decode(reader, reader.uint32());
+          break;
+        case 3:
           message.mintGas = estimateGas.decode(reader, reader.uint32());
           break;
         default:
@@ -270,6 +277,7 @@ export const GetPublicEstFeeOutput = {
 
   fromJSON(object: any): GetPublicEstFeeOutput {
     return {
+      nativeToken: isSet(object.nativeToken) ? Number(object.nativeToken) : 0,
       deployGas: isSet(object.deployGas) ? estimateGas.fromJSON(object.deployGas) : undefined,
       mintGas: isSet(object.mintGas) ? estimateGas.fromJSON(object.mintGas) : undefined,
     };
@@ -277,6 +285,7 @@ export const GetPublicEstFeeOutput = {
 
   toJSON(message: GetPublicEstFeeOutput): unknown {
     const obj: any = {};
+    message.nativeToken !== undefined && (obj.nativeToken = message.nativeToken);
     message.deployGas !== undefined &&
       (obj.deployGas = message.deployGas ? estimateGas.toJSON(message.deployGas) : undefined);
     message.mintGas !== undefined && (obj.mintGas = message.mintGas ? estimateGas.toJSON(message.mintGas) : undefined);

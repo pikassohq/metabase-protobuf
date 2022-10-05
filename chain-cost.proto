@@ -26,8 +26,9 @@ message GetPublicEstFeeInput {
 }
 
 message GetPublicEstFeeOutput {
-    optional estimateGas deployGas = 1;
-    optional estimateGas mintGas = 2;
+    float nativeToken = 1;
+    optional estimateGas deployGas = 2;
+    optional estimateGas mintGas = 3;
 }
 
 message collectionProperties {
