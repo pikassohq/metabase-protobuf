@@ -4,6 +4,7 @@ package ChainCost;
 
 service ChainCost {
     rpc GetTokenPrice(GetNativeTokenInput) returns (GetNativeTokenOutput){};
+    rpc GetPublicEstFee(GetPublicEstFeeInput)returns (GetPublicEstFeeOutput){};
 }
 
 
@@ -15,3 +16,35 @@ message GetNativeTokenInput {
 message GetNativeTokenOutput {
     float usd = 1;
 }
+
+message GetPublicEstFeeInput {
+    string chain = 1;
+    repeated string nftUrls = 2;
+    repeated int32 amounts = 3;
+    collectionProperties collection = 4;
+    string tokenProvider = 5;
+}
+
+message GetPublicEstFeeOutput {
+    optional estimateGas deployGas = 1;
+    optional estimateGas mintGas = 2;
+}
+
+message collectionProperties {
+    string status = 1;
+    optional string privateKey = 2;
+    optional string publicKey = 3;
+    optional string nftContractAddress = 4;
+    string nftType = 5;
+}
+
+message estimateGas {
+    int32 unitGas = 1;
+    int32 gasPrice = 2;
+    string wei = 3;
+    int32 eth = 4;
+    int32 usd = 5;
+    string extraWei = 6;
+    int32 extraUsd = 7;
+}
+
