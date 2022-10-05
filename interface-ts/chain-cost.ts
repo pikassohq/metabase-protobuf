@@ -375,16 +375,16 @@ export const estimateGas = {
       writer.uint32(26).string(message.wei);
     }
     if (message.eth !== 0) {
-      writer.uint32(32).int32(message.eth);
+      writer.uint32(37).float(message.eth);
     }
     if (message.usd !== 0) {
-      writer.uint32(40).int32(message.usd);
+      writer.uint32(45).float(message.usd);
     }
     if (message.extraWei !== "") {
       writer.uint32(50).string(message.extraWei);
     }
     if (message.extraUsd !== 0) {
-      writer.uint32(56).int32(message.extraUsd);
+      writer.uint32(61).float(message.extraUsd);
     }
     return writer;
   },
@@ -406,16 +406,16 @@ export const estimateGas = {
           message.wei = reader.string();
           break;
         case 4:
-          message.eth = reader.int32();
+          message.eth = reader.float();
           break;
         case 5:
-          message.usd = reader.int32();
+          message.usd = reader.float();
           break;
         case 6:
           message.extraWei = reader.string();
           break;
         case 7:
-          message.extraUsd = reader.int32();
+          message.extraUsd = reader.float();
           break;
         default:
           reader.skipType(tag & 7);
@@ -442,10 +442,10 @@ export const estimateGas = {
     message.unitGas !== undefined && (obj.unitGas = Math.round(message.unitGas));
     message.gasPrice !== undefined && (obj.gasPrice = Math.round(message.gasPrice));
     message.wei !== undefined && (obj.wei = message.wei);
-    message.eth !== undefined && (obj.eth = Math.round(message.eth));
-    message.usd !== undefined && (obj.usd = Math.round(message.usd));
+    message.eth !== undefined && (obj.eth = message.eth);
+    message.usd !== undefined && (obj.usd = message.usd);
     message.extraWei !== undefined && (obj.extraWei = message.extraWei);
-    message.extraUsd !== undefined && (obj.extraUsd = Math.round(message.extraUsd));
+    message.extraUsd !== undefined && (obj.extraUsd = message.extraUsd);
     return obj;
   },
 };

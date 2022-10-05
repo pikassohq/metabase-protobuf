@@ -42,9 +42,9 @@ message estimateGas {
     int32 unitGas = 1;
     int32 gasPrice = 2;
     string wei = 3;
-    int32 eth = 4;
-    int32 usd = 5;
+    float eth = 4;
+    float usd = 5;
     string extraWei = 6;
-    int32 extraUsd = 7;
+    float extraUsd = 7;
 }
 
