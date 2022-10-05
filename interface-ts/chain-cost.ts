@@ -40,10 +40,10 @@ export interface estimateGas {
   unitGas: number;
   gasPrice: number;
   wei: string;
-  eth: number;
-  usd: number;
+  eth: string;
+  usd: string;
   extraWei: string;
-  extraUsd: number;
+  extraUsd: string;
 }
 
 export const CHAIN_COST_PACKAGE_NAME = "ChainCost";
@@ -369,7 +369,7 @@ export const collectionProperties = {
 };
 
 function createBaseestimateGas(): estimateGas {
-  return { unitGas: 0, gasPrice: 0, wei: "", eth: 0, usd: 0, extraWei: "", extraUsd: 0 };
+  return { unitGas: 0, gasPrice: 0, wei: "", eth: "", usd: "", extraWei: "", extraUsd: "" };
 }
 
 export const estimateGas = {
@@ -383,17 +383,17 @@ export const estimateGas = {
     if (message.wei !== "") {
       writer.uint32(26).string(message.wei);
     }
-    if (message.eth !== 0) {
-      writer.uint32(37).float(message.eth);
+    if (message.eth !== "") {
+      writer.uint32(34).string(message.eth);
     }
-    if (message.usd !== 0) {
-      writer.uint32(45).float(message.usd);
+    if (message.usd !== "") {
+      writer.uint32(42).string(message.usd);
     }
     if (message.extraWei !== "") {
       writer.uint32(50).string(message.extraWei);
     }
-    if (message.extraUsd !== 0) {
-      writer.uint32(61).float(message.extraUsd);
+    if (message.extraUsd !== "") {
+      writer.uint32(58).string(message.extraUsd);
     }
     return writer;
   },
@@ -415,16 +415,16 @@ export const estimateGas = {
           message.wei = reader.string();
           break;
         case 4:
-          message.eth = reader.float();
+          message.eth = reader.string();
           break;
         case 5:
-          message.usd = reader.float();
+          message.usd = reader.string();
           break;
         case 6:
           message.extraWei = reader.string();
           break;
         case 7:
-          message.extraUsd = reader.float();
+          message.extraUsd = reader.string();
           break;
         default:
           reader.skipType(tag & 7);
@@ -439,10 +439,10 @@ export const estimateGas = {
       unitGas: isSet(object.unitGas) ? Number(object.unitGas) : 0,
       gasPrice: isSet(object.gasPrice) ? Number(object.gasPrice) : 0,
       wei: isSet(object.wei) ? String(object.wei) : "",
-      eth: isSet(object.eth) ? Number(object.eth) : 0,
-      usd: isSet(object.usd) ? Number(object.usd) : 0,
+      eth: isSet(object.eth) ? String(object.eth) : "",
+      usd: isSet(object.usd) ? String(object.usd) : "",
       extraWei: isSet(object.extraWei) ? String(object.extraWei) : "",
-      extraUsd: isSet(object.extraUsd) ? Number(object.extraUsd) : 0,
+      extraUsd: isSet(object.extraUsd) ? String(object.extraUsd) : "",
     };
   },
 
