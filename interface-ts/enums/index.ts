@@ -228,6 +228,20 @@ export enum EOrderStatus {
   CANCEL = 'cancel',
 }
 
+export enum EPriceType {
+  SELL = 'sell',
+  BUY = 'buy',
+  CAMPAIGN = 'campaign',
+}
+
+export enum EPriceStatus {
+  PENDING = 'pending', //can adjust in this state
+  ACTIVE = 'active', // have to delete to update in this state
+  IN_PAYMENT = 'in_payment',
+  COMPLETE = 'complete',
+  CANCEL = 'cancel',
+}
+
 export enum ECurrency {
   USD = 'usd',
 }
@@ -267,6 +281,7 @@ export enum EPaymentJobFunction {
 export enum ENftFilter {
   CREATED = 'created',
   MINTED = 'minted',
+  MINTING = 'minting',
   AUCTION = 'auction',
   ON_SALE = 'on_sale',
 }
