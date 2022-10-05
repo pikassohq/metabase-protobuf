@@ -23,7 +23,7 @@ export interface GetPublicEstFeeInput {
 }
 
 export interface GetPublicEstFeeOutput {
-  nativeToken: number;
+  nativeTokenPrice: number;
   deployGas?: estimateGas | undefined;
   mintGas?: estimateGas | undefined;
 }
@@ -234,13 +234,13 @@ export const GetPublicEstFeeInput = {
 };
 
 function createBaseGetPublicEstFeeOutput(): GetPublicEstFeeOutput {
-  return { nativeToken: 0 };
+  return { nativeTokenPrice: 0 };
 }
 
 export const GetPublicEstFeeOutput = {
   encode(message: GetPublicEstFeeOutput, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
-    if (message.nativeToken !== 0) {
-      writer.uint32(13).float(message.nativeToken);
+    if (message.nativeTokenPrice !== 0) {
+      writer.uint32(13).float(message.nativeTokenPrice);
     }
     if (message.deployGas !== undefined) {
       estimateGas.encode(message.deployGas, writer.uint32(18).fork()).ldelim();
@@ -259,7 +259,7 @@ export const GetPublicEstFeeOutput = {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
-          message.nativeToken = reader.float();
+          message.nativeTokenPrice = reader.float();
           break;
         case 2:
           message.deployGas = estimateGas.decode(reader, reader.uint32());
@@ -277,7 +277,7 @@ export const GetPublicEstFeeOutput = {
 
   fromJSON(object: any): GetPublicEstFeeOutput {
     return {
-      nativeToken: isSet(object.nativeToken) ? Number(object.nativeToken) : 0,
+      nativeTokenPrice: isSet(object.nativeTokenPrice) ? Number(object.nativeTokenPrice) : 0,
       deployGas: isSet(object.deployGas) ? estimateGas.fromJSON(object.deployGas) : undefined,
       mintGas: isSet(object.mintGas) ? estimateGas.fromJSON(object.mintGas) : undefined,
     };
@@ -285,7 +285,7 @@ export const GetPublicEstFeeOutput = {
 
   toJSON(message: GetPublicEstFeeOutput): unknown {
     const obj: any = {};
-    message.nativeToken !== undefined && (obj.nativeToken = message.nativeToken);
+    message.nativeTokenPrice !== undefined && (obj.nativeTokenPrice = message.nativeTokenPrice);
     message.deployGas !== undefined &&
       (obj.deployGas = message.deployGas ? estimateGas.toJSON(message.deployGas) : undefined);
     message.mintGas !== undefined && (obj.mintGas = message.mintGas ? estimateGas.toJSON(message.mintGas) : undefined);
