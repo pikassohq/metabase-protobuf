@@ -52,20 +52,20 @@ export enum EAdminQueueEvent {
 
 export enum EQueueEvent {
   // Rinkeby
-  RINKEBY_CREATE_PROJECT = 'rinkeby.create_project',
-  RINKEBY_CREATE_COLLECTION = 'rinkeby.create_collection',
-  RINKEBY_CREATE_NFT = 'rinkeby.create_NFT',
-  RINKEBY_CREATE_NFT_1155 = 'rinkeby.create_NFT_1155',
-  RINKEBY_DEPLOY_ERC721_CONTRACT = 'rinkeby.deploy_erc721_contract',
-  RINKEBY_DEPLOY_ERC1155_CONTRACT = 'rinkeby.deploy_erc1155_contract',
-  RINKEBY_ASSIGN_NFT_TO_PLAYER = 'rinkeby.assign_nft_to_player',
-  RINKEBY_ASSIGN_NFTS_TO_PLAYER = 'rinkeby.assign_nfts_to_player',
-  RINKEBY_ASSIGN_NFT_1155_TO_PLAYER = 'rinkeby.assign_nft_1155_to_player',
-  RINKEBY_ASSIGN_NFTS_1155_TO_PLAYER = 'rinkeby.assign_nfts_1155_to_player',
-  RINKEBY_BUY_PREPARE = 'rinkeby.buy_prepare',
-  RINKEBY_SELL_PREPARE = 'rinkeby.sell_prepare',
-  RINKEBY_ADMIN_TRANSFER_TOKEN = 'rinkeby.transfer_native_token',
-  RINKEBY_WITHDRAW_NFT = 'rinkeby.withdraw_nft',
+  RINKEBY_CREATE_PROJECT = 'goerli.create_project',
+  RINKEBY_CREATE_COLLECTION = 'goerli.create_collection',
+  RINKEBY_CREATE_NFT = 'goerli.create_NFT',
+  RINKEBY_CREATE_NFT_1155 = 'goerli.create_NFT_1155',
+  RINKEBY_DEPLOY_ERC721_CONTRACT = 'goerli.deploy_erc721_contract',
+  RINKEBY_DEPLOY_ERC1155_CONTRACT = 'goerli.deploy_erc1155_contract',
+  RINKEBY_ASSIGN_NFT_TO_PLAYER = 'goerli.assign_nft_to_player',
+  RINKEBY_ASSIGN_NFTS_TO_PLAYER = 'goerli.assign_nfts_to_player',
+  RINKEBY_ASSIGN_NFT_1155_TO_PLAYER = 'goerli.assign_nft_1155_to_player',
+  RINKEBY_ASSIGN_NFTS_1155_TO_PLAYER = 'goerli.assign_nfts_1155_to_player',
+  RINKEBY_BUY_PREPARE = 'goerli.buy_prepare',
+  RINKEBY_SELL_PREPARE = 'goerli.sell_prepare',
+  RINKEBY_ADMIN_TRANSFER_TOKEN = 'goerli.transfer_native_token',
+  RINKEBY_WITHDRAW_NFT = 'goerli.withdraw_nft',
 
   // Stripe
   UPGRADE_ACCOUNT = 'upgrade account',
@@ -138,7 +138,7 @@ export enum EQueueEvent {
 export enum EChain {
   STARKNET = 'starknet',
   ETHEREUM = 'ethereum',
-  RINKEBY = 'rinkeby',
+  GOERLI = 'goerli',
   ZKSYNC = 'zksync',
   SOLANA = 'solana',
   POLYGON = 'polygon',
