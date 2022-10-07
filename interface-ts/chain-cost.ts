@@ -28,12 +28,25 @@ export interface GetPublicEstFeeOutput {
   mintGas?: estimateGas | undefined;
 }
 
+export interface GetExecuteEstGeeInput {
+  collection: collectionProperties | undefined;
+  functionName: string;
+  inputs: string[];
+  tokenProvider: string;
+}
+
+export interface GetExecuteEstFeeOutput {
+  nativeTokenPrice: number;
+  executeGas?: estimateGas | undefined;
+}
+
 export interface collectionProperties {
   status: string;
   privateKey?: string | undefined;
   publicKey?: string | undefined;
   nftContractAddress?: string | undefined;
   nftType: string;
+  chain?: string | undefined;
 }
 
 export interface estimateGas {
@@ -293,6 +306,130 @@ export const GetPublicEstFeeOutput = {
   },
 };
 
+function createBaseGetExecuteEstGeeInput(): GetExecuteEstGeeInput {
+  return { collection: undefined, functionName: "", inputs: [], tokenProvider: "" };
+}
+
+export const GetExecuteEstGeeInput = {
+  encode(message: GetExecuteEstGeeInput, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
+    if (message.collection !== undefined) {
+      collectionProperties.encode(message.collection, writer.uint32(10).fork()).ldelim();
+    }
+    if (message.functionName !== "") {
+      writer.uint32(18).string(message.functionName);
+    }
+    for (const v of message.inputs) {
+      writer.uint32(26).string(v!);
+    }
+    if (message.tokenProvider !== "") {
+      writer.uint32(34).string(message.tokenProvider);
+    }
+    return writer;
+  },
+
+  decode(input: _m0.Reader | Uint8Array, length?: number): GetExecuteEstGeeInput {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBaseGetExecuteEstGeeInput();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1:
+          message.collection = collectionProperties.decode(reader, reader.uint32());
+          break;
+        case 2:
+          message.functionName = reader.string();
+          break;
+        case 3:
+          message.inputs.push(reader.string());
+          break;
+        case 4:
+          message.tokenProvider = reader.string();
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
+      }
+    }
+    return message;
+  },
+
+  fromJSON(object: any): GetExecuteEstGeeInput {
+    return {
+      collection: isSet(object.collection) ? collectionProperties.fromJSON(object.collection) : undefined,
+      functionName: isSet(object.functionName) ? String(object.functionName) : "",
+      inputs: Array.isArray(object?.inputs) ? object.inputs.map((e: any) => String(e)) : [],
+      tokenProvider: isSet(object.tokenProvider) ? String(object.tokenProvider) : "",
+    };
+  },
+
+  toJSON(message: GetExecuteEstGeeInput): unknown {
+    const obj: any = {};
+    message.collection !== undefined &&
+      (obj.collection = message.collection ? collectionProperties.toJSON(message.collection) : undefined);
+    message.functionName !== undefined && (obj.functionName = message.functionName);
+    if (message.inputs) {
+      obj.inputs = message.inputs.map((e) => e);
+    } else {
+      obj.inputs = [];
+    }
+    message.tokenProvider !== undefined && (obj.tokenProvider = message.tokenProvider);
+    return obj;
+  },
+};
+
+function createBaseGetExecuteEstFeeOutput(): GetExecuteEstFeeOutput {
+  return { nativeTokenPrice: 0 };
+}
+
+export const GetExecuteEstFeeOutput = {
+  encode(message: GetExecuteEstFeeOutput, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
+    if (message.nativeTokenPrice !== 0) {
+      writer.uint32(13).float(message.nativeTokenPrice);
+    }
+    if (message.executeGas !== undefined) {
+      estimateGas.encode(message.executeGas, writer.uint32(18).fork()).ldelim();
+    }
+    return writer;
+  },
+
+  decode(input: _m0.Reader | Uint8Array, length?: number): GetExecuteEstFeeOutput {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBaseGetExecuteEstFeeOutput();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1:
+          message.nativeTokenPrice = reader.float();
+          break;
+        case 2:
+          message.executeGas = estimateGas.decode(reader, reader.uint32());
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
+      }
+    }
+    return message;
+  },
+
+  fromJSON(object: any): GetExecuteEstFeeOutput {
+    return {
+      nativeTokenPrice: isSet(object.nativeTokenPrice) ? Number(object.nativeTokenPrice) : 0,
+      executeGas: isSet(object.executeGas) ? estimateGas.fromJSON(object.executeGas) : undefined,
+    };
+  },
+
+  toJSON(message: GetExecuteEstFeeOutput): unknown {
+    const obj: any = {};
+    message.nativeTokenPrice !== undefined && (obj.nativeTokenPrice = message.nativeTokenPrice);
+    message.executeGas !== undefined &&
+      (obj.executeGas = message.executeGas ? estimateGas.toJSON(message.executeGas) : undefined);
+    return obj;
+  },
+};
+
 function createBasecollectionProperties(): collectionProperties {
   return { status: "", nftType: "" };
 }
@@ -313,6 +450,9 @@ export const collectionProperties = {
     }
     if (message.nftType !== "") {
       writer.uint32(42).string(message.nftType);
+    }
+    if (message.chain !== undefined) {
+      writer.uint32(50).string(message.chain);
     }
     return writer;
   },
@@ -339,6 +479,9 @@ export const collectionProperties = {
         case 5:
           message.nftType = reader.string();
           break;
+        case 6:
+          message.chain = reader.string();
+          break;
         default:
           reader.skipType(tag & 7);
           break;
@@ -354,6 +497,7 @@ export const collectionProperties = {
       publicKey: isSet(object.publicKey) ? String(object.publicKey) : undefined,
       nftContractAddress: isSet(object.nftContractAddress) ? String(object.nftContractAddress) : undefined,
       nftType: isSet(object.nftType) ? String(object.nftType) : "",
+      chain: isSet(object.chain) ? String(object.chain) : undefined,
     };
   },
 
@@ -364,6 +508,7 @@ export const collectionProperties = {
     message.publicKey !== undefined && (obj.publicKey = message.publicKey);
     message.nftContractAddress !== undefined && (obj.nftContractAddress = message.nftContractAddress);
     message.nftType !== undefined && (obj.nftType = message.nftType);
+    message.chain !== undefined && (obj.chain = message.chain);
     return obj;
   },
 };
@@ -463,6 +608,8 @@ export interface ChainCostClient {
   getTokenPrice(request: GetNativeTokenInput, ...rest: any): Observable<GetNativeTokenOutput>;
 
   getPublicEstFee(request: GetPublicEstFeeInput, ...rest: any): Observable<GetPublicEstFeeOutput>;
+
+  getExecuteEstFee(request: GetExecuteEstGeeInput, ...rest: any): Observable<GetExecuteEstFeeOutput>;
 }
 
 export interface ChainCostController {
@@ -475,11 +622,16 @@ export interface ChainCostController {
     request: GetPublicEstFeeInput,
     ...rest: any
   ): Promise<GetPublicEstFeeOutput> | Observable<GetPublicEstFeeOutput> | GetPublicEstFeeOutput;
+
+  getExecuteEstFee(
+    request: GetExecuteEstGeeInput,
+    ...rest: any
+  ): Promise<GetExecuteEstFeeOutput> | Observable<GetExecuteEstFeeOutput> | GetExecuteEstFeeOutput;
 }
 
 export function ChainCostControllerMethods() {
   return function (constructor: Function) {
-    const grpcMethods: string[] = ["getTokenPrice", "getPublicEstFee"];
+    const grpcMethods: string[] = ["getTokenPrice", "getPublicEstFee", "getExecuteEstFee"];
     for (const method of grpcMethods) {
       const descriptor: any = Reflect.getOwnPropertyDescriptor(constructor.prototype, method);
       GrpcMethod("ChainCost", method)(constructor.prototype[method], method, descriptor);
