@@ -286,6 +286,11 @@ export enum ENftFilter {
   ON_SALE = 'on_sale',
 }
 
+export enum EMarketNftFilter {
+  AUCTION = 'auction',
+  ON_SALE = 'on_sale',
+}
+
 export enum BillingPeriod {
   MONTHLY = 'monthly',
   YEARLY = 'yearly',
