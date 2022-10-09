@@ -223,6 +223,7 @@ export enum EOrderType {
 export enum EOrderStatus {
   PENDING = 'pending', //can adjust in this state
   ACTIVE = 'active', // have to delete to update in this state
+  LOCKING = 'locking',
   IN_PAYMENT = 'in_payment',
   COMPLETE = 'complete',
   CANCEL = 'cancel',
