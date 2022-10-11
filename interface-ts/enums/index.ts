@@ -238,6 +238,7 @@ export enum EPriceType {
 export enum EPriceStatus {
   PENDING = 'pending', //can adjust in this state
   ACTIVE = 'active', // have to delete to update in this state
+  INACTIVE = 'inactive', //this status is set when another price of same nft is set to complete
   IN_PAYMENT = 'in_payment',
   COMPLETE = 'complete',
   CANCEL = 'cancel',
