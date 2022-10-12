@@ -53,8 +53,8 @@ message collectionProperties {
 }
 
 message estimateGas {
-    int32 unitGas = 1;
-    int32 gasPrice = 2;
+    string unitGas = 1;
+    string gasPrice = 2;
     string wei = 3;
     string eth = 4;
     string usd = 5;
