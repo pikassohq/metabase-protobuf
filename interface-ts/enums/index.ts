@@ -251,6 +251,7 @@ export enum EPaymentStatus {
   PENDING = 'pending',
   SUCCESS = 'success',
   FAILED = 'failed',
+  EXPIRED = 'expired',
   CANCEL = 'cancel',
 }
 
