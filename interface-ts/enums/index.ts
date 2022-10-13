@@ -300,6 +300,7 @@ export enum BillingPeriod {
 
 export enum AccountPlan {
   BUSINESS = 'business',
+  DEFAULT = 'default',
 }
 
 export enum StripeSubscriptionStatus {
