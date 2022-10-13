@@ -1,21 +1,6 @@
 syntax = "proto3";
 
-package ChainCost;
-
-service ChainCost {
-    rpc GetTokenPrice(GetNativeTokenInput) returns (GetNativeTokenOutput){};
-    rpc GetPublicEstFee(GetPublicEstFeeInput)returns (GetPublicEstFeeOutput){};
-    rpc GetExecuteEstFee(GetExecuteEstGeeInput) returns (GetExecuteEstFeeOutput) {};
-}
-
-message GetNativeTokenInput {
-    string provider = 1;
-    string chain = 2;
-}
-
-message GetNativeTokenOutput {
-    float usd = 1;
-}
+package estimateGas;
 
 message GetPublicEstFeeInput {
     string chain = 1;
@@ -43,6 +28,8 @@ message GetExecuteEstFeeOutput {
     optional estimateGas executeGas = 2;
 }
 
+
+//////////
 message collectionProperties {
     string status = 1;
     optional string privateKey = 2;
@@ -53,12 +40,11 @@ message collectionProperties {
 }
 
 message estimateGas {
-    int32 unitGas = 1;
-    int32 gasPrice = 2;
+    string unitGas = 1;
+    string gasPrice = 2;
     string wei = 3;
     string eth = 4;
     string usd = 5;
     string extraWei = 6;
     string extraUsd = 7;
 }
-

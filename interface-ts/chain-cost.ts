@@ -50,8 +50,8 @@ export interface collectionProperties {
 }
 
 export interface estimateGas {
-  unitGas: number;
-  gasPrice: number;
+  unitGas: string;
+  gasPrice: string;
   wei: string;
   eth: string;
   usd: string;
@@ -514,16 +514,16 @@ export const collectionProperties = {
 };
 
 function createBaseestimateGas(): estimateGas {
-  return { unitGas: 0, gasPrice: 0, wei: "", eth: "", usd: "", extraWei: "", extraUsd: "" };
+  return { unitGas: "", gasPrice: "", wei: "", eth: "", usd: "", extraWei: "", extraUsd: "" };
 }
 
 export const estimateGas = {
   encode(message: estimateGas, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
-    if (message.unitGas !== 0) {
-      writer.uint32(8).int32(message.unitGas);
+    if (message.unitGas !== "") {
+      writer.uint32(10).string(message.unitGas);
     }
-    if (message.gasPrice !== 0) {
-      writer.uint32(16).int32(message.gasPrice);
+    if (message.gasPrice !== "") {
+      writer.uint32(18).string(message.gasPrice);
     }
     if (message.wei !== "") {
       writer.uint32(26).string(message.wei);
@@ -551,10 +551,10 @@ export const estimateGas = {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
-          message.unitGas = reader.int32();
+          message.unitGas = reader.string();
           break;
         case 2:
-          message.gasPrice = reader.int32();
+          message.gasPrice = reader.string();
           break;
         case 3:
           message.wei = reader.string();
@@ -581,8 +581,8 @@ export const estimateGas = {
 
   fromJSON(object: any): estimateGas {
     return {
-      unitGas: isSet(object.unitGas) ? Number(object.unitGas) : 0,
-      gasPrice: isSet(object.gasPrice) ? Number(object.gasPrice) : 0,
+      unitGas: isSet(object.unitGas) ? String(object.unitGas) : "",
+      gasPrice: isSet(object.gasPrice) ? String(object.gasPrice) : "",
       wei: isSet(object.wei) ? String(object.wei) : "",
       eth: isSet(object.eth) ? String(object.eth) : "",
       usd: isSet(object.usd) ? String(object.usd) : "",
@@ -593,8 +593,8 @@ export const estimateGas = {
 
   toJSON(message: estimateGas): unknown {
     const obj: any = {};
-    message.unitGas !== undefined && (obj.unitGas = Math.round(message.unitGas));
-    message.gasPrice !== undefined && (obj.gasPrice = Math.round(message.gasPrice));
+    message.unitGas !== undefined && (obj.unitGas = message.unitGas);
+    message.gasPrice !== undefined && (obj.gasPrice = message.gasPrice);
     message.wei !== undefined && (obj.wei = message.wei);
     message.eth !== undefined && (obj.eth = message.eth);
     message.usd !== undefined && (obj.usd = message.usd);
