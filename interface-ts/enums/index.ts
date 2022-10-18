@@ -323,6 +323,16 @@ export enum CancelPlanReason {
   REASON_5 = 'Did not mean to upgrade',
 }
 
+export enum Region {
+  VIETNAM = 'Vietnam',
+  USA = 'United States',
+}
+
+export enum CardType {
+  VISA = 'Visa',
+  MASTERCARD = 'Mastercard',
+}
+
 export enum ECampaignStatus {
   ACTIVE = 'active',
   CANCEL = 'cancel',
