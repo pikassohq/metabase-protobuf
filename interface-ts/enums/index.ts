@@ -226,7 +226,6 @@ export enum EOrderStatus {
   LOCKING = 'locking',
   COMPLETE = 'complete',
   CANCEL = 'cancel',
-  IN_PAYMENT = 'in_payment',
 }
 
 export enum EPriceType {
