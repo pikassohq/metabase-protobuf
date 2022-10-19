@@ -337,3 +337,8 @@ export enum ECampaignStatus {
   CANCEL = 'cancel',
   PENDING = 'pending',
 }
+
+export enum ECategoryStatus {
+  ACTIVE = 'active',
+  IN_ACTIVE = 'in_active',
+}
