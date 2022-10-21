@@ -43,6 +43,7 @@ export enum EProvider {
   COINMARKETCAP = 'coinmarketcap',
   COINGEKCO = 'coingecko',
   CRYPTOCOMPARE = 'cryptocompare',
+  KRAKEN = 'kraken',
 }
 
 export enum EAdminQueueEvent {
