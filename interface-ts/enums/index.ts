@@ -348,3 +348,7 @@ export enum EWebhookStatus {
   ACTIVE = 'active',
   IN_ACTIVE = 'in_active',
 }
+
+export enum EWebhookEvents {
+  COLLECTION_CREATED = 'collection.created',
+}
