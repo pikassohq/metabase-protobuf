@@ -343,3 +343,8 @@ export enum ECategoryStatus {
   ACTIVE = 'active',
   IN_ACTIVE = 'in_active',
 }
+
+export enum EWebhookStatus {
+  ACTIVE = 'active',
+  IN_ACTIVE = 'in_active',
+}
