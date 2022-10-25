@@ -68,6 +68,11 @@ export enum EQueueEvent {
   RINKEBY_ADMIN_TRANSFER_TOKEN = 'goerli.transfer_native_token',
   RINKEBY_WITHDRAW_NFT = 'goerli.withdraw_nft',
 
+  // Starknet
+  STARKNET_ADMIN_DEPLOY_ERC721_CONTRACT = 'starknet.deploy_erc721_contract',
+  STARKNET_ADMIN_TRANSFER_TOKEN = 'starknet.transfer_native_token',
+  STARKNET_CREATE_NFT = 'starknet.create_NFT',
+
   // Stripe
   UPGRADE_ACCOUNT = 'upgrade account',
   STRIPE_FAILED_HANDLER = 'stripe.failed_handler',
@@ -109,16 +114,6 @@ export enum EQueueEvent {
   ONE_ASSIGN_NFT_1155_TO_PLAYER = 'one.assign_nft_1155_to_player',
   ONE_ASSIGN_NFTS_TO_PLAYER = 'one.assign_nfts_to_player',
   ONE_ASSIGN_NFTS_1155_TO_PLAYER = 'one.assign_nfts_1155_to_player',
-
-  // Starknet
-  CREATE_STARKNET_PROJECT = 'starknet.create_project',
-  CREATE_STARKNET_NFT = 'starknet.create_NFT',
-  ASSIGN_STARKNET_NFT = 'starknet.assign_NFT',
-  TRANSFER_STARKNET_NFT = 'starknet.transfer_NFT',
-  ASSIGN_NFT_NEW_PLAYER = 'starknet.assign_NFT_new_player',
-  WITHDRAW_NFT = 'starknet.withdraw_NFT',
-  MINT_ON_L1 = 'starknet.mint_on_l1',
-  TRANSFER_ON_L1 = 'starknet.transfer_on_l1',
 
   // Solana
   SOLANA_CREATE_PROJECT = 'solana.create_project',
