@@ -72,6 +72,8 @@ export enum EQueueEvent {
   STARKNET_ADMIN_DEPLOY_ERC721_CONTRACT = 'starknet.deploy_erc721_contract',
   STARKNET_ADMIN_TRANSFER_TOKEN = 'starknet.transfer_native_token',
   STARKNET_CREATE_NFT = 'starknet.create_NFT',
+  STARKNET_WITHDRAW_NFT = 'starknet.withdraw_nft',
+  STARKNET_ASSIGN_NFT_TO_PLAYER = 'starknet.assign_nft_to_player',
 
   // Stripe
   UPGRADE_ACCOUNT = 'upgrade account',
