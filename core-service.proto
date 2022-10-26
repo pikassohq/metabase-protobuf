@@ -7,7 +7,7 @@ import "project.proto";
 import "nft.proto";
 import "order.proto";
 import "collection.proto";
-
+import "webhook.proto";
 
 service CoreService {
   rpc UpdateTransactionById(transaction.Request)
@@ -17,6 +17,7 @@ service CoreService {
   rpc UpdateNftByTransactionId(nft.Request) returns (nft.Nft) {}
   rpc UpdateBuyOrderById(order.Request) returns (order.Order){}
   rpc UpdateCollectionById(collection.Request) returns (collection.Collection){}
+  rpc UpdateWebhookHistory(webhook.WebhookInput) returns (webhook.Status){}
   rpc Ping(PingRequest) returns (PingResponse);
 }
 

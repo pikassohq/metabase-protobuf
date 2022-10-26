@@ -134,6 +134,9 @@ export enum EQueueEvent {
   OFFCHAIN_CREATE_NFT = 'offchain.create_NFT',
   OFFCHAIN_BUY_PREPARE = 'offchain.buy_prepare',
   OFFCHAIN_SELL_PREPARE = 'offchain.sell_prepare',
+
+  //webhook
+  WEBHOOK = 'webhook',
 }
 
 export enum EChain {

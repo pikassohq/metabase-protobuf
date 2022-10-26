@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+package webhook;
+
+message WebhookInput {
+    string id = 1;
+    string status = 2;
+}
+
+message Status { 
+    string response = 1; 
+}

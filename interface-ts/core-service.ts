@@ -7,6 +7,7 @@ import { Nft, Request as Request2 } from "./nft";
 import { Order, Request as Request3 } from "./order";
 import { Project, Request as Request1 } from "./project";
 import { Request, Transaction } from "./transaction";
+import { Status, WebhookInput } from "./webhook";
 
 export const protobufPackage = "CoreService";
 
@@ -115,6 +116,8 @@ export interface CoreServiceClient {
 
   updateCollectionById(request: Request4, ...rest: any): Observable<Collection>;
 
+  updateWebhookHistory(request: WebhookInput, ...rest: any): Observable<Status>;
+
   ping(request: PingRequest, ...rest: any): Observable<PingResponse>;
 }
 
@@ -131,6 +134,8 @@ export interface CoreServiceController {
 
   updateCollectionById(request: Request4, ...rest: any): Promise<Collection> | Observable<Collection> | Collection;
 
+  updateWebhookHistory(request: WebhookInput, ...rest: any): Promise<Status> | Observable<Status> | Status;
+
   ping(request: PingRequest, ...rest: any): Promise<PingResponse> | Observable<PingResponse> | PingResponse;
 }
 
@@ -143,6 +148,7 @@ export function CoreServiceControllerMethods() {
       "updateNftByTransactionId",
       "updateBuyOrderById",
       "updateCollectionById",
+      "updateWebhookHistory",
       "ping",
     ];
     for (const method of grpcMethods) {
