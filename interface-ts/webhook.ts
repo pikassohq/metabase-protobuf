@@ -6,6 +6,7 @@ export const protobufPackage = "webhook";
 export interface WebhookInput {
   id: string;
   status: string;
+  error?: string | undefined;
 }
 
 export interface Status {
@@ -26,6 +27,9 @@ export const WebhookInput = {
     if (message.status !== "") {
       writer.uint32(18).string(message.status);
     }
+    if (message.error !== undefined) {
+      writer.uint32(26).string(message.error);
+    }
     return writer;
   },
 
@@ -42,6 +46,9 @@ export const WebhookInput = {
         case 2:
           message.status = reader.string();
           break;
+        case 3:
+          message.error = reader.string();
+          break;
         default:
           reader.skipType(tag & 7);
           break;
@@ -51,13 +58,18 @@ export const WebhookInput = {
   },
 
   fromJSON(object: any): WebhookInput {
-    return { id: isSet(object.id) ? String(object.id) : "", status: isSet(object.status) ? String(object.status) : "" };
+    return {
+      id: isSet(object.id) ? String(object.id) : "",
+      status: isSet(object.status) ? String(object.status) : "",
+      error: isSet(object.error) ? String(object.error) : undefined,
+    };
   },
 
   toJSON(message: WebhookInput): unknown {
     const obj: any = {};
     message.id !== undefined && (obj.id = message.id);
     message.status !== undefined && (obj.status = message.status);
+    message.error !== undefined && (obj.error = message.error);
     return obj;
   },
 };
