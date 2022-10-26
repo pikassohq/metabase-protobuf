@@ -5,6 +5,7 @@ package webhook;
 message WebhookInput {
     string id = 1;
     string status = 2;
+    optional string error = 3;
 }
 
 message Status { 
