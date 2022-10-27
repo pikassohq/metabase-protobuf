@@ -76,7 +76,7 @@ export enum EQueueEvent {
   STARKNET_ASSIGN_NFT_TO_PLAYER = 'starknet.assign_nft_to_player',
 
   // Stripe
-  UPGRADE_ACCOUNT = 'upgrade account',
+  UPGRADE_ACCOUNT = 'upgrade_account',
   STRIPE_FAILED_HANDLER = 'stripe.failed_handler',
   STRIPE_SUCCEEDED_HANDLER = 'stripe.succeeded_handler',
   STRIPE_COMPLETED_HANDLER = 'stripe.completed_handler',
@@ -279,6 +279,13 @@ export enum EPaymentJobFunction {
   CANCEL_BUSINESS_ACCOUNT = 'cancel_business_account',
   WITHDRAW_NFT = 'withdraw_nft',
   ADD_CARD = 'add_card',
+}
+
+export enum ETransactionFunctionName {
+  UPGRADE_ACCOUNT = 'upgrade account',
+  TRANSFER_NATIVE_TOKEN = 'transfer_native_token',
+  CREATE_NFT = 'create_NFT',
+  DEPLOY_ERC721_CONTRACT = 'deploy_erc721_contract',
 }
 
 export enum ENftFilter {
