@@ -360,5 +360,6 @@ export enum EWebhookStatus {
 export enum EWebhookEvents {
   WEBHOOK_PROCESS = 'webhook.process',
   COLLECTION_CREATED = 'collection.created',
-  COLLECTION_PUBLISHED = 'collection_published',
+  COLLECTION_UPDATED = 'collection.updated',
+  COLLECTION_PUBLISHED = 'collection.published',
 }
