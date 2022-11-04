@@ -44,6 +44,7 @@ export enum EProvider {
   COINGEKCO = 'coingecko',
   CRYPTOCOMPARE = 'cryptocompare',
   KRAKEN = 'kraken',
+  CEXIO = 'cexio',
 }
 
 export enum EAdminQueueEvent {
