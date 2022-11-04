@@ -77,7 +77,7 @@ export enum EQueueEvent {
   STARKNET_ASSIGN_NFT_TO_PLAYER = 'starknet.assign_nft_to_player',
 
   // Stripe
-  UPGRADE_ACCOUNT = 'upgrade account',
+  UPGRADE_ACCOUNT = 'upgrade_account',
   STRIPE_FAILED_HANDLER = 'stripe.failed_handler',
   STRIPE_SUCCEEDED_HANDLER = 'stripe.succeeded_handler',
   STRIPE_COMPLETED_HANDLER = 'stripe.completed_handler',
@@ -87,6 +87,7 @@ export enum EQueueEvent {
   STRIPE_PENDING_SUBSCRIPTION = 'stripe.pending_subscription',
   STRIPE_UPDATE_SUBSCRIPTION = 'stripe.update_subscription',
   STRIPE_END_TRIAL_SUBSCRIPTION = 'stripe.end_trial_subscription',
+  STRIPE_SETUP_INTENT = 'stripe.setup_intent',
 
   // Polygon
   POLYGON_CREATE_PROJECT = 'polygon.create_project',
@@ -282,6 +283,13 @@ export enum EPaymentJobFunction {
   ADD_CARD = 'add_card',
 }
 
+export enum ETransactionFunctionName {
+  UPGRADE_ACCOUNT = 'upgrade account',
+  TRANSFER_NATIVE_TOKEN = 'transfer_native_token',
+  CREATE_NFT = 'create_NFT',
+  DEPLOY_ERC721_CONTRACT = 'deploy_erc721_contract',
+}
+
 export enum ENftFilter {
   CREATED = 'created',
   MINTED = 'minted',
@@ -351,5 +359,8 @@ export enum EWebhookStatus {
 }
 
 export enum EWebhookEvents {
+  WEBHOOK_PROCESS = 'webhook.process',
   COLLECTION_CREATED = 'collection.created',
+  COLLECTION_UPDATED = 'collection.updated',
+  COLLECTION_PUBLISHED = 'collection.published',
 }
