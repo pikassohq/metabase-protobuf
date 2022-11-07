@@ -360,7 +360,11 @@ export enum EWebhookStatus {
 
 export enum EWebhookEvents {
   WEBHOOK_PROCESS = 'webhook.process',
+  /// COLLECTION
   COLLECTION_CREATED = 'collection.created',
   COLLECTION_UPDATED = 'collection.updated',
   COLLECTION_PUBLISHED = 'collection.published',
+  COLLECTION_DELETED = 'collection_deleted',
+
+  /// NFT
 }
