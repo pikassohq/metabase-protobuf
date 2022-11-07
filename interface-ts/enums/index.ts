@@ -369,6 +369,7 @@ export enum EWebhookEvents {
   /// NFT
   NFT_CREATED = 'nft.created',
   NFT_UPDATED = 'nft.updated',
-  NFT_WITHDRAWED = 'nft.withdrawed',
+  NFT_WITHDRAWN = 'nft.withdrawn',
   NFT_DELETED = 'nft.deleted',
+  NFT_LIST_TO_EXCHANGE = 'nft.list-to-exchange',
 }
