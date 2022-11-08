@@ -152,6 +152,12 @@ export enum EChain {
   OFFCHAIN = 'offchain',
 }
 
+export enum EToken {
+  ETH = 'eth',
+  BNB = 'bnb',
+  MATIC = 'matic',
+  TT = 'thundercore',
+}
 export enum Category {
   ART = 'art',
   COLLECTIBLE = 'collectible',
