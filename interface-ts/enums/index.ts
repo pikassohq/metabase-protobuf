@@ -45,6 +45,7 @@ export enum EProvider {
   CRYPTOCOMPARE = 'cryptocompare',
   KRAKEN = 'kraken',
   CEXIO = 'cexio',
+  COINBASE = 'coinbase',
 }
 
 export enum EAdminQueueEvent {
@@ -141,6 +142,7 @@ export enum EQueueEvent {
 export enum EChain {
   STARKNET = 'starknet',
   ETHEREUM = 'ethereum',
+  THUNDERCORE = 'thundercore',
   GOERLI = 'goerli',
   ZKSYNC = 'zksync',
   SOLANA = 'solana',
