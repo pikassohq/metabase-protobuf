@@ -70,6 +70,10 @@ export enum EQueueEvent {
   RINKEBY_ADMIN_TRANSFER_TOKEN = 'goerli.transfer_native_token',
   RINKEBY_WITHDRAW_NFT = 'goerli.withdraw_nft',
 
+  // Thundercore
+  THUNDERCORE_DEPLOY_ERC721_CONTRACT = 'thundercore.deploy_erc721_contract',
+  THUNDERCORE_CREATE_NFT = 'thundercore.create_NFT',
+
   // Starknet
   STARKNET_ADMIN_DEPLOY_ERC721_CONTRACT = 'starknet.deploy_erc721_contract',
   STARKNET_ADMIN_TRANSFER_TOKEN = 'starknet.transfer_native_token',
