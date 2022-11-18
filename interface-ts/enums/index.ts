@@ -104,6 +104,7 @@ export enum EQueueEvent {
   POLYGON_ASSIGN_NFT_1155_TO_PLAYER = 'polygon.assign_nft_1155_to_player',
   POLYGON_ASSIGN_NFTS_TO_PLAYER = 'polygon.assign_nft_to_player',
   POLYGON_ASSIGN_NFTS_1155_TO_PLAYER = 'polygon.assign_nft_to_player',
+  POLYGON_ADMIN_TRANSFER_TOKEN = 'polygon.transfer_native_token',
 
   // BSC
   BSC_CREATE_PROJECT = 'bsct.create_project',
