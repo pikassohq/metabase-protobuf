@@ -94,6 +94,7 @@ export enum EQueueEvent {
   STRIPE_UPDATE_SUBSCRIPTION = 'stripe.update_subscription',
   STRIPE_END_TRIAL_SUBSCRIPTION = 'stripe.end_trial_subscription',
   STRIPE_SETUP_INTENT = 'stripe.setup_intent',
+  STRIPE_PAYMENT_INTENT = 'stripe.payment_intent',
 
   // Polygon
   POLYGON_CREATE_PROJECT = 'polygon.create_project',
