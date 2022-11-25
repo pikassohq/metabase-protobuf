@@ -42,27 +42,27 @@ export interface Struct_FieldsEntry {
 
 export interface Value {
   /** Represents a null value. */
-  nullValue:
+  nullValue?:
     | NullValue
     | undefined;
   /** Represents a double value. */
-  numberValue:
+  numberValue?:
     | number
     | undefined;
   /** Represents a string value. */
-  stringValue:
+  stringValue?:
     | string
     | undefined;
   /** Represents a boolean value. */
-  boolValue:
+  boolValue?:
     | boolean
     | undefined;
   /** Represents a structured value. */
-  structValue:
+  structValue?:
     | Struct
     | undefined;
   /** Represents a repeated `Value`. */
-  listValue: ListValue | undefined;
+  listValue?: ListValue | undefined;
 }
 
 export interface ListValue {
@@ -180,14 +180,7 @@ export const Struct_FieldsEntry = {
 };
 
 function createBaseValue(): Value {
-  return {
-    nullValue: undefined,
-    numberValue: undefined,
-    stringValue: undefined,
-    boolValue: undefined,
-    structValue: undefined,
-    listValue: undefined,
-  };
+  return {};
 }
 
 export const Value = {

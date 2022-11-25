@@ -1,0 +1,4 @@
+version: v1
+name: buf.build/pikasso/protobuff
+build:
+  excludes: [node_modules]

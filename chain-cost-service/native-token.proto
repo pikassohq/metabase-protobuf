@@ -1,12 +1,10 @@
 syntax = "proto3";
 
-package nativeToken;
+package NativeToken;
 
 message GetNativeTokenInput {
-    string provider = 1;
-    string chain = 2;
+  string provider = 1;
+  string chain = 2;
 }
 
-message GetNativeTokenOutput {
-    float usd = 1;
-}
+message GetNativeTokenOutput { float usd = 1; }

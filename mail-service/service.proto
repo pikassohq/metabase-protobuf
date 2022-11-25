@@ -1,12 +1,11 @@
 syntax = "proto3";
-import "google/protobuf/any.proto";
 
 package MailService;
 
-import "mail.proto";
-import "template.proto";
-import "provider.proto";
-import "project.proto";
+import "mail-service/mail.proto";
+import "mail-service/template.proto";
+import "mail-service/provider.proto";
+import "mail-service/project.proto";
 
 service MailService {
   //  Mail
@@ -28,8 +27,11 @@ service MailService {
       returns (provider.ProviderWithId) {}
 
   // Project
-  rpc projectCreate(project.Project) returns (project.ProjectWithId) {}
-  rpc projectUpdate(project.ProjectUpdate) returns (project.ProjectWithId) {}
-  rpc projectFindOneById(project.ProjectId) returns (project.ProjectWithId) {}
-  rpc projectDelete(project.ProjectId) returns (project.ProjectWithId) {}
+  rpc projectCreate(MailProject.Project) returns (MailProject.ProjectWithId) {}
+  rpc projectUpdate(MailProject.ProjectUpdate)
+      returns (MailProject.ProjectWithId) {}
+  rpc projectFindOneById(MailProject.ProjectId)
+      returns (MailProject.ProjectWithId) {}
+  rpc projectDelete(MailProject.ProjectId) returns (MailProject.ProjectWithId) {
+  }
 }
