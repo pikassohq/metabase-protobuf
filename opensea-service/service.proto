@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+package OpenSeaService;
+
+import "opensea-service/sell-order.proto";
+import "opensea-service/cancel-order.proto";
+
+service OpenSeaService {
+  rpc SellOrder(SellOrder.SellNft) returns (SellOrder.Status) {}
+  rpc CancelOrder(CancelOrder.CancelOrder) returns (CancelOrder.CancelStatus) {}
+}

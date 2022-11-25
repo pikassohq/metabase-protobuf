@@ -1,0 +1,50 @@
+syntax = "proto3";
+
+package SellOrder;
+
+message SellNft {
+  string tokenAddress = 1;
+  string tokenId = 2;
+  string startAmount = 3;
+  optional string endAmount = 4;
+  optional string expirationTime = 5;
+  optional string listingTime = 6;
+  string accountAddress = 7;
+  string privateKey = 8;
+}
+
+message AssetContract {
+  string name = 1;
+  optional string description = 2;
+  string type = 3;
+  string schemaName = 4;
+  string address = 5;
+  string tokenSymbol = 6;
+}
+
+message Collection {
+  string name = 1;
+  string slug = 2;
+}
+
+message Asset {
+  string tokenId = 1;
+  string tokenAddress = 2;
+  string name = 3;
+  string description = 4;
+  AssetContract assetContract = 5;
+  Collection collection = 6;
+  string imageUrl = 7;
+  string openseaLink = 8;
+}
+
+message Status {
+  string createdDate = 1;
+  string closingDate = 2;
+  int32 listingTime = 3;
+  int32 expirationTime = 4;
+  string orderHash = 5;
+  string side = 6;
+  string orderType = 7;
+  Asset asset = 8;
+}
