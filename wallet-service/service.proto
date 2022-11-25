@@ -9,10 +9,10 @@ import "transfer.proto";
 
 
 service WalletService{
-    rpc CreateWallet (WalletInput) returns (Wallet) {}
-    rpc GetBalance (BalanceInput) returns (Balance){}
-    rpc DepositWallet(DepositInput) returns (DepositResponse){}
-    rpc TransferFund(TransferInput) returns (TransferResponse){}
+    rpc CreateWallet (wallet.WalletInput) returns (wallet.Wallet) {}
+    rpc GetBalance (balance.BalanceInput) returns (balance.Balance){}
+    rpc DepositWallet(deposit.DepositInput) returns (deposit.DepositResponse){}
+    rpc TransferFund(transfer.TransferInput) returns (transfer.TransferResponse){}
 }
 
 

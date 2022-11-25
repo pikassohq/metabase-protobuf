@@ -7,8 +7,8 @@ import "native-token.proto";
 import "estimate-gas.proto";
 
 service ChainCost {
-    rpc GetTokenPrice(GetNativeTokenInput) returns (GetNativeTokenOutput){};
-    rpc GetPublicEstFee(GetPublicEstFeeInput)returns (GetPublicEstFeeOutput){};
-    rpc GetExecuteEstFee(GetExecuteEstGeeInput) returns (GetExecuteEstFeeOutput) {};
+    rpc GetTokenPrice(nativeToken.GetNativeTokenInput) returns (nativeToken.GetNativeTokenOutput){};
+    rpc GetPublicEstFee(estimateGas.GetPublicEstFeeInput)returns (estimateGas.GetPublicEstFeeOutput){};
+    rpc GetExecuteEstFee(estimateGas.GetExecuteEstGeeInput) returns (estimateGas.GetExecuteEstFeeOutput) {};
 }
 

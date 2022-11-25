@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package CancelOrder;
+
+
+message CancelOrder {
+  string assetContractAddress = 1;
+  string tokenId = 2;
+  string accountAddress = 3;
+  string privateKey = 4;
+}
+
+message CancelStatus {
+  string message = 1;
+}
