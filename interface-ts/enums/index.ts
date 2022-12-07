@@ -94,8 +94,12 @@ export enum EQueueEvent {
   STRIPE_UPDATE_SUBSCRIPTION = 'stripe.update_subscription',
   STRIPE_END_TRIAL_SUBSCRIPTION = 'stripe.end_trial_subscription',
   STRIPE_SETUP_INTENT = 'stripe.setup_intent',
-  STRIPE_PAYMENT_INTENT_PROCESSING = 'stripe.payment_intent_processing',
   STRIPE_PAYMENT_INTENT_SUCCEED = 'stripe.payment_intent_succeeded',
+  STRIPE_PAYMENT_INTENT_FAILED = 'stripe.payment_intent_failed',
+  STRIPE_PAYMENT_INTENT_CANCEL = 'stripe.payment_intent_canceled',
+  STRIPE_INVOICE_CREATED = 'stripe.invoice_created',
+  STRIPE_INVOICE_SUCCEEDED = 'stripe.invoice_succeeded',
+  STRIPE_INVOICE_PAID = 'stripe.invoice_paid',
 
   // Polygon
   POLYGON_CREATE_PROJECT = 'polygon.create_project',
@@ -216,6 +220,7 @@ export enum ETransactionStatus {
   PROCESSING = 'processing',
   SUCCESS = 'success',
   FAILED = 'failed',
+  CANCEL = 'cancel',
 }
 
 export enum ENftType {
