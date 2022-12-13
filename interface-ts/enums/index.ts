@@ -242,6 +242,7 @@ export enum ESortOrder {
 export enum EOrderType {
   SELL = 'sell',
   BUY = 'buy',
+  AUCTION = 'auction',
 }
 
 export enum EOrderStatus {
