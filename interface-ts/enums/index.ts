@@ -394,3 +394,8 @@ export enum EWebhookEvents {
   NFT_DELETED = 'nft.deleted',
   NFT_LIST_TO_EXCHANGE = 'nft.list-to-exchange',
 }
+
+export enum TypeEnv {
+  TEST = 'test',
+  DEVELOPMENT = 'development',
+}
