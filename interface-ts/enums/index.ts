@@ -399,3 +399,7 @@ export enum TypeEnv {
   TEST = 'test',
   DEVELOPMENT = 'development',
 }
+
+export enum StripeType {
+  CHECKOUT_SUCCEEDED = 'checkout.session.completed',
+}
