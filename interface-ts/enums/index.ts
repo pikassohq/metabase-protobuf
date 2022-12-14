@@ -403,4 +403,5 @@ export enum TypeEnv {
 
 export enum StripeType {
   CHECKOUT_SUCCEEDED = 'checkout.session.completed',
+  SUBSCRIPTION_CREATED = 'customer.subscription.created',
 }
