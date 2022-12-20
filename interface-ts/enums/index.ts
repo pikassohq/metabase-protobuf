@@ -69,6 +69,7 @@ export enum EQueueEvent {
   GOERLI_SELL_PREPARE = 'goerli.sell_prepare',
   GOERLI_ADMIN_TRANSFER_TOKEN = 'goerli.transfer_native_token',
   GOERLI_WITHDRAW_NFT = 'goerli.withdraw_nft',
+  GOERLI_SIGN_MESSAGE = 'goerli.sign_message',
 
   // Thundercore
   THUNDERCORE_DEPLOY_ERC721_CONTRACT = 'thundercore.deploy_erc721_contract',
