@@ -51,6 +51,7 @@ export enum EProvider {
 export enum EAdminQueueEvent {
   ADMIN_DEPLOY_CONTRACT = 'deploy_erc721_contract',
   ADMIN_TRANSFER_TOKEN = 'transfer_native_token',
+  ADMIN_SIGN_MESSAGE = 'sign_message',
 }
 
 export enum EQueueEvent {
