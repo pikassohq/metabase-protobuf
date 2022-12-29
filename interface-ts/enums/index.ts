@@ -51,7 +51,8 @@ export enum EProvider {
 export enum EAdminQueueEvent {
   ADMIN_DEPLOY_CONTRACT = 'deploy_erc721_contract',
   ADMIN_TRANSFER_TOKEN = 'transfer_native_token',
-  ADMIN_SIGN_MESSAGE = 'sign_message',
+  SIGN_MESSAGE = 'sign_message',
+  ADMIN_SIGN_MESSAGE = 'admin_sign_message',
 }
 
 export enum EQueueEvent {
@@ -71,6 +72,7 @@ export enum EQueueEvent {
   GOERLI_ADMIN_TRANSFER_TOKEN = 'goerli.transfer_native_token',
   GOERLI_WITHDRAW_NFT = 'goerli.withdraw_nft',
   GOERLI_SIGN_MESSAGE = 'goerli.sign_message',
+  GOERLI_ADMIN_SIGN_MESSAGE = 'goerli.admin_sign_message',
 
   // Thundercore
   THUNDERCORE_DEPLOY_ERC721_CONTRACT = 'thundercore.deploy_erc721_contract',
@@ -210,6 +212,8 @@ export enum ETransactionGroupStatus {
   PAYMENT_CREATED = 'payment_created',
   PAYMENT_SUCCESS = 'payment_success',
   PAYMENT_CANCEL = 'payment_cancel',
+  WAITING_FOR_PAYMENT_THEN_ADMIN_SIGN = 'waiting_for_payment_and_admin_sign',
+  WAITING_FOR_ADMIN_SIGN = 'waiting_for_admin_sign',
   PROCESSING = 'processing',
   SUCCESS = 'success',
   FAILED = 'failed',
