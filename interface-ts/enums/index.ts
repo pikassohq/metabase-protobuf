@@ -372,8 +372,11 @@ export enum CardType {
 
 export enum ECampaignStatus {
   ACTIVE = 'active',
+  EXPIRED = 'expired',
   CANCEL = 'cancel',
   PENDING = 'pending',
+  DEACTIVATED = 'deactivated',
+  SOLD_OUT = 'sold_out',
 }
 
 export enum ECategoryStatus {
