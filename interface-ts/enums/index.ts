@@ -298,6 +298,12 @@ export enum ENftExchangeStatus {
   CANCEL = 'cancel',
 }
 
+export enum ENftCampaignStatus {
+  ACTIVE = 'active',
+  EXPIRED = 'expired',
+  SOLD_OUT = 'sold_out',
+}
+
 export enum EPaymentProvider {
   STRIPE = 'stripe',
 }
