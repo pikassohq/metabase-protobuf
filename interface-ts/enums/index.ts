@@ -188,6 +188,7 @@ export enum ETokenStatus {
   FAILED = 'failed',
   TRANSFER_SUCCESS = 'transfer_success',
   TRANSFER_FAILED = 'transfer_failed',
+  WITHDRAWING = 'withdrawing',
   WITHDRAWN = 'withdrawn',
   WITHDRAWN_TO_L1 = 'withdrawn to L1',
 }
