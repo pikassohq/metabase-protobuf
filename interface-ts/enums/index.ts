@@ -239,6 +239,7 @@ export enum ETransactionStatus {
 
 export enum ENftType {
   ERC721 = 'erc721',
+  ERC721A = 'erc721A',
   ERC1155 = 'erc1155',
 }
 
@@ -329,6 +330,7 @@ export enum ETransactionFunctionName {
   UPGRADE_ACCOUNT = 'upgrade account',
   TRANSFER_NATIVE_TOKEN = 'transfer_native_token',
   CREATE_NFT = 'create_NFT',
+  CREATE_ERC721A_NFT = 'create_erc721A_NFT',
   DEPLOY_ERC721_CONTRACT = 'deploy_erc721_contract',
 }
 
