@@ -50,6 +50,7 @@ export enum EProvider {
 
 export enum EAdminQueueEvent {
   ADMIN_DEPLOY_CONTRACT = 'deploy_erc721_contract',
+  ADMIN_DEPLOY_ERC721A_CONTRACT = 'deploy_erc721A_contract',
   ADMIN_TRANSFER_TOKEN = 'transfer_native_token',
   SIGN_MESSAGE = 'sign_message',
   ADMIN_SIGN_MESSAGE = 'admin_sign_message',
@@ -60,8 +61,10 @@ export enum EQueueEvent {
   GOERLI_CREATE_PROJECT = 'goerli.create_project',
   GOERLI_CREATE_COLLECTION = 'goerli.create_collection',
   GOERLI_CREATE_NFT = 'goerli.create_NFT',
+  GOERLI_CREATE_ERC721A_NFT = 'goerli.create_erc721A_NFT',
   GOERLI_CREATE_NFT_1155 = 'goerli.create_NFT_1155',
   GOERLI_DEPLOY_ERC721_CONTRACT = 'goerli.deploy_erc721_contract',
+  GOERLI_DEPLOY_ERC721A_CONTRACT = 'goerli.deploy_erc721A_contract',
   GOERLI_DEPLOY_ERC1155_CONTRACT = 'goerli.deploy_erc1155_contract',
   GOERLI_ASSIGN_NFT_TO_PLAYER = 'goerli.assign_nft_to_player',
   GOERLI_ASSIGN_NFTS_TO_PLAYER = 'goerli.assign_nfts_to_player',
@@ -76,7 +79,9 @@ export enum EQueueEvent {
 
   // Thundercore
   THUNDERCORE_DEPLOY_ERC721_CONTRACT = 'thundercore.deploy_erc721_contract',
+  THUNDERCORE_DEPLOY_ERC721A_CONTRACT = 'thundercore.deploy_erc721A_contract',
   THUNDERCORE_CREATE_NFT = 'thundercore.create_NFT',
+  THUNDERCORE_CREATE_ERC721A_NFT = 'thundercore.create_erc721A_NFT',
   THUNDERCORE_ADMIN_TRANSFER_TOKEN = 'thundercore.transfer_native_token',
 
   // Starknet
@@ -108,7 +113,9 @@ export enum EQueueEvent {
   // Polygon
   POLYGON_CREATE_PROJECT = 'polygon.create_project',
   POLYGON_DEPLOY_ERC721_CONTRACT = 'polygon.deploy_erc721_contract',
+  POLYGON_DEPLOY_ERC721A_CONTRACT = 'polygon.deploy_erc721A_contract',
   POLYGON_CREATE_NFT = 'polygon.create_NFT',
+  POLYGON_CREATE_ERC721A_NFT = 'polygon.create_erc721A_NFT',
   POLYGON_CREATE_NFT_1155 = 'polygon.create_NFT_1155',
   POLYGON_ASSIGN_NFT_TO_PLAYER = 'polygon.assign_nft_to_player',
   POLYGON_ASSIGN_NFT_1155_TO_PLAYER = 'polygon.assign_nft_1155_to_player',
