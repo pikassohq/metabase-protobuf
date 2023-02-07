@@ -347,6 +347,11 @@ export enum EMarketNftFilter {
   ON_SALE = 'on_sale',
 }
 
+export enum EManageCampaign {
+  AVAILABLE = 'available',
+  MY_SALE = 'my_sale',
+}
+
 export enum BillingPeriod {
   MONTHLY = 'monthly',
   YEARLY = 'yearly',
