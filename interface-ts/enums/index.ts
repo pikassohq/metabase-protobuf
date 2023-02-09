@@ -352,6 +352,10 @@ export enum EManageCampaign {
   MY_SALE = 'my_sale',
 }
 
+export enum ECampaignFilter {
+  NFT_NUMBER = 'nft_number',
+}
+
 export enum BillingPeriod {
   MONTHLY = 'monthly',
   YEARLY = 'yearly',
