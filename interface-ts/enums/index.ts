@@ -435,3 +435,9 @@ export enum StripeType {
   CHECKOUT_SUCCEEDED = 'checkout.session.completed',
   SUBSCRIPTION_CREATED = 'customer.subscription.created',
 }
+
+export enum EStripeConnectAccountStatus {
+  CREATED = 'created',
+  CONNECTED = 'connected',
+  DISCONNECTED = 'disconnected',
+}
