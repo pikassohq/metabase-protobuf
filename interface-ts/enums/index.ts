@@ -56,6 +56,10 @@ export enum EAdminQueueEvent {
   ADMIN_SIGN_MESSAGE = 'admin_sign_message',
 }
 
+export enum EUserWalletEvent {
+  CREATE_WALLET = 'create_wallet',
+  ADD_BALANCE = 'add_balance',
+}
 export enum EQueueEvent {
   // Rinkeby
   GOERLI_CREATE_PROJECT = 'goerli.create_project',

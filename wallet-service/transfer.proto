@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package transfer;
+package Transfer;
 
 message TransferInput {
     string fromAddress = 1;

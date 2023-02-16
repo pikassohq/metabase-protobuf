@@ -8,7 +8,7 @@ message Provider {
 }
 
 message ProviderUpdate {
-  required string id = 1;
+  string id = 1;
   optional string config = 2;
   optional string name = 3;
 }
@@ -20,4 +20,4 @@ message ProviderWithId {
   string deleted = 4;
 }
 
-message ProviderId { required string id = 1; }
+message ProviderId { string id = 1; }

@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package wallet;
+package Wallet;
 
 message WalletInput {
     string userId = 1;

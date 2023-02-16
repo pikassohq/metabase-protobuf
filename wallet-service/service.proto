@@ -1,18 +1,22 @@
 syntax = "proto3";
+import "google/protobuf/any.proto";
+import "google/protobuf/empty.proto";
+
 
 package WalletService;
 
-import "wallet.proto";
-import "balance.proto";
-import "deposit.proto";
-import "transfer.proto";
+import "wallet-service/wallet.proto";
+import "wallet-service/balance.proto";
+import "wallet-service/deposit.proto";
+import "wallet-service/transfer.proto";
 
 
 service WalletService{
-    rpc CreateWallet (WalletInput) returns (Wallet) {}
-    rpc GetBalance (BalanceInput) returns (Balance){}
-    rpc DepositWallet(DepositInput) returns (DepositResponse){}
-    rpc TransferFund(TransferInput) returns (TransferResponse){}
+    rpc CreateWallet (Wallet.WalletInput) returns (Wallet.Wallet) {}
+    rpc GetBalance (Balance.BalanceInput) returns (Balance.Balance){}
+    rpc DepositWallet(Deposit.DepositInput) returns (Deposit.DepositResponse){}
+    rpc TransferFund(Transfer.TransferInput) returns (Transfer.TransferResponse){}
+    rpc TestGet(google.protobuf.Empty) returns (Wallet.Wallet) {}
 }
 
 
