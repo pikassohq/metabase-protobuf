@@ -381,6 +381,11 @@ export enum WalletTypeTransaction {
   TRANSFER = 'transfer',
 }
 
+export enum ETransactionDirection {
+  IN = 'in',
+  OUT = 'out',
+}
+
 export enum CancelPlanReason {
   REASON_1 = "No longer using Pikasso 's products ",
   REASON_2 = 'Project is over or longer active',

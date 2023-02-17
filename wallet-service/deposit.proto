@@ -2,12 +2,11 @@ syntax = "proto3";
 
 package Deposit;
 
-message DepositInput {
-    string walletAddress = 1;
-    int32 amount = 2;
-    string currency = 3;
-    string details = 4;
-    string userId = 5;
+message DepositInput { 
+    int32 amount = 1;
+    string currency = 2;
+    string details = 3;
+    string userId = 4;
 }
 
 message DepositResponse {

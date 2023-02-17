@@ -4,7 +4,6 @@ import * as _m0 from "protobufjs/minimal";
 export const protobufPackage = "Deposit";
 
 export interface DepositInput {
-  walletAddress: string;
   amount: number;
   currency: string;
   details: string;
@@ -19,25 +18,22 @@ export interface DepositResponse {
 export const DEPOSIT_PACKAGE_NAME = "Deposit";
 
 function createBaseDepositInput(): DepositInput {
-  return { walletAddress: "", amount: 0, currency: "", details: "", userId: "" };
+  return { amount: 0, currency: "", details: "", userId: "" };
 }
 
 export const DepositInput = {
   encode(message: DepositInput, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
-    if (message.walletAddress !== "") {
-      writer.uint32(10).string(message.walletAddress);
-    }
     if (message.amount !== 0) {
-      writer.uint32(16).int32(message.amount);
+      writer.uint32(8).int32(message.amount);
     }
     if (message.currency !== "") {
-      writer.uint32(26).string(message.currency);
+      writer.uint32(18).string(message.currency);
     }
     if (message.details !== "") {
-      writer.uint32(34).string(message.details);
+      writer.uint32(26).string(message.details);
     }
     if (message.userId !== "") {
-      writer.uint32(42).string(message.userId);
+      writer.uint32(34).string(message.userId);
     }
     return writer;
   },
@@ -50,18 +46,15 @@ export const DepositInput = {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
-          message.walletAddress = reader.string();
-          break;
-        case 2:
           message.amount = reader.int32();
           break;
-        case 3:
+        case 2:
           message.currency = reader.string();
           break;
-        case 4:
+        case 3:
           message.details = reader.string();
           break;
-        case 5:
+        case 4:
           message.userId = reader.string();
           break;
         default:
@@ -74,7 +67,6 @@ export const DepositInput = {
 
   fromJSON(object: any): DepositInput {
     return {
-      walletAddress: isSet(object.walletAddress) ? String(object.walletAddress) : "",
       amount: isSet(object.amount) ? Number(object.amount) : 0,
       currency: isSet(object.currency) ? String(object.currency) : "",
       details: isSet(object.details) ? String(object.details) : "",
@@ -84,7 +76,6 @@ export const DepositInput = {
 
   toJSON(message: DepositInput): unknown {
     const obj: any = {};
-    message.walletAddress !== undefined && (obj.walletAddress = message.walletAddress);
     message.amount !== undefined && (obj.amount = Math.round(message.amount));
     message.currency !== undefined && (obj.currency = message.currency);
     message.details !== undefined && (obj.details = message.details);
