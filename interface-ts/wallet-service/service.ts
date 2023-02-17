@@ -1,7 +1,6 @@
 /* eslint-disable */
 import { GrpcMethod, GrpcStreamMethod } from "@nestjs/microservices";
 import { Observable } from "rxjs";
-import { Empty } from "../google/protobuf/empty";
 import { Balance, BalanceInput } from "./balance";
 import { DepositInput, DepositResponse } from "./deposit";
 import { TransferInput, TransferResponse } from "./transfer";
@@ -19,8 +18,6 @@ export interface WalletServiceClient {
   depositWallet(request: DepositInput, ...rest: any): Observable<DepositResponse>;
 
   transferFund(request: TransferInput, ...rest: any): Observable<TransferResponse>;
-
-  testGet(request: Empty, ...rest: any): Observable<Wallet>;
 }
 
 export interface WalletServiceController {
@@ -37,13 +34,11 @@ export interface WalletServiceController {
     request: TransferInput,
     ...rest: any
   ): Promise<TransferResponse> | Observable<TransferResponse> | TransferResponse;
-
-  testGet(request: Empty, ...rest: any): Promise<Wallet> | Observable<Wallet> | Wallet;
 }
 
 export function WalletServiceControllerMethods() {
   return function (constructor: Function) {
-    const grpcMethods: string[] = ["createWallet", "getBalance", "depositWallet", "transferFund", "testGet"];
+    const grpcMethods: string[] = ["createWallet", "getBalance", "depositWallet", "transferFund"];
     for (const method of grpcMethods) {
       const descriptor: any = Reflect.getOwnPropertyDescriptor(constructor.prototype, method);
       GrpcMethod("WalletService", method)(constructor.prototype[method], method, descriptor);
