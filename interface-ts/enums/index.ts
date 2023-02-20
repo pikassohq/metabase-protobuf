@@ -386,6 +386,15 @@ export enum ETransactionDirection {
   OUT = 'out',
 }
 
+export enum ETransactionDetailAction {
+  BUY_NFT = 'buy_nft',
+  SELL_NFT = 'sell_nft',
+  WITHDRAW_CASH = 'withdraw_cash',
+  DEPOSITE = 'deposite',
+  CAMPAIGN_COMMISSION = 'campaign_commission',
+  PIKASSO_SERVICE_FEE = 'pikasso_service_fee',
+}
+
 export enum CancelPlanReason {
   REASON_1 = "No longer using Pikasso 's products ",
   REASON_2 = 'Project is over or longer active',
