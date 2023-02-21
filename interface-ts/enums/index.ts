@@ -351,10 +351,13 @@ export enum EMarketNftFilter {
 
 export enum EManageCampaign {
   AVAILABLE = 'available',
+  SOLD_OUT = 'sold_out',
   MY_SALE = 'my_sale',
+  SALE_BY_OTHERS = 'sale_by_others',
 }
 
 export enum ECampaignFilter {
+  EXPLORE = 'explore',
   NFT_NUMBER = 'nft_number',
 }
 
