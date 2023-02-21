@@ -39,6 +39,7 @@ export enum EPlayerStatus {
 }
 
 export enum EProvider {
+  GATE = 'gate',
   MORALIS = 'moralis',
   COINMARKETCAP = 'coinmarketcap',
   COINGEKCO = 'coingecko',
@@ -46,6 +47,7 @@ export enum EProvider {
   KRAKEN = 'kraken',
   CEXIO = 'cexio',
   COINBASE = 'coinbase',
+  COINPAPRIKA = 'coinpaprika',
 }
 
 export enum EAdminQueueEvent {
