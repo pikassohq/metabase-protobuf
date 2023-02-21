@@ -355,6 +355,7 @@ export enum EManageCampaign {
 }
 
 export enum ECampaignFilter {
+  EXPLORE = 'explore',
   NFT_NUMBER = 'nft_number',
 }
 
