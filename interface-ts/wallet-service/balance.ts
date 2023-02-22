@@ -5,7 +5,7 @@ export const protobufPackage = "Balance";
 
 export interface BalanceInput {
   userId: string;
-  walletAddress: string;
+  currency: string;
 }
 
 export interface Balance {
@@ -15,7 +15,7 @@ export interface Balance {
 export const BALANCE_PACKAGE_NAME = "Balance";
 
 function createBaseBalanceInput(): BalanceInput {
-  return { userId: "", walletAddress: "" };
+  return { userId: "", currency: "" };
 }
 
 export const BalanceInput = {
@@ -23,8 +23,8 @@ export const BalanceInput = {
     if (message.userId !== "") {
       writer.uint32(10).string(message.userId);
     }
-    if (message.walletAddress !== "") {
-      writer.uint32(18).string(message.walletAddress);
+    if (message.currency !== "") {
+      writer.uint32(18).string(message.currency);
     }
     return writer;
   },
@@ -40,7 +40,7 @@ export const BalanceInput = {
           message.userId = reader.string();
           break;
         case 2:
-          message.walletAddress = reader.string();
+          message.currency = reader.string();
           break;
         default:
           reader.skipType(tag & 7);
@@ -53,14 +53,14 @@ export const BalanceInput = {
   fromJSON(object: any): BalanceInput {
     return {
       userId: isSet(object.userId) ? String(object.userId) : "",
-      walletAddress: isSet(object.walletAddress) ? String(object.walletAddress) : "",
+      currency: isSet(object.currency) ? String(object.currency) : "",
     };
   },
 
   toJSON(message: BalanceInput): unknown {
     const obj: any = {};
     message.userId !== undefined && (obj.userId = message.userId);
-    message.walletAddress !== undefined && (obj.walletAddress = message.walletAddress);
+    message.currency !== undefined && (obj.currency = message.currency);
     return obj;
   },
 };

@@ -4,7 +4,7 @@ package Balance;
 
 message BalanceInput {
     string userId = 1;
-    string walletAddress = 2;
+    string currency = 2;
 }
 
 message Balance {
