@@ -16,6 +16,7 @@ service WalletService{
     rpc GetBalance (Balance.BalanceInput) returns (Balance.Balance){}
     rpc DepositWallet(Deposit.DepositInput) returns (Deposit.DepositResponse){}
     rpc TransferFund(Transfer.TransferInput) returns (Transfer.TransferResponse){}
+    rpc GetWallet (Wallet.WalletInput) returns (Wallet.Wallet) {}
 }
 
 
