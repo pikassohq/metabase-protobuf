@@ -317,6 +317,12 @@ export enum ENftCampaignStatus {
   SOLD_OUT = 'sold_out',
 }
 
+export enum EUserWalletStatus {
+  CREATED = 'created',
+  ADD_CARD_PROCESSING = 'add_card_processing',
+  REMOVE_CARD_PROCESSING = 'remove_card_processing',
+  ACTIVE = 'active',
+}
 export enum EPaymentProvider {
   STRIPE = 'stripe',
 }
