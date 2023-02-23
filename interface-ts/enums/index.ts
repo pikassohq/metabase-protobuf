@@ -379,6 +379,7 @@ export enum StripeSubscriptionStatus {
 export enum WalletTypeTransaction {
   DEPOSIT = 'deposit',
   TRANSFER = 'transfer',
+  WITHDRAW = 'withdraw',
 }
 
 export enum ETransactionDirection {
