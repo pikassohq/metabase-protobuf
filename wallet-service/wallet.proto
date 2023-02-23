@@ -11,4 +11,6 @@ message Wallet {
     string walletAddress = 1;
     int32 balance = 2;
     string currency = 3;
+    string stripeLinkAccount = 4;
+    string status = 5;
 }

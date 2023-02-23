@@ -12,6 +12,8 @@ export interface Wallet {
   walletAddress: string;
   balance: number;
   currency: string;
+  stripeLinkAccount: string;
+  status: string;
 }
 
 export const WALLET_PACKAGE_NAME = "Wallet";
@@ -68,7 +70,7 @@ export const WalletInput = {
 };
 
 function createBaseWallet(): Wallet {
-  return { walletAddress: "", balance: 0, currency: "" };
+  return { walletAddress: "", balance: 0, currency: "", stripeLinkAccount: "", status: "" };
 }
 
 export const Wallet = {
@@ -81,6 +83,12 @@ export const Wallet = {
     }
     if (message.currency !== "") {
       writer.uint32(26).string(message.currency);
+    }
+    if (message.stripeLinkAccount !== "") {
+      writer.uint32(34).string(message.stripeLinkAccount);
+    }
+    if (message.status !== "") {
+      writer.uint32(42).string(message.status);
     }
     return writer;
   },
@@ -101,6 +109,12 @@ export const Wallet = {
         case 3:
           message.currency = reader.string();
           break;
+        case 4:
+          message.stripeLinkAccount = reader.string();
+          break;
+        case 5:
+          message.status = reader.string();
+          break;
         default:
           reader.skipType(tag & 7);
           break;
@@ -114,6 +128,8 @@ export const Wallet = {
       walletAddress: isSet(object.walletAddress) ? String(object.walletAddress) : "",
       balance: isSet(object.balance) ? Number(object.balance) : 0,
       currency: isSet(object.currency) ? String(object.currency) : "",
+      stripeLinkAccount: isSet(object.stripeLinkAccount) ? String(object.stripeLinkAccount) : "",
+      status: isSet(object.status) ? String(object.status) : "",
     };
   },
 
@@ -122,6 +138,8 @@ export const Wallet = {
     message.walletAddress !== undefined && (obj.walletAddress = message.walletAddress);
     message.balance !== undefined && (obj.balance = Math.round(message.balance));
     message.currency !== undefined && (obj.currency = message.currency);
+    message.stripeLinkAccount !== undefined && (obj.stripeLinkAccount = message.stripeLinkAccount);
+    message.status !== undefined && (obj.status = message.status);
     return obj;
   },
 };
