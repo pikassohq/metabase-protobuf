@@ -9,6 +9,7 @@ import "wallet-service/wallet.proto";
 import "wallet-service/balance.proto";
 import "wallet-service/deposit.proto";
 import "wallet-service/transfer.proto";
+import "wallet-service/add-card.proto";
 
 
 service WalletService{
@@ -17,6 +18,7 @@ service WalletService{
     rpc DepositWallet(Deposit.DepositInput) returns (Deposit.DepositResponse){}
     rpc TransferFund(Transfer.TransferInput) returns (Transfer.TransferResponse){}
     rpc GetWallet (Wallet.WalletInput) returns (Wallet.Wallet) {}
+    rpc AddCardToLinkAccount (AddCard.AddCardInput) returns (AddCard.AddCardResponse){}
 }
 
 

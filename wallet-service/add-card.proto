@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package AddCard;
+
+message AddCardInput {
+    string userId = 1;
+    string currency = 2;
+}
+
+message AddCardResponse {
+    string addCardLink = 1;
+    repeated string error = 2;
+}
