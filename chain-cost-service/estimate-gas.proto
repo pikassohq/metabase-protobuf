@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package estimateGas;
+package EstimateGas;
 
 message GetPublicEstFeeInput {
     string chain = 1;

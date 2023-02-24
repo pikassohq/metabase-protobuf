@@ -1,0 +1,10 @@
+version: v1
+plugins:
+  - remote: buf.build/stephenh/plugins/ts-proto
+    out: interface-ts
+    opt:
+      - nestJs=true
+      - addNestjsRestParameter=true
+      - useObjectId=true
+      - outputEncodeMethods=true
+      - outputJsonMethods=true

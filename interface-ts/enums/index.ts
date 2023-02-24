@@ -58,6 +58,10 @@ export enum EAdminQueueEvent {
   ADMIN_SIGN_MESSAGE = 'admin_sign_message',
 }
 
+export enum EUserWalletEvent {
+  CREATE_WALLET = 'create_wallet',
+  ADD_BALANCE = 'add_balance',
+}
 export enum EQueueEvent {
   // Rinkeby
   GOERLI_CREATE_PROJECT = 'goerli.create_project',
@@ -315,6 +319,12 @@ export enum ENftCampaignStatus {
   SOLD_OUT = 'sold_out',
 }
 
+export enum EUserWalletStatus {
+  CREATED = 'created',
+  ADD_CARD_PROCESSING = 'add_card_processing',
+  REMOVE_CARD_PROCESSING = 'remove_card_processing',
+  ACTIVE = 'active',
+}
 export enum EPaymentProvider {
   STRIPE = 'stripe',
 }
@@ -380,6 +390,21 @@ export enum StripeSubscriptionStatus {
 export enum WalletTypeTransaction {
   DEPOSIT = 'deposit',
   TRANSFER = 'transfer',
+  WITHDRAW = 'withdraw',
+}
+
+export enum ETransactionDirection {
+  IN = 'in',
+  OUT = 'out',
+}
+
+export enum ETransactionDetailAction {
+  BUY_NFT = 'buy_nft',
+  SELL_NFT = 'sell_nft',
+  WITHDRAW_CASH = 'withdraw_cash',
+  DEPOSITE = 'deposite',
+  CAMPAIGN_COMMISSION = 'campaign_commission',
+  PIKASSO_SERVICE_FEE = 'pikasso_service_fee',
 }
 
 export enum CancelPlanReason {
