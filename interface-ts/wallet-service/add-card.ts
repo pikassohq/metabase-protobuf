@@ -6,6 +6,7 @@ export const protobufPackage = "AddCard";
 export interface AddCardInput {
   userId: string;
   currency: string;
+  redirectLink: string;
 }
 
 export interface AddCardResponse {
@@ -16,7 +17,7 @@ export interface AddCardResponse {
 export const ADD_CARD_PACKAGE_NAME = "AddCard";
 
 function createBaseAddCardInput(): AddCardInput {
-  return { userId: "", currency: "" };
+  return { userId: "", currency: "", redirectLink: "" };
 }
 
 export const AddCardInput = {
@@ -26,6 +27,9 @@ export const AddCardInput = {
     }
     if (message.currency !== "") {
       writer.uint32(18).string(message.currency);
+    }
+    if (message.redirectLink !== "") {
+      writer.uint32(26).string(message.redirectLink);
     }
     return writer;
   },
@@ -43,6 +47,9 @@ export const AddCardInput = {
         case 2:
           message.currency = reader.string();
           break;
+        case 3:
+          message.redirectLink = reader.string();
+          break;
         default:
           reader.skipType(tag & 7);
           break;
@@ -55,6 +62,7 @@ export const AddCardInput = {
     return {
       userId: isSet(object.userId) ? String(object.userId) : "",
       currency: isSet(object.currency) ? String(object.currency) : "",
+      redirectLink: isSet(object.redirectLink) ? String(object.redirectLink) : "",
     };
   },
 
@@ -62,6 +70,7 @@ export const AddCardInput = {
     const obj: any = {};
     message.userId !== undefined && (obj.userId = message.userId);
     message.currency !== undefined && (obj.currency = message.currency);
+    message.redirectLink !== undefined && (obj.redirectLink = message.redirectLink);
     return obj;
   },
 };

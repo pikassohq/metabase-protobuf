@@ -5,6 +5,7 @@ package AddCard;
 message AddCardInput {
     string userId = 1;
     string currency = 2;
+    string redirectLink = 3;
 }
 
 message AddCardResponse {
